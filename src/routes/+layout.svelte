@@ -1,5 +1,9 @@
+<script>
+    import { base } from '$app/paths';
+</script>
+
 <nav>
-	<!-- <a href="/">home</a> -->
+	<a href="{base}/">home</a>
 </nav>
 
 <slot />
