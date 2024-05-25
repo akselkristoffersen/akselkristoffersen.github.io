@@ -1,2 +1,2 @@
-<h1>tutorials</h1>
-<p>this is the tutorials page.</p>
+<h1>Tutorials</h1>
+<p>This is a page for tutorials</p>
