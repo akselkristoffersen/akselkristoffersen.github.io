@@ -1,5 +1,6 @@
 <script>
     import { base } from '$app/paths';
+    import "modern-normalize/modern-normalize.css";
 </script>
 
 <nav>
@@ -9,8 +10,7 @@
 
 <slot />
 
-<style lang="scss">
+<style>
     :global(body) {
-        background-color: variables.$background-color
     }
 </style>

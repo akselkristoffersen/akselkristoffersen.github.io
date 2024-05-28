@@ -1,2 +1,9 @@
-<h1>Akspertise</h1>
-<p>Work in progress..</p>
+<script>
+    import Hero from "./Hero.svelte";
+</script>
+
+<div class="container">
+    <Hero></Hero>
+    
+</div>
+
