@@ -1,4 +1,8 @@
 @use 'functions';
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
 
 :root {
     --bg-color: #191E26;
@@ -6,7 +10,7 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: "inter", sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
 }
