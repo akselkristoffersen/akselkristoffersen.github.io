@@ -1,6 +1,7 @@
 <script>
     import { base } from '$app/paths';
-    import "modern-normalize/modern-normalize.css";
+    import 'modern-normalize/modern-normalize.css';
+    import '../styles/main.scss';
 </script>
 
 <nav>
