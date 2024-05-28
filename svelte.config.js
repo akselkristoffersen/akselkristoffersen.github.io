@@ -6,7 +6,9 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: sveltePreprocess({
-		scss: {}
+		scss: {
+			prependData: '@use "src/styles/variables.scss";'
+		}
 	}),
 
 	kit: {
