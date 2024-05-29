@@ -23,9 +23,6 @@ const config = {
 		}),
 		paths: {
 			relative: false
-		},
-		alias: {
-			$assets: 'src/assets'
 		}
 	}
 };
