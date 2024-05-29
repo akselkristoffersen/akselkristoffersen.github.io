@@ -4,8 +4,6 @@
         <h1>Aksel Kristoffersen</h1>
         <h5 class="title">Software Engineer</h5>
     </div>
-    <div class="content">
-    </div>
 </div>
 
 <style lang="scss">
