@@ -3,7 +3,6 @@
     import '../styles/main.scss';
 </script>
 
-
 <main id="main-content">
     <slot />
 </main>
