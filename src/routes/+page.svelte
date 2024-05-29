@@ -41,8 +41,8 @@
 
 
     h1 {
+        margin-top: -13px;
         font-size: functions.toRem(30);
-        line-height: 0.1;
         color: white;
         @include breakpoint.up('sm') {
             font-size: functions.toRem(34);
@@ -71,7 +71,6 @@
         font-weight: 600;
     }
     .title {
-        line-height: 2.7;
         color: var(--text-color);
         font-weight: 500;
     }
