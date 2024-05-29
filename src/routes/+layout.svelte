@@ -4,14 +4,26 @@
     import '../styles/main.scss';
 </script>
 
-<nav>
-	<a href="{base}/">Home</a>
-	<a href="{base}/tutorials/">Tutorials</a>
-</nav>
+<div id="main">
+    <div id="content">
+        <main id="main-content">
+            <nav>
+                <a href="{base}/">Home</a>
+                <a href="{base}/tutorials/">Tutorials</a>
+            </nav>
+            <slot />
+        </main>
+    </div>
+</div>
 
-<slot />
 
-<style>
-    :global(body) {
+
+<style lang="scss">
+    #main {
+        #content {
+            main#main-content {
+                padding: 30px 15px 60px;
+            }
+        }
     }
 </style>
