@@ -4,7 +4,8 @@
 
 <div class="wrapper">
     <div class="hero">
-        <Hero></Hero>
+        <h1>Akspertise</h1>
+        <p>Work in progress..</p>
     </div>
     <div class="content">
     </div>
