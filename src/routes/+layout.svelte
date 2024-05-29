@@ -18,9 +18,6 @@
         #content {
             main#main-content {
                 padding: 30px 20px 60px;
-                @include breakpoint.up('md') {
-                    padding: 30px 30px 60px;
-                }
             }
         }
     }
