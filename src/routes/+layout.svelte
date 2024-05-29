@@ -7,10 +7,6 @@
 <div id="main">
     <div id="content">
         <main id="main-content">
-            <nav>
-                <a href="{base}/">Home</a>
-                <a href="{base}/tutorials/">Tutorials</a>
-            </nav>
             <slot />
         </main>
     </div>
