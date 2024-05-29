@@ -1,13 +1,8 @@
-<script>
-</script>
-
 <div class="wrapper">
     <div class="hero">
         <h5 class="company-name">Akspertise AS<h5>
         <h1>Aksel Kristoffersen</h1>
         <h5 class="title">Software Engineer</h5>
-        <p>
-        </p>
     </div>
     <div class="content">
     </div>
@@ -38,8 +33,5 @@
     p {
         color: var(--text-color);
     }
-
-    
-
 </style>
 
