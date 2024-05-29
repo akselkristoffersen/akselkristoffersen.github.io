@@ -6,11 +6,66 @@
 
 :root {
     --bg-color: #191E26;
-    --text-color: #fff;
+    --dark-color: #191E26;
+    --semi-dark-color: #2F3943
+    --theme-color: #176483;
+    --semi-light-color: #748D93;
+    --light-color: #D3D9D6;
+
+    --accent-color: #B8E8F0;
+
+    --text-color: #F1F4F3;
 }
 
 body {
     font-family: "inter", sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.4;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: functions.toRem(36);
+}
+
+h2 {
+    font-size: functions.toRem(32);
+}
+
+h3 {
+    font-size: functions.toRem(28);
+}
+
+h4 {
+    font-size: functions.toRem(24);
+}
+
+h5 {
+    font-size: functions.toRem(20);
+}
+
+h6 {
+    font-size: functions.toRem(16);
+}
+
+p {
+    font-size: functions.toRem(16);
+    line-height: 1.7;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+a {
+    accent-color: var(--accent-color);
 }
