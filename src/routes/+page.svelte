@@ -30,8 +30,5 @@
         color: var(--text-color);
         font-weight: 500;
     }
-    p {
-        color: var(--text-color);
-    }
 </style>
 
