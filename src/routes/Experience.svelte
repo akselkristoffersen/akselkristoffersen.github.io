@@ -48,6 +48,7 @@
     }
     .tech-wrapper {
         display: flex;
+        flex-wrap: wrap;
     }
     span {
         font-size: 14px;
