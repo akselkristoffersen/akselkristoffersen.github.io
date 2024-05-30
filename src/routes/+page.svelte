@@ -102,7 +102,7 @@
     }
 
     h1 {
-        margin-top: -11px;
+        margin-top: -12px;
         font-size: functions.toRem(30);
         font-weight: 700;
         color: white;

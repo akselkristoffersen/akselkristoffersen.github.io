@@ -32,6 +32,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 60px;
+        margin-top: 30px;
     }
     .experience-years{
         margin-right: 35px;
@@ -43,10 +44,9 @@
         display: flex;
     }
     .experience-years-location-text {
-        margin-left: 6px;
+        margin-left: 5px;
     }
     .tech-wrapper {
-        margin-top: 0px;
         display: flex;
     }
     span {
