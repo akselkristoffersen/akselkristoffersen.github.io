@@ -63,7 +63,7 @@
 
         .snow {
             position: relative;
-            height: 70px;
+            height: 100px;
             width: 100%;
             z-index: -1;
             overflow: hidden;
@@ -83,8 +83,8 @@
             @include breakpoint.up('lg') {
                 width: 50%;
                 max-width: 600px;
-                padding: 40px 60px 30px 60px;
-                top: 70px;
+                padding: 10px 60px 30px 60px;
+                top: 110px;
                 position: sticky;
                 position: -webkit-sticky;
                 height: fit-content;
