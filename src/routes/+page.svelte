@@ -21,13 +21,16 @@
     .wrapper {
         width: 100%;
         height: 100vh;
-        padding: 30px 20px 30px;
+        padding: 30px 15px 30px;
         display: flex;
         flex-wrap: wrap;
         overflow-y: auto;
         overflow-x: hidden;
+        @include breakpoint.up('sm') {
+            padding: 40px 20px 30px;
+        }
         @include breakpoint.up('md') {
-            padding: 40px 30px 30px;
+            padding: 40px 33px 30px;
         }
         @include breakpoint.up('lg') {
             padding: 0px 0px 0px;
