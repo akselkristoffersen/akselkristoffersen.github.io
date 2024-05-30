@@ -18,7 +18,7 @@
             {/if}
         </div>
     </div>
-    <h5>{title}</h5>
+    <h6>{title}</h6>
     <slot></slot>
     <div class="tech-wrapper">
         {#each tech as t}
