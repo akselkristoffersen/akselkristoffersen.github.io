@@ -10,7 +10,7 @@
     --dark-color: #191E26;
     --semi-dark-color: #2F3943
     --normal-color: #176483;
-    --semi-light-color: #748D93;
+    --semi-light-color: #7a9095;
     --light-color: #D3D9D6;
     --accent-color: #B8E8F0;
     --text-color: #D3D9D6;
@@ -20,6 +20,7 @@ body {
     font-family: "inter", sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
+    background: radial-gradient(ellipse at bottom, #161a22 50%, #12161e 100%);
 }
 
 h1,
