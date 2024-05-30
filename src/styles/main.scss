@@ -1,4 +1,5 @@
 @use 'functions';
+@use "@unsass/breakpoint";
 @import "@fontsource/inter/300.css";
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/500.css";
@@ -8,11 +9,11 @@
 :root {
     --bg-color: #191E26;
     --dark-color: #191E26;
-    --semi-dark-color: #2F3943
-    --normal-color: #176483;
+    --semi-dark-color: #2F3943;
+    --normal-color: #17577a;
     --semi-light-color: #7a9095;
     --light-color: #D3D9D6;
-    --accent-color: #B8E8F0;
+    --tech-color: #B8E8F0;
     --text-color: #D3D9D6;
 }
 
@@ -29,10 +30,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
 }
 
 h1 {
@@ -52,7 +53,16 @@ h4 {
 }
 
 h5 {
-    font-size: functions.toRem(20);
+    font-size: functions.toRem(18);
+    @include breakpoint.up('sm') {
+        font-size: functions.toRem(20);
+    }
+    @include breakpoint.up('md') {
+        font-size: functions.toRem(21);
+    }
+    @include breakpoint.up('lg') {
+        font-size: functions.toRem(24);
+    }
 }
 
 h6 {
@@ -61,8 +71,8 @@ h6 {
 
 p {
     font-size: functions.toRem(16);
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
     font-weight: 300
 }
 
