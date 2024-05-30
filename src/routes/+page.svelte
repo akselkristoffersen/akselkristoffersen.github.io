@@ -30,7 +30,7 @@
             padding: 40px 20px 30px;
         }
         @include breakpoint.up('md') {
-            padding: 40px 33px 30px;
+            padding: 40px 32px 30px;
         }
         @include breakpoint.up('lg') {
             padding: 0px 0px 0px;
