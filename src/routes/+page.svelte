@@ -79,6 +79,7 @@
             width: 100%;
             top: 0px;
             position: relative;
+            margin-bottom: 50px;
             @include breakpoint.up('lg') {
                 width: 50%;
                 max-width: 600px;
