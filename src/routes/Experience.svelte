@@ -49,4 +49,7 @@
         margin-top: 0px;
         display: flex;
     }
+    span {
+        font-size: 14px;
+    }
 </style>

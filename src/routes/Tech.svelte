@@ -7,11 +7,11 @@
     div {
         border-radius: 18px;
         width: fit-content;
-        padding: 0.9% 2.3% 0.9% 2.3%;
+        padding: 0.8% 2.2% 0.8% 2.2%;
         background-color: var(--normal-color);
         margin: 10px 10px 0px 2px;
         color: var(--tech-color);
         font-weight: 500;
-        font-size: 15px;
+        font-size: 14px;
     }
 </style>
