@@ -1,5 +1,5 @@
 <script>
-    import Snow from './Snow.svelte';
+    import Stars from './Stars.svelte';
     import Experience from './Experience.svelte';
     import InfrontLogo from '$assets/infront_logo.svg';
     import KongsbergLogo from '$assets/kongsberg_logo.svg';
@@ -7,8 +7,8 @@
 </script>
 
 <div class="wrapper">
-    <div class="snow">
-        <Snow />
+    <div class="stars">
+        <Stars />
     </div>
     <div class="first-content">
         <h5 class="company-name">Akspertise AS<h5>
@@ -67,7 +67,7 @@
             margin: auto;
         }
 
-        .snow {
+        .stars {
             position: relative;
             height: 100px;
             width: 100%;
