@@ -88,16 +88,6 @@
 <div class="star"></div>
 <div class="star"></div>
 <div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
 
 <style lang="scss">
 @function random_range($min, $max) {
@@ -109,10 +99,12 @@
 $colors: ((#486bdc, #3951a3), (#3446bb, #273488), (#0e38c2, #04207c));
 
 .star {
-    $total: 100; // Total number of planets
+    will-change: transform, opacity;
+    $total: 90; // Total number of planets
     position: relative;
     width: 100vw;
     height: 100vh;
+    filter: drop-shadow(0 0 1px #1f3474);
 
     @for $i from 1 through $total {
         $distance: 3px;
