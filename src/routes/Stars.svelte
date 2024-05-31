@@ -109,6 +109,7 @@
 $colors: ((#486bdc, #3951a3), (#3446bb, #273488), (#0e38c2, #04207c));
 
 .star {
+    will-change: transform, opacity;
     $total: 100; // Total number of planets
     position: relative;
     width: 100vw;
