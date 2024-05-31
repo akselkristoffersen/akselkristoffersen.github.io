@@ -143,7 +143,7 @@ $colors: ((#486bdc, #3951a3), (#3446bb, #273488), (#0e38c2, #04207c));
                 transform: rotate(-0.02turn) translateX(-$random-distance);
             }
             50% {
-                transform: rotate(0.25turn) translateX(calc($random-distance/-1.2));
+                transform: rotate(0.25turn) translateX(calc($random-distance/-1.3));
             }
             100% {
                 transform: rotate(0.52turn) translateX(-$random-distance);
