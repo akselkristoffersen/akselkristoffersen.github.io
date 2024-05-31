@@ -6,6 +6,7 @@
     export let location = "";
     export let title;
     export let tech = [];
+    export let img_path;
 </script>
 
 <div class="experience-wrapper">
@@ -18,7 +19,10 @@
             {/if}
         </div>
     </div>
-    <h6>{title}</h6>
+    <div class="experience-title">
+        <h6>{title}</h6>
+        <img src={img_path} alt="Company logo"/>
+    </div>
     <slot></slot>
     <div class="tech-wrapper">
         {#each tech as t}
@@ -36,6 +40,7 @@
     }
     .experience-years{
         margin-right: 35px;
+        margin-bottom: 3px;
         display: flex;
         justify-content: space-between;
         color: var(--semi-light-color);
@@ -46,11 +51,25 @@
     .experience-years-location-text {
         margin-left: 5px;
     }
+    .experience-title {
+        display: flex;
+        height: 30px;
+    }
     .tech-wrapper {
         display: flex;
         flex-wrap: wrap;
     }
     span {
-        font-size: 14px;
+        font-size: 13px;
+    }
+    h6 {
+        margin-right: 2px;
+    }
+    img {
+        max-height: 100%;
+        width: auto;
+        scale: 0.55;
+        opacity: 0.9;
+        filter: grayscale(40%);
     }
 </style>
