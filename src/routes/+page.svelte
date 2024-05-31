@@ -187,7 +187,6 @@
             }
         }
     }
-
     h1 {
         margin-top: -11px;
         font-size: functions.toRem(30);
