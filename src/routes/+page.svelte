@@ -4,6 +4,7 @@
     import InfrontLogo from '$assets/infront_logo.svg';
     import KongsbergLogo from '$assets/kongsberg_logo.svg';
     import EquinorLogo from '$assets/equinor_logo.svg';
+    import VortexLogo from '$assets/vortex_logo.png';
 </script>
 
 <div class="wrapper">
@@ -19,28 +20,64 @@
     <div class="second-content">
         <h2>EXPERIENCE</h2>
         <Experience 
-        years="2022 - 2024" 
-            title="Backend Developer - Infront"
+            years="2022 - 2024" 
+            title="Backend Developer &nbsp;- &nbsp;Infront"
             location="Oslo, Norway"
             tech={["C++", "postgreSQL", "Protobuf", "Boost.Test"]}
-            img_path={InfrontLogo}>
+            img_path={InfrontLogo}
+            >
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In doloremque dolores architecto assumenda cum officia hic nobis quae mollitia cupiditate sapiente blanditiis, itaque placeat a necessitatibus omnis illum non quas consequatur odit praesentium eveniet quam modi! Sunt qui perspiciatis quis.</p>
         </Experience>
         <Experience 
             years="2021 - 2022"
             location="Oslo, Norway"
-            title="Software Engineer R&D - Kongsberg Discovery"
+            title="Software Engineer R&D &nbsp;- &nbsp;Kongsberg Discovery"
             tech={["C++", "Qt", "gtest"]}
-            img_path={KongsbergLogo}>
+            img_path={KongsbergLogo}
+            >
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus harum ratione, sunt, cum tempore doloremque ea officiis assumenda facilis minus, quam eligendi enim veniam corporis iusto sapiente magnam vel excepturi culpa inventore in suscipit nam.</p>
         </Experience>
         <Experience 
             years="Summer 2020"
             location="Virtual"
-            title="Summer Intern - Equinor"
+            title="Summer Intern &nbsp;- &nbsp;Equinor"
             tech={["ROS", "Python", "Git"]}
-            img_path={EquinorLogo}>
+            img_path={EquinorLogo}
+            >
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus harum ratione, sunt, cum tempore doloremque ea officiis assumenda facilis minus, quam eligendi enim veniam corporis iusto sapiente magnam vel excepturi culpa inventore in suscipit nam.</p>
+        </Experience>
+
+
+        <h2>EDUCATION</h2>
+        <Experience 
+            years="2019 - 2021" 
+            title="MSc Cybernetics and Robotics &nbsp;- &nbsp;NTNU"
+            location="Trondheim, Norway"
+            tech={["Control Theory", "Neural Networks", "Robot Vision", "Python"]}
+            >
+            <p>Aquiring solid basic knowledge in mathematics, ICT and engineering, and advanced knowledge in the areas of cybernetics. This has provided me with the first principles and initial training for developing advanced automated systems for industrial solutions.</p>
+        </Experience>
+
+        <Experience 
+            years="2016 - 2019"
+            title="BSc Electrical Engineering &nbsp;- &nbsp;NTNU"
+            location="Trondheim, Norway"
+            tech={["C/C++", "MATLAB"]}
+            >
+            <p class="specialization">Automation Technology</p>
+            <p>Gaining knowledge in electric and magnetic fields, electronic components, processor systems, as well as automation systems and how they are programmed to regulate dynamic processes.</p>
+        </Experience>
+
+
+        <h2>VOLUNTARY WORK</h2>
+        <Experience 
+        years="2019 - 2020"
+        title="Control System Dev &nbsp;- &nbsp;Vortex NTNU"
+        location="Trondheim, Norway"
+        tech={["ROS", "Linux", "Python", "Git"]}
+        img_path={VortexLogo}
+        >
+        <p>Writing software for a non-profit student organisation developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. I worked on developing the system for autonomous navigation in ROS.</p>
         </Experience>
     </div>
 </div>
@@ -123,6 +160,11 @@
                 width: 50%;
                 max-width: 600px;
                 padding: 30px 50px 30px 0px;
+            }
+            .specialization {
+                font-size: functions.toRem(14);
+                font-weight: 500;
+                color: var(--text-color);
             }
         }
     }

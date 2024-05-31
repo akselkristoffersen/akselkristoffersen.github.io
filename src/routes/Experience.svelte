@@ -6,7 +6,7 @@
     export let location = "";
     export let title;
     export let tech = [];
-    export let img_path;
+    export let img_path = "";
 </script>
 
 <div class="experience-wrapper">
@@ -20,7 +20,11 @@
         </div>
     </div>
     <div class="experience-title">
-        <h3>{title}<span><img src={img_path} alt="Company logo"/></span></h3>
+        <h3>{title}
+            {#if img_path}
+                <span><img src={img_path} alt="Company logo"/></span>
+            {/if}
+        </h3>
         
     </div>
     <slot></slot>
@@ -62,7 +66,7 @@
         font-size: functions.toRem(13);
     }
     img {
-        margin-left: 0.3rem;
+        margin-left: 0.1rem;
         height: 0.8rem;
         width: auto;
         opacity: 0.9;
