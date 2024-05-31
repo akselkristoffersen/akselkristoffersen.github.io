@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
     .experience-wrapper {
         display: flex;
         flex-direction: column;
@@ -60,7 +60,7 @@
         flex-wrap: wrap;
     }
     span {
-        font-size: 13px;
+        font-size: functions.toRem(13);
     }
     h6 {
         margin-right: 2px;
