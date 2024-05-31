@@ -11,12 +11,13 @@
         <Stars />
     </div>
     <div class="first-content">
-        <h5 class="company-name">Akspertise AS<h5>
+        <p class="company-name">Akspertise AS<p>
         <h1>Aksel Kristoffersen</h1>
-        <h5 class="title">Software Engineer</h5>
+        <p class="work-title">Software Engineer</p>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem aspernatur totam atque cum voluptas cumque beatae, porro natus. Commodi, repellendus?</p>
     </div>
     <div class="second-content">
+        <h2>EXPERIENCE</h2>
         <Experience 
         years="2022 - 2024" 
             title="Backend Developer - Infront"
@@ -94,20 +95,42 @@
                 position: -webkit-sticky;
                 height: fit-content;
             }
+            .company-name,
+            .work-title
+            {
+                font-size: functions.toRem(18);
+                @include breakpoint.up('sm') {
+                    font-size: functions.toRem(21);
+                }
+                @include breakpoint.up('md') {
+                    font-size: functions.toRem(22);
+                }
+                @include breakpoint.up('lg') {
+                    font-size: functions.toRem(24);
+                }
+            }
+            .company-name {
+                font-weight: 600;
+            }
+            .work-title{
+                font-weight: 500;
+                color: var(--text-color);
+                margin-bottom: 15px;
+            }
         }
         .second-content {
             width: 100%;
             @include breakpoint.up('lg') {
                 width: 50%;
                 max-width: 600px;
-                padding: 5px 50px 30px 0px;
+                padding: 30px 50px 30px 0px;
             }
         }
         
     }
 
     h1 {
-        margin-top: -12px;
+        margin-top: -11px;
         font-size: functions.toRem(30);
         font-weight: 700;
         color: white;
@@ -120,27 +143,6 @@
         @include breakpoint.up('lg') {
             font-size: functions.toRem(40);
         }
-    }
-    h5 {
-        margin-bottom: 15px;
-        font-size: functions.toRem(18);
-        @include breakpoint.up('sm') {
-            font-size: functions.toRem(20);
-        }
-        @include breakpoint.up('md') {
-            font-size: functions.toRem(21);
-        }
-        @include breakpoint.up('lg') {
-            font-size: functions.toRem(24);
-        }
-    }
-    .company-name {
-        color: var(--semi-light-color);
-        font-weight: 600;
-    }
-    .title {
-        color: var(--text-color);
-        font-weight: 500;
     }
     p {
         color: var(--semi-light-color);

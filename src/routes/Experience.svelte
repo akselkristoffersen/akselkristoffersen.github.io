@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="experience-title">
-        <h6>{title}</h6>
+        <h3>{title}</h3>
         <img src={img_path} alt="Company logo"/>
     </div>
     <slot></slot>
@@ -62,7 +62,7 @@
     span {
         font-size: functions.toRem(13);
     }
-    h6 {
+    h3 {
         margin-right: 2px;
     }
     img {
