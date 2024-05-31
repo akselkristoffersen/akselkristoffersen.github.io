@@ -20,8 +20,8 @@
         </div>
     </div>
     <div class="experience-title">
-        <h3>{title}</h3>
-        <img src={img_path} alt="Company logo"/>
+        <h3>{title}<span><img src={img_path} alt="Company logo"/></span></h3>
+        
     </div>
     <slot></slot>
     <div class="tech-wrapper">
@@ -51,10 +51,6 @@
     .experience-years-location-text {
         margin-left: 5px;
     }
-    .experience-title {
-        display: flex;
-        height: 30px;
-    }
     .tech-wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -62,13 +58,10 @@
     span {
         font-size: functions.toRem(13);
     }
-    h3 {
-        margin-right: 2px;
-    }
     img {
-        max-height: 100%;
+        margin-left: 4px;
+        height: 0.8rem;
         width: auto;
-        scale: 0.55;
         opacity: 0.9;
         filter: grayscale(40%);
     }
