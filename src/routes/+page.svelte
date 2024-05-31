@@ -96,6 +96,7 @@
         display: flex;
         flex-wrap: wrap;
         overflow-y: auto;
+        overflow-x: hidden;
         @include breakpoint.up('sm') {
             padding: 40px 20px 30px;
         }
