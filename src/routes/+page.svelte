@@ -112,7 +112,7 @@
 
         .stars {
             position: relative;
-            height: 220px;
+            height: 200px;
             width: 100%;
             z-index: -1;
             @include breakpoint.up('lg') {

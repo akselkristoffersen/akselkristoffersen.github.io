@@ -109,12 +109,10 @@
 $colors: ((#486bdc, #3951a3), (#3446bb, #273488), (#0e38c2, #04207c));
 
 .star {
-    will-change: transform, opacity;
     $total: 100; // Total number of planets
     position: relative;
     width: 100vw;
     height: 100vh;
-    filter: drop-shadow(0 0 10px #6c83c8);
 
     @for $i from 1 through $total {
         $distance: 3px;
