@@ -5,6 +5,7 @@
     import KongsbergLogo from '$assets/kongsberg_logo.svg';
     import EquinorLogo from '$assets/equinor_logo.svg';
     import VortexLogo from '$assets/vortex_logo.png';
+    import DRLogo from '$assets/dr_logo.svg';
 </script>
 
 <div class="wrapper">
@@ -35,6 +36,11 @@
             tech={["C++", "Qt", "gtest"]}
             img_path={KongsbergLogo}
             >
+            <p class="specialization">Consultant via Data Respons R&D Services
+                <span>
+                    <img src={DRLogo} alt="Company logo" class="dr-logo"/>
+                </span> 
+            </p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus harum ratione, sunt, cum tempore doloremque ea officiis assumenda facilis minus, quam eligendi enim veniam corporis iusto sapiente magnam vel excepturi culpa inventore in suscipit nam.</p>
         </Experience>
         <Experience 
@@ -131,9 +137,23 @@
                 position: -webkit-sticky;
                 height: fit-content;
             }
-            .company-name,
-            .work-title
-            {
+            .company-name {
+                font-weight: 600;
+                font-size: functions.toRem(17);
+                @include breakpoint.up('sm') {
+                    font-size: functions.toRem(20);
+                }
+                @include breakpoint.up('md') {
+                    font-size: functions.toRem(21);
+                }
+                @include breakpoint.up('lg') {
+                    font-size: functions.toRem(23);
+                }
+            }
+            .work-title{
+                font-weight: 500;
+                color: var(--text-color);
+                margin-bottom: 15px;
                 font-size: functions.toRem(18);
                 @include breakpoint.up('sm') {
                     font-size: functions.toRem(21);
@@ -144,14 +164,6 @@
                 @include breakpoint.up('lg') {
                     font-size: functions.toRem(24);
                 }
-            }
-            .company-name {
-                font-weight: 600;
-            }
-            .work-title{
-                font-weight: 500;
-                color: var(--text-color);
-                margin-bottom: 15px;
             }
         }
         .second-content {
@@ -165,6 +177,13 @@
                 font-size: functions.toRem(14);
                 font-weight: 500;
                 color: var(--text-color);
+            }
+            .dr-logo {
+                margin-left: 0.1rem;
+                height: 0.7rem;
+                width: auto;
+                opacity: 0.9;
+                filter: grayscale(40%);
             }
         }
     }
