@@ -35,8 +35,11 @@
     .experience-wrapper {
         display: flex;
         flex-direction: column;
-        margin-bottom: 60px;
-        margin-top: 30px;
+        margin-bottom: 35px;
+        margin-top: 20px;
+        @include breakpoint.up('lg') {
+            padding: 10px 10px;
+        }
     }
     .experience-years{
         margin-right: 35px;
@@ -59,7 +62,7 @@
         font-size: functions.toRem(13);
     }
     img {
-        margin-left: 4px;
+        margin-left: 0.3rem;
         height: 0.8rem;
         width: auto;
         opacity: 0.9;
