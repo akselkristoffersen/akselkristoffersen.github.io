@@ -7,8 +7,8 @@
 @import "@fontsource/inter/700.css";
 
 :root {
-    --bg-color: #0e101a;
-    --bg-color-dark: #131623;
+    --bg-color: #131623;
+    --bg-color-dark: #0e101a;
     --semi-dark-color: #2F3943;
     --normal-color: #273870;
     --semi-light-color: #858b94;
@@ -21,7 +21,8 @@ body {
     font-family: "inter", sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    background: linear-gradient(var(--bg-color), var(--bg-color-dark));
+    background: linear-gradient(var(--bg-color-dark), var(--bg-color));
+    overflow-x: hidden;
 }
 
 h1,

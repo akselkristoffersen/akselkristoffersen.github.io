@@ -41,7 +41,7 @@
             years="2021 - 2022"
             location="Oslo, Norway"
             title="Software Engineer R&D &nbsp;- &nbsp;Kongsberg Discovery"
-            tech={["C++", "Qt", "gtest"]}
+            tech={["C++", "Qt", "CSS", "gtest"]}
             img_path={KongsbergLogo}
             >
             <p class="specialization">Consultant via Data Respons R&D Services
@@ -162,7 +162,7 @@
                 font-weight: 500;
                 color: var(--text-color);
                 margin-bottom: 15px;
-                font-size: functions.toRem(18);
+                font-size: functions.toRem(19);
                 @include breakpoint.up('sm') {
                     font-size: functions.toRem(21);
                 }
@@ -185,7 +185,7 @@
                     width: auto;
                     opacity: 0.85;
                     filter: brightness(0.95);
-                    background-color: var(--bg-color-dark);
+                    background-color: var(--bg-color);
                     @include breakpoint.up('md') {
                         height: 135px;
                     }
@@ -196,6 +196,11 @@
             }
         }
         .second-content {
+            // -webkit-filter: blur(5px);
+            // -moz-filter: blur(5px);
+            // -o-filter: blur(5px);
+            // -ms-filter: blur(5px);
+            // filter: blur(5px);
             width: 100%;
             @include breakpoint.up('lg') {
                 width: 50%;
