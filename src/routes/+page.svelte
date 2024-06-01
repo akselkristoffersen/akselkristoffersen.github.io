@@ -180,7 +180,7 @@
                 }
                 .aksel-picture{
                     border: 3px solid rgb(76, 80, 87);
-                    margin: 10px 0px 0px 10px;
+                    margin: 10px 10px 0px 10px;
                     height: 130px;
                     width: auto;
                     opacity: 0.85;
