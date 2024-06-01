@@ -7,9 +7,8 @@
     div {
         border-radius: 18px;
         width: fit-content;
-        padding: 0.8% 2.2% 0.8% 2.2%;
+        padding: 3px 9px 3px 9px;
         background-color: var(--normal-color);
-        margin: 7px 8px 0px 2px;
         color: var(--tech-color);
         font-weight: 500;
         font-size: functions.toRem(14);

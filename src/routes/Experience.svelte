@@ -1,5 +1,5 @@
 <script>
-    import Tech from './Tech.svelte';
+    import Tech from '$lib/Tech.svelte';
     import { MapPin } from 'lucide-svelte';
 
     export let years = "";
@@ -30,7 +30,9 @@
     <slot></slot>
     <div class="tech-wrapper">
         {#each tech as t}
-            <Tech>{t}</Tech>
+            <div class="tech">
+                <Tech>{t}</Tech>
+            </div>
         {/each}
     </div>
 </div>
@@ -39,7 +41,7 @@
     .experience-wrapper {
         display: flex;
         flex-direction: column;
-        margin-bottom: 35px;
+        margin-bottom: 50px;
         margin-top: 20px;
         @include breakpoint.up('lg') {
             padding: 10px 10px;
@@ -61,6 +63,9 @@
     .tech-wrapper {
         display: flex;
         flex-wrap: wrap;
+    }
+    .tech {
+        margin: 7px 8px 0px 2px;
     }
     span {
         font-size: functions.toRem(13);

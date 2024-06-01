@@ -6,6 +6,7 @@
     import EquinorLogo from '$assets/equinor_logo.svg';
     import VortexLogo from '$assets/vortex_logo.png';
     import DRLogo from '$assets/dr_logo.svg';
+    import AkselPicture from '$assets/aksel_picture.png';
 </script>
 
 <div class="wrapper">
@@ -15,8 +16,15 @@
     <div class="first-content">
         <p class="company-name">Akspertise AS<p>
         <h1>Aksel Kristoffersen</h1>
-        <p class="work-title">Software Engineer</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem aspernatur totam atque cum voluptas cumque beatae, porro natus. Commodi, repellendus?</p>
+        <div class="first-content-block">
+            <div class="first-content-block-text">
+            <p class="work-title">Software Engineer</p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem aspernatur totam atque cum voluptas cumque beatae, porro natus. Commodi, repellendus?
+            </p>
+            </div>
+            <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
+        </div>
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
@@ -83,7 +91,7 @@
         tech={["ROS", "Linux", "Python", "Git"]}
         img_path={VortexLogo}
         >
-        <p>Writing software for a non-profit student organisation developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. I worked on developing the system for autonomous navigation in ROS.</p>
+        <p>Writing software for a non-profit student organisation developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. I worked on developing the system for autonomous navigation using ROS.</p>
         </Experience>
     </div>
 </div>
@@ -163,6 +171,27 @@
                 }
                 @include breakpoint.up('lg') {
                     font-size: functions.toRem(24);
+                }
+            }
+            .first-content-block {
+                display: flex;
+                .first-content-block-text {
+                    max-width:270px;
+                }
+                .aksel-picture{
+                    border: 3px solid rgb(76, 80, 87);
+                    margin: 10px 0px 0px 10px;
+                    height: 130px;
+                    width: auto;
+                    opacity: 0.85;
+                    filter: brightness(0.95);
+                    background-color: var(--bg-color-dark);
+                    @include breakpoint.up('md') {
+                        height: 135px;
+                    }
+                    @include breakpoint.up('lg') {
+                        height: 150px;
+                    }
                 }
             }
         }
