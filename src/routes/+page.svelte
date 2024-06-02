@@ -6,6 +6,7 @@
     import EquinorLogo from '$assets/equinor_logo.svg';
     import VortexLogo from '$assets/vortex_logo.png';
     import DRLogo from '$assets/dr_logo.svg';
+    import NTNULogo from '$assets/ntnu_logo.svg';
     import AkselPicture from '$assets/aksel_picture.png';
 </script>
 
@@ -68,6 +69,7 @@
             title="MSc Cybernetics and Robotics &nbsp;- &nbsp;NTNU"
             location="Trondheim, Norway"
             tech={["Control Theory", "Neural Networks", "Robot Vision", "Python"]}
+            img_path={NTNULogo}
             >
             <p>Aquiring solid basic knowledge in mathematics, ICT and engineering, and advanced knowledge in the areas of cybernetics. This has provided me with the first principles and initial training for developing advanced automated systems for industrial solutions.</p>
         </Experience>
@@ -77,6 +79,7 @@
             title="BSc Electrical Engineering &nbsp;- &nbsp;NTNU"
             location="Trondheim, Norway"
             tech={["C/C++", "MATLAB"]}
+            img_path={NTNULogo}
             >
             <p class="specialization">Automation Technology</p>
             <p>Gaining knowledge in electric and magnetic fields, electronic components, processor systems, as well as automation systems and how they are programmed to regulate dynamic processes.</p>
@@ -158,7 +161,7 @@
                     font-size: functions.toRem(23);
                 }
             }
-            .work-title{
+            .work-title {
                 font-weight: 500;
                 color: var(--text-color);
                 margin-bottom: 15px;
@@ -176,21 +179,20 @@
             .first-content-block {
                 display: flex;
                 .first-content-block-text {
-                    max-width:270px;
+                    max-width:265px;
                 }
                 .aksel-picture{
                     border: 3px solid rgb(76, 80, 87);
-                    margin: 10px 10px 0px 10px;
-                    height: 130px;
+                    margin: 10px 10px 0px 12px;
+                    height: 125px;
                     width: auto;
                     opacity: 0.85;
                     filter: brightness(0.95);
-                    background-color: var(--bg-color);
                     @include breakpoint.up('md') {
-                        height: 135px;
+                        height: 130px;
                     }
                     @include breakpoint.up('lg') {
-                        height: 150px;
+                        height: 135px;
                     }
                 }
             }
