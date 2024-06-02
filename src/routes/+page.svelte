@@ -19,10 +19,10 @@
         <h1>Aksel Kristoffersen</h1>
         <div class="first-content-block">
             <div class="first-content-block-text">
-            <p class="work-title">Software Engineer</p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem aspernatur totam atque cum voluptas cumque beatae, porro natus. Commodi, repellendus?
-            </p>
+                <p class="work-title">Software Engineer</p>
+                <p>
+                    Versatile and adaptable, I thrive in dynamic environments. Committed to writing clean, well-tested code and delivering robust solutions that stand the test of time.            
+                </p>
             </div>
             <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
         </div>
@@ -36,7 +36,9 @@
             tech={["C++", "postgreSQL", "Protobuf", "Boost.Test"]}
             img_path={InfrontLogo}
             >
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In doloremque dolores architecto assumenda cum officia hic nobis quae mollitia cupiditate sapiente blanditiis, itaque placeat a necessitatibus omnis illum non quas consequatur odit praesentium eveniet quam modi! Sunt qui perspiciatis quis.</p>
+            <p>
+                Leading a project to develop an internal library for storage and calculation of intraday data, seamlessly replacing the existing legacy system, and overseeing its deployment into production. In addition, I provided support and guidance to new team members and served as an Agile Team Facilitator during cross-company PI planning events.
+            </p>
         </Experience>
         <Experience 
             years="2021 - 2022"
@@ -50,7 +52,9 @@
                     <img src={DRLogo} alt="Company logo" class="dr-logo"/>
                 </span> 
             </p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus harum ratione, sunt, cum tempore doloremque ea officiis assumenda facilis minus, quam eligendi enim veniam corporis iusto sapiente magnam vel excepturi culpa inventore in suscipit nam.</p>
+            <p>
+                I contributed to the development of software for both the Hugin AUVs and Sounder USV, working across two teams. Within the topside team, I utilized Qt to enhance functionality for the remote operator station. Meanwhile, in the autonomy team, my responsibilities included developing and maintaining control- and guidance systems, including the incorporation of a third-party behavior tree library.
+            </p>
         </Experience>
         <Experience 
             years="Summer 2020"
@@ -59,7 +63,9 @@
             tech={["ROS", "Python", "Git"]}
             img_path={EquinorLogo}
             >
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus harum ratione, sunt, cum tempore doloremque ea officiis assumenda facilis minus, quam eligendi enim veniam corporis iusto sapiente magnam vel excepturi culpa inventore in suscipit nam.</p>
+            <p>
+                Initially, I worked on a project to design, develop, and implement a visualization plugin for analyzing subsurface modeling results using Python. Once my experience with ROS was recognized, I was soon moved to a project focused on implementing ROS modules for navigation, path planning, and path following for the autonomous Taurob robot.
+            </p>
         </Experience>
 
 
@@ -71,7 +77,9 @@
             tech={["Control Theory", "Neural Networks", "Robot Vision", "Python"]}
             img_path={NTNULogo}
             >
-            <p>Aquiring solid basic knowledge in mathematics, ICT and engineering, and advanced knowledge in the areas of cybernetics. This has provided me with the first principles and initial training for developing advanced automated systems for industrial solutions.</p>
+            <p>
+                Aquiring solid foundational knowledge in mathematics, ICT, and engineering, along with advanced expertise in cybernetics. This has provided me with the fundamental principles and initial training essential to develop advanced automated systems for industrial solutions.
+            </p>
         </Experience>
 
         <Experience 
@@ -82,7 +90,9 @@
             img_path={NTNULogo}
             >
             <p class="specialization">Automation Technology</p>
-            <p>Gaining knowledge in electric and magnetic fields, electronic components, processor systems, as well as automation systems and how they are programmed to regulate dynamic processes.</p>
+            <p>
+                Gaining knowledge in electric and magnetic fields, electronic components, processor systems, and automation systems, including how they are programmed to regulate dynamic processes.
+            </p>
         </Experience>
 
 
@@ -94,7 +104,9 @@
         tech={["ROS", "Linux", "Python", "Git"]}
         img_path={VortexLogo}
         >
-        <p>Writing software for a non-profit student organisation developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. I worked on developing the system for autonomous navigation using ROS.</p>
+        <p>
+            Writing software for a non-profit student organization developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. My focus was on developing the system for autonomous navigation using ROS.
+        </p>
         </Experience>
     </div>
 </div>
@@ -179,7 +191,7 @@
             .first-content-block {
                 display: flex;
                 .first-content-block-text {
-                    max-width:265px;
+                    max-width:260px;
                 }
                 .aksel-picture{
                     border: 3px solid var(--semi-dark-color);
