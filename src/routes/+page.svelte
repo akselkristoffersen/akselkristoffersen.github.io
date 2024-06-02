@@ -182,12 +182,13 @@
                     max-width:265px;
                 }
                 .aksel-picture{
-                    border: 3px solid rgb(76, 80, 87);
+                    border: 3px solid var(--semi-dark-color);
                     margin: 10px 10px 0px 12px;
                     height: 125px;
                     width: auto;
                     opacity: 0.85;
                     filter: brightness(0.95);
+                    background-image: linear-gradient(to left top, var(--bg-color) 70%, var(--bg-color-dark));
                     @include breakpoint.up('md') {
                         height: 130px;
                     }
