@@ -12,5 +12,6 @@
         color: var(--tech-color);
         font-weight: 500;
         font-size: functions.toRem(14);
+        opacity: 0.95;
     }
 </style>

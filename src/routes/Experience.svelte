@@ -65,7 +65,7 @@
         flex-wrap: wrap;
     }
     .tech {
-        margin: 7px 8px 0px 2px;
+        margin: 7px 7px 0px 2px;
     }
     span {
         font-size: functions.toRem(13);
