@@ -2,34 +2,46 @@
     import Tech from '$lib/Tech.svelte';
     import { MapPin } from 'lucide-svelte';
 
-    export let years = "";
-    export let location = "";
-    export let title;
-    export let tech = [];
-    export let img_path = "";
+    export let data;
 </script>
 
 <div class="experience-wrapper">
     <div class="experience-years">
-        <span>{years}</span> 
+        <span>
+            {data.startDate.getUTCFullYear()}
+            {#if data.endDate.getUTCFullYear() - data.startDate.getUTCFullYear() > 0 }
+             - {data.endDate.getUTCFullYear()}
+            {/if}
+        </span> 
         <div class="experience-years-location">
-            {#if location}
+            {#if data.location}
                 <MapPin size=16px/>
-                <span class="experience-years-location-text">{location}</span>
+                <span class="experience-years-location-text">{data.location}</span>
             {/if}
         </div>
     </div>
     <div class="experience-title">
-        <h3>{title}
-            {#if img_path}
-                <span><img src={img_path} alt="Company logo"/></span>
+        <h3>{data.workTitle} &nbsp;- &nbsp;{data.companyName}
+            {#if data.companyLogo}
+                <span><img src={data.companyLogo} alt="Company logo"/></span>
             {/if}
         </h3>
-        
     </div>
-    <slot></slot>
+    {#if data.subTitle}
+    <h4>
+        {data.subTitle}
+        {#if data.subLogo}
+        <span>
+            <img src={data.subLogo} alt="Company logo"/>
+        </span> 
+        {/if}
+    </h4>
+    {/if}
+    <p>
+        {data.description}
+    </p>
     <div class="tech-wrapper">
-        {#each tech as t}
+        {#each data.tech as t}
             <div class="tech">
                 <Tech>{t}</Tech>
             </div>

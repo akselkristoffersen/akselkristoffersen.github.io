@@ -1,12 +1,7 @@
 <script>
     import Stars from './Stars.svelte';
     import Experience from './Experience.svelte';
-    import InfrontLogo from '$assets/infront_logo.svg';
-    import KongsbergLogo from '$assets/kongsberg_logo.svg';
-    import EquinorLogo from '$assets/equinor_logo.svg';
-    import VortexLogo from '$assets/vortex_logo.png';
-    import DRLogo from '$assets/dr_logo.svg';
-    import NTNULogo from '$assets/ntnu_logo.svg';
+    import { infrontExp, kongsbergExp, equinorExp, masterExp, bachelorExp, vortexExp } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
 </script>
 
@@ -29,73 +24,17 @@
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
-        <Experience 
-            years="2022 - 2024" 
-            title="Backend Developer &nbsp;- &nbsp;Infront"
-            location="Oslo, Norway"
-            tech={["C++", "postgreSQL", "Protobuf", "Boost.Test"]}
-            img_path={InfrontLogo}
-            >
-            <p>
-                Leading a project to develop an internal library for storage and calculation of intraday data, seamlessly replacing the existing legacy system, and overseeing its deployment into production. In addition, I provided support and guidance to new team members and served as an Agile Team Facilitator during cross-company PI planning events.
-            </p>
-        </Experience>
-        <Experience 
-            years="2021 - 2022"
-            location="Oslo, Norway"
-            title="Software Engineer R&D &nbsp;- &nbsp;Kongsberg Discovery"
-            tech={["C++", "Qt", "CSS", "gtest"]}
-            img_path={KongsbergLogo}
-            >
-            <p class="specialization">Consultant via Data Respons R&D Services
-                <span>
-                    <img src={DRLogo} alt="Company logo" class="dr-logo"/>
-                </span> 
-            </p>
-            <p>
-                I contributed to the development of software for both the Hugin AUVs and Sounder USV, working across two teams. Within the topside team, I utilized Qt to enhance functionality for the remote operator station. Meanwhile, in the autonomy team, my responsibilities included developing and maintaining control- and guidance systems, including the incorporation of a third-party behavior tree library.
-            </p>
-        </Experience>
-        <Experience 
-            years="Summer 2020"
-            location="Virtual"
-            title="Summer Intern &nbsp;- &nbsp;Equinor"
-            tech={["ROS", "Python", "Git"]}
-            img_path={EquinorLogo}
-            >
-            <p>
-                Initially, I worked on a project to design, develop, and implement a visualization plugin for analyzing subsurface modeling results using Python. Once my experience with ROS was recognized, I was soon moved to a project focused on implementing ROS modules for navigation, path planning, and path following for the autonomous Taurob robot.
-            </p>
-        </Experience>
-
+        <Experience data={infrontExp}/>
+        <Experience data={kongsbergExp}/>
+        <Experience data={equinorExp}/>
 
         <h2>EDUCATION</h2>
-        <Experience 
-            years="2019 - 2021" 
-            title="MSc Cybernetics and Robotics &nbsp;- &nbsp;NTNU"
-            location="Trondheim, Norway"
-            tech={["Control Theory", "Neural Networks", "Robot Vision", "Python"]}
-            img_path={NTNULogo}
-            >
-            <p>
-                Aquiring solid foundational knowledge in mathematics, ICT, and engineering, along with advanced expertise in cybernetics. This has provided me with the fundamental principles and initial training essential to develop advanced automated systems for industrial solutions.
-            </p>
-        </Experience>
+        <Experience data={masterExp}/>
+        <Experience data={bachelorExp}/>
 
-        <Experience 
-            years="2016 - 2019"
-            title="BSc Electrical Engineering &nbsp;- &nbsp;NTNU"
-            location="Trondheim, Norway"
-            tech={["C/C++", "MATLAB"]}
-            img_path={NTNULogo}
-            >
-            <p class="specialization">Automation Technology</p>
-            <p>
-                Gaining knowledge in electric and magnetic fields, electronic components, processor systems, and automation systems, including how they are programmed to regulate dynamic processes.
-            </p>
-        </Experience>
-
-
+        <h2>VOLUNTARY WORK</h2>
+        <Experience data={vortexExp}/>
+        <!-- 
         <h2>VOLUNTARY WORK</h2>
         <Experience 
         years="2019 - 2020"
@@ -107,7 +46,7 @@
         <p>
             Writing software for a non-profit student organization developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. My focus was on developing the system for autonomous navigation using ROS.
         </p>
-        </Experience>
+        </Experience> -->
     </div>
 </div>
 
@@ -221,18 +160,6 @@
                 width: 50%;
                 max-width: 600px;
                 padding: 30px 50px 30px 0px;
-            }
-            .specialization {
-                font-size: functions.toRem(14);
-                font-weight: 500;
-                color: var(--text-color);
-            }
-            .dr-logo {
-                margin-left: 0.1rem;
-                height: 0.7rem;
-                width: auto;
-                opacity: 0.9;
-                filter: grayscale(40%);
             }
         }
     }
