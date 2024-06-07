@@ -3,6 +3,7 @@
     import Experience from './Experience.svelte';
     import { infrontExp, kongsbergExp, equinorExp, masterExp, bachelorExp, vortexExp } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
+    import { Github, Linkedin, Mail } from 'lucide-svelte';
 </script>
 
 <div class="wrapper">
@@ -21,6 +22,15 @@
             </div>
             <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
         </div>
+        <a href="https://www.linkedin.com/in/akselkristoffersen" target="_blank" rel="noopener noreferrer" class="first-content-logo">
+            <Linkedin />
+        </a>
+        <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer" class="first-content-logo">
+            <Github />
+        </a>
+        <a href="mailto:akselkr@akspertise.com" class="first-content-logo">
+            <Mail />
+        </a>
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
@@ -129,6 +139,7 @@
             }
             .first-content-block {
                 display: flex;
+                margin-bottom: 12px;
                 .first-content-block-text {
                     max-width:260px;
                 }
@@ -147,6 +158,14 @@
                         height: 135px;
                     }
                 }
+            }
+            .first-content-logo {
+                margin-right: 12px;
+                color: var(--semi-light-color);
+            }
+            a:hover
+            {
+                color: var(--text-color);
             }
         }
         .second-content {
