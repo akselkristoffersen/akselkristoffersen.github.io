@@ -16,7 +16,7 @@
             <div class="first-content-block-text">
                 <p class="work-title">Software Engineer</p>
                 <p>
-                    Versatile and adaptable, I thrive in dynamic environments. Committed to writing clean, well-tested code, I deliver robust solutions that stand the test of time.            
+                    Versatile and adaptable, I thrive in dynamic environments. Committed to writing clean, well-tested code, I implement robust solutions that lasts.            
                 </p>
             </div>
             <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
