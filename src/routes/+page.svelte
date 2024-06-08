@@ -4,6 +4,7 @@
     import { infrontExp, kongsbergExp, equinorExp, masterExp, bachelorExp, vortexExp } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
     import { Github, Linkedin, Mail } from 'lucide-svelte';
+    import Tech from '$lib/Tech.svelte';
 </script>
 
 <div class="wrapper">
@@ -11,7 +12,7 @@
         <Stars />
     </div>
     <div class="first-content">
-        <p class="company-name">Akspertise AS<p>
+        <p class="company-name">Akspertise AS</p>
         <h1>Aksel Kristoffersen</h1>
         <div class="first-content-block">
             <div class="first-content-block-text">
@@ -22,15 +23,17 @@
             </div>
             <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
         </div>
-        <a href="https://www.linkedin.com/in/akselkristoffersen" target="_blank" rel="noopener noreferrer" class="first-content-logo">
-            <Linkedin />
-        </a>
-        <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer" class="first-content-logo">
-            <Github />
-        </a>
-        <a href="mailto:akselkr@akspertise.com" class="first-content-logo">
-            <Mail />
-        </a>
+        <div class="first-content-logos">
+            <a href="https://www.linkedin.com/in/akselkristoffersen" target="_blank" rel="noopener noreferrer" class="first-content-logo">
+                <Linkedin />
+            </a>
+            <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer" class="first-content-logo">
+                <Github />
+            </a>
+            <a href="mailto:akselkr@akspertise.com" class="first-content-logo">
+                <Mail />
+            </a>
+        </div>
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
@@ -44,21 +47,19 @@
 
         <h2>VOLUNTARY WORK</h2>
         <Experience data={vortexExp}/>
-        <!-- 
-        <h2>VOLUNTARY WORK</h2>
-        <Experience 
-        years="2019 - 2020"
-        title="Control System Dev &nbsp;- &nbsp;Vortex NTNU"
-        location="Trondheim, Norway"
-        tech={["ROS", "Linux", "Python", "Git"]}
-        img_path={VortexLogo}
-        >
-        <p>
-            Writing software for a non-profit student organization developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. My focus was on developing the system for autonomous navigation using ROS.
-        </p>
-        </Experience> -->
+
+        <footer>
+            <p class="footer-text">Website built with <a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">Svelte</a>. Designed in <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">Figma</a>.</p>
+            <div class="footer-tech-wrapper">
+                <Tech fontSize="10px" margin="7px 7px 0px 2px" bgColor="#525252">Javascript</Tech>
+                <Tech fontSize="10px" margin="7px 7px 0px 2px" bgColor="#525252">HTML</Tech>
+                <Tech fontSize="10px" margin="7px 7px 0px 2px" bgColor="#525252">CSS</Tech>
+            </div>
+        </footer>
     </div>
 </div>
+
+
 
 <style lang="scss">
     .wrapper {
@@ -76,7 +77,7 @@
             padding: 40px 31px 30px;
         }
         @include breakpoint.up('lg') {
-            padding: 0px 0px 0px;
+            padding: 0px;
             justify-content: center;
             flex-direction: row;
             margin: auto;
@@ -159,26 +160,38 @@
                     }
                 }
             }
-            .first-content-logo {
-                margin-right: 12px;
-                color: var(--semi-light-color);
-            }
-            a:hover
-            {
-                color: var(--text-color);
+            .first-content-logos {
+                display: flex;
+
+                .first-content-logo {
+                    margin-right: 15px;
+                    color: var(--semi-light-color);
+
+                    &:hover {
+                        color: var(--text-color);
+                    }
+                }
             }
         }
         .second-content {
-            // -webkit-filter: blur(5px);
-            // -moz-filter: blur(5px);
-            // -o-filter: blur(5px);
-            // -ms-filter: blur(5px);
-            // filter: blur(5px);
             width: 100%;
             @include breakpoint.up('lg') {
                 width: 50%;
                 max-width: 600px;
                 padding: 30px 50px 30px 0px;
+            }
+            footer {
+                font-size: functions.toRem(2);
+                @include breakpoint.up('lg') {
+                    padding: 10px 10px;
+                }
+                .footer-text {
+                    font-size: functions.toRem(14);
+                }
+                .footer-tech-wrapper {
+                    display: flex;
+                    opacity: 0.9;
+                }
             }
         }
     }
@@ -204,5 +217,13 @@
     }
     p {
         color: var(--semi-light-color);
+    }
+    a {
+        color: var(--text-color);
+        font-weight: 500;
+        text-decoration: none;
+        &:hover {
+            color: var(--tech-color);
+        }
     }
 </style>

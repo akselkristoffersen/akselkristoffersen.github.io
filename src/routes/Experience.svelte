@@ -42,9 +42,7 @@
     </p>
     <div class="tech-wrapper">
         {#each data.tech as t}
-            <div class="tech">
-                <Tech>{t}</Tech>
-            </div>
+                <Tech margin="7px 7px 0px 2px">{t}</Tech>
         {/each}
     </div>
 </div>
@@ -75,9 +73,6 @@
     .tech-wrapper {
         display: flex;
         flex-wrap: wrap;
-    }
-    .tech {
-        margin: 7px 7px 0px 2px;
     }
     span {
         font-size: functions.toRem(13);
