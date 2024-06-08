@@ -37,7 +37,7 @@ export const equinorExp = {
     endDate: new Date(2020, 7),
     workTitle: 'Summer Intern IT',
     tech: ['ROS', 'Python', 'Git'],
-    description: 'Initially, I worked on a project to design, develop, and implement a visualization plugin for analyzing subsurface modeling results using Python. Once my experience with ROS was recognized, I was soon moved to a project focused on implementing ROS modules for navigation, path planning, and path following for the autonomous Taurob robot.'
+    description: 'Initially, I worked on a project to design, develop, and implement a visualization plugin for analyzing subsurface modeling results using Python. Once my experience with ROS was recognized, I was soon moved to a project focused on implementing ROS modules for navigation, path planning, and path following for the autonomous robot, Taurob.'
 };
 
 export const masterExp = {
