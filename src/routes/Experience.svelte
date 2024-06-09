@@ -3,9 +3,11 @@
     import { MapPin } from 'lucide-svelte';
 
     export let data;
+    let enter = false;
 </script>
 
-<div class="experience-wrapper">
+
+<button class="experience-button" disabled>
     <div class="experience-years">
         <span>
             {data.startDate.getUTCFullYear()}
@@ -45,10 +47,19 @@
                 <Tech margin="7px 7px 0px 2px">{t}</Tech>
         {/each}
     </div>
-</div>
+</button>
+
 
 <style lang="scss">
-    .experience-wrapper {
+    .experience-button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        text-align: inherit;
+        outline: inherit;
+
         border-radius: 7px;
         display: flex;
         flex-direction: column;
@@ -57,21 +68,26 @@
         @include breakpoint.up('lg') {
             border: 2px solid transparent;
             padding: 10px 10px;
-            &:hover{
-                border: 2px solid var(--semi-dark-color);
-                cursor: pointer;
-            }
+
+            // .child:not(&:disabled){
+            //     &:hover{
+            //         border: 2px solid var(--semi-dark-color);
+            //         cursor: pointer;
+            //     }
+            // }
         }
     }
     .experience-years{
         margin-right: 33px;
         margin-bottom: 3px;
         display: flex;
+        width: 100%;
         justify-content: space-between;
         color: var(--semi-light-color);
     }
     .experience-years-location {
         display: flex;
+        margin-right: 22px;
     }
     .experience-years-location-text {
         margin-left: 5px;
