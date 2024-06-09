@@ -52,8 +52,8 @@
         border-radius: 7px;
         display: flex;
         flex-direction: column;
-        margin-bottom: 50px;
-        margin-top: 20px;
+        margin-bottom: 48px;
+        margin-top: 18px;
         @include breakpoint.up('lg') {
             border: 2px solid transparent;
             padding: 10px 10px;
@@ -64,7 +64,7 @@
         }
     }
     .experience-years{
-        margin-right: 35px;
+        margin-right: 33px;
         margin-bottom: 3px;
         display: flex;
         justify-content: space-between;

@@ -63,6 +63,7 @@
 
 <style lang="scss">
     .wrapper {
+        //pointer-events: none;
         width: 100%;
         height: 100vh;
         padding: 30px 15px 30px;
@@ -102,7 +103,7 @@
             position: relative;
             margin-bottom: 50px;
             @include breakpoint.up('lg') {
-                width: 50%;
+                flex: 1;
                 max-width: 600px;
                 padding: 10px 60px 30px 60px;
                 top: 120px;
@@ -176,7 +177,7 @@
         .second-content {
             width: 100%;
             @include breakpoint.up('lg') {
-                width: 50%;
+                flex: 1;
                 max-width: 600px;
                 padding: 30px 50px 30px 0px;
             }
