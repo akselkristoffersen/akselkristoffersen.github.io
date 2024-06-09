@@ -48,7 +48,7 @@ export const masterExp = {
     endDate: new Date(2021, 6),
     workTitle: 'MSc Cybernetics and Robotics',
     tech: ['Control Theory', 'Neural Networks', 'Robot Vision', 'Python'],
-    description: 'Aquiring solid foundational knowledge in mathematics, ICT, and engineering, along with advanced expertise in cybernetics. This has provided me with the fundamental principles and initial training essential to develop advanced automated systems for industrial solutions.'
+    description: 'Acquiring solid foundational knowledge in mathematics, ICT, and engineering, along with advanced expertise in cybernetics. This has provided me with the fundamental principles and initial training essential to develop advanced automated systems for industrial solutions.'
 };
 
 export const bachelorExp = {
