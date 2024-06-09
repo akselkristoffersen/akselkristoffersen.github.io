@@ -5,6 +5,8 @@
     import AkselPicture from '$assets/aksel_picture.png';
     import { Github, Linkedin, Mail } from 'lucide-svelte';
     import Tech from '$lib/Tech.svelte';
+
+    
 </script>
 
 <div class="wrapper">
@@ -24,13 +26,13 @@
             <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
         </div>
         <div class="first-content-logos">
-            <a href="https://www.linkedin.com/in/akselkristoffersen" target="_blank" rel="noopener noreferrer" class="first-content-logo">
+            <a href="https://www.linkedin.com/in/akselkristoffersen" target="_blank" rel="noopener noreferrer">
                 <Linkedin />
             </a>
-            <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer" class="first-content-logo">
+            <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer">
                 <Github />
             </a>
-            <a href="mailto:akselkr@akspertise.com" class="first-content-logo">
+            <a href="mailto:akselkr@akspertise.com">
                 <Mail />
             </a>
         </div>
@@ -162,11 +164,11 @@
             }
             .first-content-logos {
                 display: flex;
-
-                .first-content-logo {
+                a {
                     margin-right: 15px;
                     color: var(--semi-light-color);
-
+                    align-items: center;
+                    background-color: black;
                     &:hover {
                         color: var(--text-color);
                     }
