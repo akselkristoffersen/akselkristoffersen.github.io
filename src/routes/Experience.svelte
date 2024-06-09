@@ -49,12 +49,18 @@
 
 <style lang="scss">
     .experience-wrapper {
+        border-radius: 7px;
         display: flex;
         flex-direction: column;
         margin-bottom: 50px;
         margin-top: 20px;
         @include breakpoint.up('lg') {
+            border: 2px solid transparent;
             padding: 10px 10px;
+            &:hover{
+                border: 2px solid var(--semi-dark-color);
+                cursor: pointer;
+            }
         }
     }
     .experience-years{

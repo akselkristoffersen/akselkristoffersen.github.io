@@ -5,8 +5,6 @@
     import AkselPicture from '$assets/aksel_picture.png';
     import { Github, Linkedin, Mail } from 'lucide-svelte';
     import Tech from '$lib/Tech.svelte';
-
-    
 </script>
 
 <div class="wrapper">
@@ -147,7 +145,7 @@
                     max-width:260px;
                 }
                 .aksel-picture{
-                    border: 3px solid var(--semi-dark-color);
+                    border: 3px solid #2F3943;
                     margin: 10px 10px 0px 12px;
                     height: 125px;
                     width: auto;
@@ -168,7 +166,6 @@
                     margin-right: 15px;
                     opacity: 0.7;
                     align-items: center;
-                    transition: opacity 0.1s;
                     &:hover {
                         opacity: 1;
                         color: var(--text-color);
@@ -182,6 +179,11 @@
                 width: 50%;
                 max-width: 600px;
                 padding: 30px 50px 30px 0px;
+            }
+            h2 {
+                @include breakpoint.up('lg') {
+                    padding-left: 12px;
+                }
             }
             footer {
                 font-size: functions.toRem(2);
@@ -211,11 +213,6 @@
         }
         @include breakpoint.up('lg') {
             font-size: functions.toRem(40);
-        }
-    }
-    h2 {
-        @include breakpoint.up('lg') {
-            padding-left: 10px;
         }
     }
     p {
