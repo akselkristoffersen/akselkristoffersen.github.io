@@ -166,10 +166,11 @@
                 display: flex;
                 a {
                     margin-right: 15px;
-                    color: var(--semi-light-color);
+                    opacity: 0.7;
                     align-items: center;
-                    background-color: black;
+                    transition: opacity 0.1s;
                     &:hover {
+                        opacity: 1;
                         color: var(--text-color);
                     }
                 }
