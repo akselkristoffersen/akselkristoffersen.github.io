@@ -5,7 +5,46 @@
     import AkselPicture from '$assets/aksel_picture.png';
     import { Github, Linkedin, Mail } from 'lucide-svelte';
     import Tech from '$lib/Tech.svelte';
+    import { onMount, onDestroy } from 'svelte';
+
+    const PageState = Object.freeze({
+        Initial: Symbol("initial"),
+        Autumn: Symbol("autumn"),
+    })
+
+    let pageState = PageState.Initial;
+    let infrontModal;
+    let kongsbergModal;
+    let equinorModal;
+
+    function closeOnOffClick(node) {
+        console.log(node);
+        const handleOffClick = event => {
+            if (event.target === node) {
+                    node.close();
+                }
+        }
+        node.addEventListener('click', handleOffClick)
+        return {
+            destroy() {
+                node.removeEventListener('click', handleOffClick)
+            }
+        }
+    }
+
 </script>
+
+<dialog bind:this={infrontModal} use:closeOnOffClick>
+    Infront
+</dialog>
+
+<dialog bind:this={kongsbergModal} use:closeOnOffClick>
+    Kongsberg
+</dialog>
+
+<dialog bind:this={equinorModal} use:closeOnOffClick>
+    Equinor
+</dialog>
 
 <div class="wrapper">
     <div class="stars">
@@ -36,16 +75,16 @@
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
-        <Experience data={infrontExp}/>
-        <Experience data={kongsbergExp}/>
-        <Experience data={equinorExp}/>
+        <Experience data={infrontExp} on:click={()=>(infrontModal.showModal())}/>
+        <Experience data={kongsbergExp} on:click={()=>(kongsbergModal.showModal())}/>
+        <Experience data={equinorExp} on:click={()=>(equinorModal.showModal())}/>
 
         <h2>EDUCATION</h2>
-        <Experience data={masterExp}/>
-        <Experience data={bachelorExp}/>
+        <Experience data={masterExp} disabled/>
+        <Experience data={bachelorExp} disabled/>
 
         <h2>VOLUNTARY WORK</h2>
-        <Experience data={vortexExp}/>
+        <Experience data={vortexExp} disabled/>
 
         <footer>
             <p class="footer-text">Website built with <a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">Svelte</a>. Designed in <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">Figma</a>.</p>
@@ -62,7 +101,6 @@
 
 <style lang="scss">
     .wrapper {
-        //pointer-events: none;
         width: 100%;
         height: 100vh;
         padding: 30px 15px 30px;
@@ -185,7 +223,7 @@
             }
             h2 {
                 @include breakpoint.up('lg') {
-                    padding-left: 12px;
+                    padding-left: 13px;
                 }
             }
             footer {

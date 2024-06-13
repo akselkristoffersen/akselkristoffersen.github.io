@@ -3,10 +3,15 @@
     import { MapPin } from 'lucide-svelte';
 
     export let data;
+    export let disabled = false;
 </script>
 
 
-<button class="experience-button">
+<button 
+    on:click
+    class="experience-button"
+    {disabled}
+    >
     <div class="experience-years">
         <span>
             {data.startDate.getUTCFullYear()}
@@ -51,13 +56,10 @@
 
 <style lang="scss">
     .experience-button {
-        background: none;
-        color: inherit;
-        border: none;
-        padding: 0;
-        font: inherit;
-        text-align: inherit;
-        outline: inherit;
+        all: unset;
+        &:focus {
+            outline: revert;
+        }
 
         border-radius: 7px;
         display: flex;
@@ -65,14 +67,12 @@
         margin-bottom: 48px;
         margin-top: 18px;
         @include breakpoint.up('lg') {
-            border: 2px solid transparent;
+            border: 3px solid transparent;
             padding: 10px 10px;
-
-            .child:not(&:disabled){
-                &:hover{
-                    border: 2px solid var(--semi-dark-color);
-                    cursor: pointer;
-                }
+            &:hover:enabled {
+                border: 3px solid var(--semi-dark-color);
+                cursor: pointer;
+                backdrop-filter: brightness(90%);
             }
         }
     }
