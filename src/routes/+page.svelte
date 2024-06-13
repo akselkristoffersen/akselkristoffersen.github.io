@@ -12,8 +12,7 @@
         <Stars />
     </div>
     <div class="first-content">
-        <p class="company-name">Akspertise AS</p>
-        <h1>Aksel Kristoffersen</h1>
+        <h1><span class="company-name">Akspertise AS</span>Aksel Kristoffersen</h1>
         <div class="first-content-block">
             <div class="first-content-block-text">
                 <p class="work-title">Software Engineer</p>
@@ -112,8 +111,10 @@
                 height: fit-content;
             }
             .company-name {
+                display: block;
                 font-weight: 600;
                 font-size: functions.toRem(17);
+                color: var(--semi-light-color);
                 @include breakpoint.up('sm') {
                     font-size: functions.toRem(20);
                 }
@@ -202,7 +203,6 @@
         }
     }
     h1 {
-        margin-top: -11px;
         font-size: functions.toRem(30);
         font-weight: 700;
         color: white;

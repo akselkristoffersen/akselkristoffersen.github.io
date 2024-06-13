@@ -3,11 +3,10 @@
     import { MapPin } from 'lucide-svelte';
 
     export let data;
-    let enter = false;
 </script>
 
 
-<button class="experience-button" disabled>
+<button class="experience-button">
     <div class="experience-years">
         <span>
             {data.startDate.getUTCFullYear()}
@@ -69,12 +68,12 @@
             border: 2px solid transparent;
             padding: 10px 10px;
 
-            // .child:not(&:disabled){
-            //     &:hover{
-            //         border: 2px solid var(--semi-dark-color);
-            //         cursor: pointer;
-            //     }
-            // }
+            .child:not(&:disabled){
+                &:hover{
+                    border: 2px solid var(--semi-dark-color);
+                    cursor: pointer;
+                }
+            }
         }
     }
     .experience-years{
