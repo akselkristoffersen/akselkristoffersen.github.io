@@ -61,6 +61,7 @@
             outline: revert;
         }
 
+        width: 100%;
         border-radius: 7px;
         display: flex;
         flex-direction: column;
