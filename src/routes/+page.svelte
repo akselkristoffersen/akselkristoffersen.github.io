@@ -152,6 +152,7 @@
                     height: 125px;
                     width: auto;
                     opacity: 0.85;
+                    border-radius: 5px;
                     filter: brightness(0.95);
                     background-image: linear-gradient(to left top, var(--bg-color) 70%, var(--bg-color-dark));
                     @include breakpoint.up('md') {
