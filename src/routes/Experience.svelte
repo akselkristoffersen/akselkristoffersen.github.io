@@ -88,6 +88,7 @@
     .experience-years-location {
         display: flex;
         margin-right: 22px;
+        align-items: center;
     }
     .experience-years-location-text {
         margin-left: 5px;
