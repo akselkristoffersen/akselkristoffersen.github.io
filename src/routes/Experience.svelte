@@ -48,7 +48,7 @@
     </p>
     <div class="tech-wrapper">
         {#each data.tech as t}
-                <Tech margin="7px 7px 0px 2px">{t}</Tech>
+                <Tech>{t}</Tech>
         {/each}
     </div>
 </button>

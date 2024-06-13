@@ -89,9 +89,9 @@
         <footer>
             <p class="footer-text">Website built with <a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">Svelte</a>. Designed in <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">Figma</a>.</p>
             <div class="footer-tech-wrapper">
-                <Tech fontSize="10px" margin="7px 7px 0px 2px" bgColor="#525252">Javascript</Tech>
-                <Tech fontSize="10px" margin="7px 7px 0px 2px" bgColor="#525252">HTML</Tech>
-                <Tech fontSize="10px" margin="7px 7px 0px 2px" bgColor="#525252">CSS</Tech>
+                <Tech fontSize="10px" bgColor="#525252">Javascript</Tech>
+                <Tech fontSize="10px" bgColor="#525252">HTML</Tech>
+                <Tech fontSize="10px" bgColor="#525252">CSS</Tech>
             </div>
         </footer>
     </div>
