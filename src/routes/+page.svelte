@@ -75,9 +75,9 @@
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
-        <Experience data={infrontExp} on:click={()=>(infrontModal.showModal())}/>
-        <Experience data={kongsbergExp} on:click={()=>(kongsbergModal.showModal())}/>
-        <Experience data={equinorExp} on:click={()=>(equinorModal.showModal())}/>
+        <Experience data={infrontExp} disabled on:click={()=>(infrontModal.showModal())}/>
+        <Experience data={kongsbergExp} disabled on:click={()=>(kongsbergModal.showModal())}/>
+        <Experience data={equinorExp} disabled on:click={()=>(equinorModal.showModal())}/>
 
         <h2>EDUCATION</h2>
         <Experience data={masterExp} disabled/>
