@@ -96,7 +96,7 @@
     @return $random_range;
 }
 
-$colors: ((#486bdc, #3951a3), (#3446bb, #273488), (#0e38c2, #04207c));
+$colors: ((#486bdc, #3951a3), (#3446bb, #273488), (#0e38c2, #04207c), (#7a34bb, #4f2788));
 
 .star {
     will-change: transform, opacity;
