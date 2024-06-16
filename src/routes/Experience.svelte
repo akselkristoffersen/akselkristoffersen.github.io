@@ -4,13 +4,19 @@
 
     export let data;
     export let disabled = false;
+
+    let clicked = false;
+    export function toggleActive() {
+        clicked = !clicked;
+    }
+    
 </script>
 
 
 <button 
     on:click
-    class="experience-button"
     {disabled}
+    class:clicked
     >
     <div class="experience-years">
         <span>
@@ -55,12 +61,13 @@
 
 
 <style lang="scss">
-    .experience-button {
+    button {
         all: unset;
         &:focus {
             outline: revert;
         }
 
+        box-sizing: border-box;
         width: 100%;
         border-radius: 7px;
         display: flex;
@@ -73,8 +80,17 @@
             &:hover:enabled {
                 border: 3px solid var(--semi-dark-color);
                 cursor: pointer;
-                backdrop-filter: brightness(90%);
+                backdrop-filter: brightness(80%);
+                -webkit-backdrop-filter: brightness(80%);
             }
+
+        }
+        transition: transform 420ms ease-in-out;
+        &.clicked{
+            transform: translateX(-8%) scale(108s%);
+            border: 3px solid var(--semi-dark-color);
+            backdrop-filter: brightness(90%);
+            -webkit-backdrop-filter: brightness(90%);
         }
     }
     .experience-years{

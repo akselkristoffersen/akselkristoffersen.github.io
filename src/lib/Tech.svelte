@@ -1,17 +1,15 @@
 <script>
-    export let bgColor = "#273870";
     export let fontSize = "14px";
 </script>
 
-<div 
-    style:font-size={fontSize}
-    style:background-color={bgColor}>
+<div style:font-size={fontSize}>
     <slot>
     </slot>
 </div>
 
 <style lang="scss">
     div {
+        background-color: var(--normal-color);
         border-radius: 18px;
         width: fit-content;
         padding: 0.21rem 0.58rem 0.21rem 0.58rem;
