@@ -411,7 +411,7 @@
             .back-to-initial-button {
                 all: unset;
                 position: absolute;
-                top: 0;
+                top: 30px;
                 left: 0;
                 color: var(--text-color);
                 z-index: 100;
