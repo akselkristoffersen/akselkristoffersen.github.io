@@ -87,7 +87,7 @@
         }
         transition: transform 420ms ease-in-out;
         &.clicked{
-            transform: translateX(-8%) scale(108s%);
+            transform: translateX(-8%) scale(108%);
             border: 3px solid var(--semi-dark-color);
             backdrop-filter: brightness(90%);
             -webkit-backdrop-filter: brightness(90%);
