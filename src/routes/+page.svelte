@@ -5,6 +5,7 @@
     import AkselPicture from '$assets/aksel_picture.png';
     import { Github, Linkedin, Mail, ChevronsRight, SnowflakeIcon } from 'lucide-svelte';
     import Tech from '$lib/Tech.svelte';
+    import MediaQuery from '$lib/MediaQuery.svelte';
     import {onMount, onDestroy} from 'svelte'
 
     const States = Object.freeze({
@@ -22,6 +23,7 @@
     let hideHero = false;
     let currentScroll;
     let changeStateOnScroll = false;
+    //let mql = window.matchMedia("(max-width: 960px)");
 
     const node = {
         [States.Infront]: {  
@@ -155,58 +157,66 @@
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
+        <MediaQuery query="(max-width: 959px)" let:matches>
+            <section id={States.Infront.toString()}>
+                <Experience 
+                    bind:this={node[States.Infront].button}
+                    data={infrontData} 
+                    on:click={() => setState(currentState === States.Infront ? States.Initial : States.Infront)}
+                    disabled={matches}
+                    />  
+            </section>
 
-        <section id={States.Infront.toString()}>
-            <Experience 
-                bind:this={node[States.Infront].button}
-                data={infrontData} 
-                on:click={() => setState(currentState === States.Infront ? States.Initial : States.Infront)}
-            />
-        </section>
+            <section id={States.Kongsberg.toString()}>
+                <Experience 
+                    bind:this={node[States.Kongsberg].button}
+                    data={kongsbergData} 
+                    on:click={() => setState(currentState === States.Kongsberg ? States.Initial : States.Kongsberg)}
+                    disabled={matches}
+                />
+            </section>
 
-        <section id={States.Kongsberg.toString()}>
-            <Experience 
-                bind:this={node[States.Kongsberg].button}
-                data={kongsbergData} 
-                on:click={() => setState(currentState === States.Kongsberg ? States.Initial : States.Kongsberg)}
-            />
-        </section>
+            <section id={States.Equinor.toString()}>
+                <Experience 
+                    bind:this={node[States.Equinor].button}
+                    data={equinorData} 
+                    on:click={() => setState(currentState === States.Equinor ? States.Initial : States.Equinor)}
+                    disabled={matches}
+                />
+            </section>
 
-        <section id={States.Equinor.toString()}>
-            <Experience 
-                bind:this={node[States.Equinor].button}
-                data={equinorData} 
-                on:click={() => setState(currentState === States.Equinor ? States.Initial : States.Equinor)}
-            />
-        </section>
+            <h2>EDUCATION</h2>
 
-        <h2>EDUCATION</h2>
+            <section id={States.Master.toString()}>
+                <Experience 
+                    bind:this={node[States.Master].button}
+                    data={masterData} 
+                    on:click={() => setState(currentState === States.Master ? States.Initial : States.Master)}
+                    disabled={matches}
+                    />
+            </section>
 
-        <section id={States.Master.toString()}>
-            <Experience 
-                bind:this={node[States.Master].button}
-                data={masterData} 
-                on:click={() => setState(currentState === States.Master ? States.Initial : States.Master)}
-            />
-        </section>
+            <section id={States.Bachelor.toString()}>
+                <Experience 
+                    bind:this={node[States.Bachelor].button}
+                    data={bachelorData} 
+                    on:click={() => setState(currentState === States.Bachelor ? States.Initial : States.Bachelor)}
+                    disabled={matches}
+                />
+            </section>
 
-        <section id={States.Bachelor.toString()}>
-            <Experience 
-                bind:this={node[States.Bachelor].button}
-                data={bachelorData} 
-                on:click={() => setState(currentState === States.Bachelor ? States.Initial : States.Bachelor)}
-            />
-        </section>
+            <h2>VOLUNTARY WORK</h2>
 
-        <h2>VOLUNTARY WORK</h2>
+            <section id={States.Vortex.toString()}>
+                <Experience 
+                    bind:this={node[States.Vortex].button}
+                    data={vortexData} 
+                    on:click={() => setState(currentState === States.Vortex ? States.Initial : States.Vortex)}
+                    disabled={matches}
+                />
+            </section>
 
-        <section id={States.Vortex.toString()}>
-            <Experience 
-                bind:this={node[States.Vortex].button}
-                data={vortexData} 
-                on:click={() => setState(currentState === States.Vortex ? States.Initial : States.Vortex)}
-            />
-        </section>
+        </MediaQuery>
 
         <footer>
             <p class="footer-text">Website built with <a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">Svelte</a>. Designed in <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">Figma</a>.</p>
