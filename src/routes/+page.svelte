@@ -489,4 +489,9 @@
             opacity: 1;
         }
     }
+    @supports (height: 100dvh) {
+        .wrapper {
+            height: 100dvh;
+        }
+    }
 </style>
