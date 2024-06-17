@@ -19,6 +19,9 @@
 
     let currentState = States.Initial;
     let prevState = undefined;
+    let hideHero = false;
+    let currentScroll;
+    let changeStateOnScroll = false;
 
     const node = {
         [States.Infront]: {  
@@ -41,25 +44,10 @@
         },
     };
 
-
     function setState(state) {
         currentState = state;
     }
-    
-    // let lastScrollTop = 0;
-    // function onScroll() {
-    //     let st = document.documentElement.scrollTop;
-    //     if (st > lastScrollTop) {
-    //         console.log('down');
-    //     } else if (st < lastScrollTop) {
-    //         console.log('up');
-    //     }
-    //     lastScrollTop = st <= 0 ? 0 : st;
-    // }
 
-    let hideHero = false;
-
-    let currentScroll;
     function onStateChange(newState) {
         if (prevState === States.Initial){
             hideHero = true;
@@ -95,51 +83,13 @@
         onStateChange(currentState);
     }
 
-
-    // function closeOnOffClick(node) {
-    //     const handleOffClick = event => {
-    //         if (event.target === node) {
-    //             node.close();
-    //         }
-    //     }
-    //     const handleClose = event => {
-    //         yo.toggleActive();
-    //     }
-
-    //     node.addEventListener('click', handleOffClick)
-    //     node.addEventListener('close', handleClose)
-    //     return {
-    //         destroy() {
-    //             node.removeEventListener('click', handleOffClick)
-    //             node.removeEventListener('close', handleClose)
-    //         }
-    //     }
-    // }
-
-    let changeStateOnScroll = false;
-    // let lastScrollTop = 0;
-
     function onScroll() {
-        // let st = window.scrollY || document.getElementById("wrapper")?.scrollTop;
-        // if (changeStateOnScroll)
-        // {
-        //     if (st > lastScrollTop) {
-        //         console.log('up');
-        //         setState(currentState + 1);
-        //     } else if (st < lastScrollTop) {
-        //         console.log('down');
-        //         setState(currentState - 1);
-        //     }
-        //     changeStateOnScroll = false;
-        // }
         if (changeStateOnScroll)
         {
             setState(States.Initial);
             changeStateOnScroll = false;
         }
-        //lastScrollTop = st <= 0 ? 0 : st;
     }
-
 
     function onScrollend() {
         if (currentState !== States.Initial)
@@ -153,11 +103,6 @@
         window.addEventListener("scrollend", onScrollend, true);
     });
 
-    onDestroy(() => {
-        //window.removeEventListener("scroll", onScroll, true);
-        //window.removeEventListener("scrollend", onScrollend, false);
-    });
-
 
     function scrollIntoView(target) {
         const element = document.getElementById("wrapper");
@@ -169,18 +114,6 @@
         });
         return offsetPosition;
     }
-    
-    // document.onkeydown = (evt) => {
-    //     let isEscape = false;
-    //     if ("key" in evt) {
-    //         isEscape = (evt.key === "Escape" || evt.key === "Esc");
-    //     } else {
-    //         isEscape = (evt.keyCode === 27);
-    //     }
-    //     if (isEscape) {
-    //         setState(States.Initial);
-    //     }
-    // };
 
 </script>
 
