@@ -417,10 +417,6 @@
         color: var(--text-color);
         font-weight: 500;
         text-decoration: none;
-        opacity: 0.7;
-        &:hover {
-            opacity: 1;
-        }
     }
     @supports (height: 100dvh) {
         .wrapper {
