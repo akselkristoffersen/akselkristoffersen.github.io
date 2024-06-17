@@ -69,7 +69,7 @@ export const vortexData = {
     location: 'Trondheim, Norway',
     startDate: new Date(2019, 8),
     endDate: new Date(2020, 6),
-    workTitle: 'Autonomy Engineer',
+    workTitle: 'Autonomy Developer',
     tech: ['ROS', 'Linux', 'Python', 'Git'],
     description: 'Writing software for a non-profit student organization developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. My focus was on developing the system for autonomous navigation in ROS.'
 };
