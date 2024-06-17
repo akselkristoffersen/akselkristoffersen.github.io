@@ -296,6 +296,7 @@
         display: flex;
         flex-wrap: wrap;
         overflow-y: auto;
+        overflow-x: hidden;
         @include breakpoint.up('sm') {
             padding: 40px 20px 30px;
         }
@@ -393,9 +394,10 @@
                 .hero-logos {
                     display: flex;
                     a {
+                        z-index: 100;
                         margin-right: 15px;
-                        opacity: 0.7;
                         align-items: center;
+                        opacity: 0.7;
                         color: var(--text-color);
                         &:hover {
                             opacity: 1;
