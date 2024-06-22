@@ -81,12 +81,14 @@
             margin-bottom: 30px;
             padding: 13px 11px;
         }
-        &:hover:enabled {
+        @media (hover: hover) {
+            &:hover:enabled {
                 border: 3px solid var(--semi-dark-color);
                 cursor: pointer;
                 backdrop-filter: brightness(80%);
                 -webkit-backdrop-filter: brightness(80%);
             }
+        }
     }
     .experience-years{
         margin-right: 33px;
