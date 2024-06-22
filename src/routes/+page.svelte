@@ -6,7 +6,7 @@
     import AkselPicture from '$assets/aksel_picture.png';
     import HuginSuperior from '$assets/hugin_superior.png';
     import { X } from 'lucide-svelte';
-    import Linkedin from '$assets/linkedIn_icon.svg';
+    import Linkedin from '$assets/linkedin_icon.svg';
     import Github from '$assets/github_icon.svg';
     import Mail from '$assets/email_icon.svg';
     import Tech from '$lib/Tech.svelte';
