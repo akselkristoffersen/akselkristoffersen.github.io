@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, createEventDispatcher } from "svelte";
 
     export let query;
 
@@ -7,6 +7,8 @@
     let mqlListener;
     let wasMounted = false;
     let matches = false;
+
+    const dispatch = createEventDispatcher();
 
     onMount(() => {
         wasMounted = true;
@@ -19,6 +21,12 @@
         if (wasMounted) {
             removeActiveListener();
             addNewListener(query);
+        }
+    }
+
+    $: {
+        if (matches) {
+            dispatch('matches');
         }
     }
 

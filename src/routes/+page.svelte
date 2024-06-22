@@ -1,12 +1,16 @@
 <script>
     import Stars from './Stars.svelte';
     import Experience from './Experience.svelte';
+    import Testimonial from './Testimonial.svelte';
     import { infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
-    import { Github, Linkedin, Mail, ChevronsRight, SnowflakeIcon } from 'lucide-svelte';
+    import HuginSuperior from '$assets/hugin_superior.png';
+    import { X } from 'lucide-svelte';
+    import Linkedin from '$assets/linkedIn_icon.svg';
+    import Github from '$assets/github_icon.svg';
+    import Mail from '$assets/email_icon.svg';
     import Tech from '$lib/Tech.svelte';
     import MediaQuery from '$lib/MediaQuery.svelte';
-    import {onMount, onDestroy} from 'svelte'
 
     const States = Object.freeze({
         Initial: "initial",
@@ -20,10 +24,7 @@
 
     let currentState = States.Initial;
     let prevState = undefined;
-    let hideHero = false;
-    let currentScroll;
-    let changeStateOnScroll = false;
-    //let mql = window.matchMedia("(max-width: 960px)");
+    let testModal;
 
     const node = {
         [States.Infront]: {  
@@ -46,22 +47,28 @@
         },
     };
 
+    function closeOnOffClick(node) {
+        const handleOffClick = event => {
+            if (event.target === node) {
+                    node.close();
+                }
+        }
+        node.addEventListener('click', handleOffClick)
+        return {
+            destroy() {
+                node.removeEventListener('click', handleOffClick)
+            }
+        }
+    }
+
     function setState(state) {
         currentState = state;
     }
 
     function onStateChange(newState) {
-        if (prevState === States.Initial){
-            hideHero = true;
-        }
-        if (prevState && prevState !== States.Initial) {
-            node[prevState].button.toggleActive();
-        }
         console.log(newState);
         switch (newState) {
             case States.Initial:
-                hideHero = false;
-                changeStateOnScroll = false;
                 break;
             case States.Infront:
             case States.Kongsberg:
@@ -69,12 +76,6 @@
             case States.Master:
             case States.Bachelor:
             case States.Vortex:
-                node[newState].button.toggleActive();
-                if (prevState !== States.Initial)
-                {
-                    changeStateOnScroll = false;
-                }
-                currentScroll = scrollIntoView(document.getElementById(newState.toString()));
                 break;
             default:
         }
@@ -85,85 +86,81 @@
         onStateChange(currentState);
     }
 
-    function onScroll() {
-        if (changeStateOnScroll)
-        {
-            setState(States.Initial);
-            changeStateOnScroll = false;
-        }
-    }
-
-    function onScrollend() {
-        if (currentState !== States.Initial)
-        {
-            changeStateOnScroll = true;
-        };
-    }
-
-    onMount(() => {
-        window.addEventListener("scroll", onScroll, true);
-        window.addEventListener("scrollend", onScrollend, true);
-    });
-
-
-    function scrollIntoView(target) {
-        const element = document.getElementById("wrapper");
-        let elementPosition = target.getBoundingClientRect().top;
-        let offsetPosition = elementPosition + element.scrollTop - window.innerHeight / 4.2;
-        element.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-        return offsetPosition;
-    }
-
 </script>
+
+<dialog bind:this={testModal} use:closeOnOffClick>
+    <button class="dialog-button" on:click={testModal.close()}>
+        <X strokeWidth={3} size={30}/>
+    </button>
+    <div class="dialog-content">
+        <div class="dialog-content-first-row">
+            <img src={HuginSuperior} alt="Aksel Kristoffersen"/>
+            <div class="dialog-content-first-row-experience">
+                <Experience 
+                    bind:this={node[States.Kongsberg].button}
+                    data={kongsbergData} 
+                    disabled={true}
+                />
+            </div>
+        </div>
+        <div class="dialog-content-second-row">
+            <!-- <Testimonial
+                src={AkselPicture} 
+                name="Aksel Kristoffersen" 
+                title="Chief"
+                company="Infront"
+                linkedin="https://www.linkedin.com/in/akselkristoffersen"
+                quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
+            </Testimonial>
+            <Testimonial
+                src={AkselPicture} 
+                name="Aksel Kristoffersen" 
+                title="Chief"
+                company="Infront"
+                linkedin="https://www.linkedin.com/in/akselkristoffersen"
+                quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
+            </Testimonial> -->
+        </div>
+    </div>
+</dialog>
 
 <div class="wrapper" id="wrapper">
     <div class="stars">
         <Stars />
     </div>
     <div class="first-content">
-        <div class="slide" class:is-hidden={!hideHero}>
-        </div>
-        {#if currentState !== States.Initial}
-            <button class="back-to-initial-button" on:click={() => setState(States.Initial)}>
-                <ChevronsRight size=40/>
-            </button>
-        {/if}
-        <div class="hero" class:is-hidden={hideHero}>
+        <div class="hero">
             <h1><span class="company-name">Akspertise AS</span>Aksel Kristoffersen</h1>
             <div class="hero-block">
                 <div class="hero-block-text">
                     <p class="work-title">Software Engineer</p>
                     <p>
-                        Versatile and adaptable, I thrive in dynamic environments. Committed to writing clean, well-tested code, I implement robust solutions that lasts.            
+                        Versatile and adaptable, I thrive in dynamic environments. Committed to writing clean and well-tested code.            
                     </p>
                 </div>
                 <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
             </div>
             <div class="hero-logos">
                 <a href="https://www.linkedin.com/in/akselkristoffersen" target="_blank" rel="noopener noreferrer">
-                    <Linkedin />
-                </a>
-                <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer">
-                    <Github />
+                    <img src={Linkedin} alt="LinkedIn icon"/>
                 </a>
                 <a href="mailto:akselkr@akspertise.com">
-                    <Mail />
+                    <img src={Mail} alt="Email icon"/>
+                </a>
+                <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer">
+                    <img src={Github} alt="Github icon"/>
                 </a>
             </div>
         </div>
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
-        <MediaQuery query="(max-width: 959px)" let:matches>
             <section id={States.Infront.toString()}>
                 <Experience 
                     bind:this={node[States.Infront].button}
                     data={infrontData} 
                     on:click={() => setState(currentState === States.Infront ? States.Initial : States.Infront)}
-                    disabled={matches}
+                    disabled                
                     />  
             </section>
 
@@ -171,8 +168,7 @@
                 <Experience 
                     bind:this={node[States.Kongsberg].button}
                     data={kongsbergData} 
-                    on:click={() => setState(currentState === States.Kongsberg ? States.Initial : States.Kongsberg)}
-                    disabled={matches}
+                    on:click={() => testModal.showModal()}
                 />
             </section>
 
@@ -181,8 +177,8 @@
                     bind:this={node[States.Equinor].button}
                     data={equinorData} 
                     on:click={() => setState(currentState === States.Equinor ? States.Initial : States.Equinor)}
-                    disabled={matches}
-                />
+                    disabled
+                    />
             </section>
 
             <h2>EDUCATION</h2>
@@ -192,7 +188,7 @@
                     bind:this={node[States.Master].button}
                     data={masterData} 
                     on:click={() => setState(currentState === States.Master ? States.Initial : States.Master)}
-                    disabled={matches}
+                    disabled
                     />
             </section>
 
@@ -201,8 +197,8 @@
                     bind:this={node[States.Bachelor].button}
                     data={bachelorData} 
                     on:click={() => setState(currentState === States.Bachelor ? States.Initial : States.Bachelor)}
-                    disabled={matches}
-                />
+                    disabled
+                    />
             </section>
 
             <h2>VOLUNTARY WORK</h2>
@@ -212,11 +208,9 @@
                     bind:this={node[States.Vortex].button}
                     data={vortexData} 
                     on:click={() => setState(currentState === States.Vortex ? States.Initial : States.Vortex)}
-                    disabled={matches}
-                />
+                    disabled
+                    />
             </section>
-
-        </MediaQuery>
 
         <footer>
             <p class="footer-text">Website built with <a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">Svelte</a>. Designed in <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">Figma</a>.</p>
@@ -241,10 +235,10 @@
         overflow-y: auto;
         overflow-x: hidden;
         @include breakpoint.up('sm') {
-            padding: 40px 20px 30px;
+            padding: 40px 8px 30px;
         }
         @include breakpoint.up('md') {
-            padding: 40px 31px 30px;
+            padding: 40px 19px 30px;
         }
         @include breakpoint.up('lg') {
             padding: 0px;
@@ -252,7 +246,6 @@
             flex-direction: row;
             margin: auto;
         }
-
         .stars {
             position: relative;
             height: 100px;
@@ -271,6 +264,7 @@
             top: 0;
             position: relative;
             margin-bottom: 50px;
+            padding-left: 12px;
             @include breakpoint.up('lg') {
                 flex: 1;
                 max-width: 600px;
@@ -320,25 +314,26 @@
                     .aksel-picture{
                         border: 3px solid #2F3943;
                         margin: 10px 10px 0px 12px;
-                        height: 125px;
+                        height: 120px;
                         width: auto;
                         opacity: 0.85;
                         border-radius: 5px;
                         filter: brightness(0.95);
                         background-image: linear-gradient(to left top, var(--bg-color) 70%, var(--bg-color-dark));
                         @include breakpoint.up('md') {
-                            height: 130px;
+                            height: 125px;
                         }
                         @include breakpoint.up('lg') {
-                            height: 135px;
+                            height: 130px;
                         }
                     }
                 }
                 .hero-logos {
                     display: flex;
+                    margin-left: 3px;
                     a {
                         z-index: 100;
-                        margin-right: 15px;
+                        margin-right: 17px;
                         align-items: center;
                         opacity: 0.7;
                         color: var(--text-color);
@@ -346,36 +341,11 @@
                             opacity: 1;
                         }
                     }
+                    img {
+                        height: 22px;
+                    }
                 }
-                transition: transform 400ms, opacity 400ms;
-                &.is-hidden {
-                    transform: translateX(-100%);
-                    opacity: 0;
-                }
-            }
-            .back-to-initial-button {
-                all: unset;
-                position: absolute;
-                top: 30px;
-                left: 0;
-                color: var(--text-color);
-                z-index: 100;
-                &:hover:enabled {
-                    cursor: pointer;
-                    color: white;
-                }
-            }
-            .slide {
-                width: 90%;
-                height: 78vh;
-                top: 0;
-                left: 0;
-                transition: opacity 400ms;
-                position: absolute;
-                max-width: 600px;
-                &.is-hidden {
-                    opacity: 0;
-                }
+                transition: transform 350ms, opacity 350ms;
             }
         }
         .second-content {
@@ -386,8 +356,9 @@
                 padding: 30px 50px 30px 0px;
             }
             h2 {
+                padding-left: 12px;
                 @include breakpoint.up('lg') {
-                    padding-left: 13px;
+                    padding-left: 14px;
                 }
             }
             footer {
@@ -423,11 +394,57 @@
     p {
         color: var(--semi-light-color);
     }
-    a {
-        color: var(--text-color);
-        font-weight: 500;
-        text-decoration: none;
+    dialog {
+        padding: 0;
+        height: fit-content;
+        width: fit-content;
+        max-height: 85vh;
+        max-width: Min(90vw, 900px);
+        color: inherit;
+        background-color: var(--bg-color-dark);
+        border-radius: 7px;
+        border: none;
+        .dialog-button {
+            all: unset;
+            position: absolute;
+            right: 0px;
+            margin: 14px;
+            z-index: 100;
+            color: var(--semi-light-color);
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .dialog-content {
+            padding: 25px 30px 15px 30px;
+            height: 100%;
+            width: 100%;
+            .dialog-content-first-row {
+                display: flex;
+                width: 100%;
+                justify-content: space-evenly;
+                img {
+                    margin-right: 10px;
+                    width: 40%;
+                    align-self: center;
+                }
+                @include breakpoint.down('md') {
+                    display: none;
+                }
+            }
+            .dialog-content-second-row {
+                flex: 1;
+                flex-shrink: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
     }
+    dialog::backdrop {
+        backdrop-filter: blur(3.5px);
+    }
+
     @supports (height: 100dvh) {
         .wrapper {
             height: 100dvh;

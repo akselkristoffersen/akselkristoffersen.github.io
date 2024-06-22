@@ -26,7 +26,14 @@ export const kongsbergData = {
     tech: ['C++', 'Qt', 'CSS', 'gtest'],
     subTitle: 'Consultant via Data Respons R&D Services',
     subLogo: DRLogo,
-    description: 'I contributed to the development of software for both the Hugin AUVs and Sounder USV, working across two teams. Within the topside team, I utilized Qt to enhance functionality for the remote operator station. Meanwhile, in the autonomy team, my responsibilities included developing and maintaining control- and guidance systems, including the incorporation of a third-party behavior tree library.'
+    description: 'I contributed to software development for both the Hugin AUVs and Sounder USV, working across two teams. Within the topside team, I utilized Qt to enhance functionality for the remote operator station. Meanwhile, in the autonomy team, my responsibilities included developing and maintaining of the control and guidance systems for the vehicles.',
+    // testimonials: [{
+    //     name: "Tommy Jansson",
+    //     title "Chief",
+    //     img: ,
+    //     quote: 
+    //     linkedin: ,
+    // }]
 };
 
 export const equinorData = {

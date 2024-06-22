@@ -72,26 +72,28 @@
         border-radius: 7px;
         display: flex;
         flex-direction: column;
-        margin-bottom: 48px;
         margin-top: 18px;
+        margin-bottom: 50px;
+        border: 3px solid transparent;
+        padding: 10px 9px;
         @include breakpoint.up('lg') {
-            border: 3px solid transparent;
-            padding: 10px 10px;
-            &:hover:enabled {
+            margin-top: 16px;
+            margin-bottom: 30px;
+            padding: 13px 11px;
+        }
+        &:hover:enabled {
                 border: 3px solid var(--semi-dark-color);
                 cursor: pointer;
                 backdrop-filter: brightness(80%);
                 -webkit-backdrop-filter: brightness(80%);
             }
-
-        }
-        transition: transform 420ms ease-in-out;
-        &.clicked{
-            transform: translateX(-8%) scale(108%);
-            border: 3px solid var(--semi-dark-color);
-            backdrop-filter: brightness(90%);
-            -webkit-backdrop-filter: brightness(90%);
-        }
+        //transition: transform 420ms ease-in-out;
+        // &.clicked{
+        //     //transform: translateX(-8%);
+        //     border: 3px solid var(--semi-dark-color);
+        //     backdrop-filter: brightness(90%);
+        //     -webkit-backdrop-filter: brightness(90%);
+        // }
     }
     .experience-years{
         margin-right: 33px;
