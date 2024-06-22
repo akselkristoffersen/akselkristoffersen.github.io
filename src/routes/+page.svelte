@@ -66,7 +66,6 @@
     }
 
     function onStateChange(newState) {
-        console.log(newState);
         switch (newState) {
             case States.Initial:
                 break;
@@ -105,14 +104,6 @@
         </div>
         <div class="dialog-content-second-row">
             <!-- <Testimonial
-                src={AkselPicture} 
-                name="Aksel Kristoffersen" 
-                title="Chief"
-                company="Infront"
-                linkedin="https://www.linkedin.com/in/akselkristoffersen"
-                quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
-            </Testimonial>
-            <Testimonial
                 src={AkselPicture} 
                 name="Aksel Kristoffersen" 
                 title="Chief"
