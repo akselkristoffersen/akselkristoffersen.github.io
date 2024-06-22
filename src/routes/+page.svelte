@@ -1,6 +1,7 @@
 <script>
     import Stars from './Stars.svelte';
     import Experience from './Experience.svelte';
+    import Modal from './Modal.svelte';
     import Testimonial from './Testimonial.svelte';
     import { infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
@@ -24,7 +25,7 @@
 
     let currentState = States.Initial;
     let prevState = undefined;
-    let testModal;
+    let modal;
 
     const node = {
         [States.Infront]: {  
@@ -46,20 +47,6 @@
             button: {},
         },
     };
-
-    function closeOnOffClick(node) {
-        const handleOffClick = event => {
-            if (event.target === node) {
-                    node.close();
-                }
-        }
-        node.addEventListener('click', handleOffClick)
-        return {
-            destroy() {
-                node.removeEventListener('click', handleOffClick)
-            }
-        }
-    }
 
     function setState(state) {
         currentState = state;
@@ -87,44 +74,38 @@
 
 </script>
 
-<dialog bind:this={testModal} use:closeOnOffClick>
-    <button class="dialog-button" on:click={testModal.close()}>
-        <X strokeWidth={3} size={30} />
-    </button>
-    <div class="dialog-content">
-        
-        <div class="dialog-content-first-row">
-            <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
-                <img src={HuginSuperior} alt="Aksel Kristoffersen"/>
-            </a>
-            <div class="dialog-content-first-row-experience">
-                <Experience 
-                    bind:this={node[States.Kongsberg].button}
-                    data={kongsbergData} 
-                    disabled={true}
-                />
-            </div>
-        </div>
-        <div class="dialog-content-second-row">
-            <!-- <Testimonial
-                src={AkselPicture} 
-                name="Aksel Kristoffersen" 
-                title="Chief"
-                company="Infront"
-                linkedin="https://www.linkedin.com/in/akselkristoffersen"
-                quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
-            </Testimonial>
-            <Testimonial
-                src={AkselPicture} 
-                name="Aksel Kristoffersen" 
-                title="Chief"
-                company="Infront"
-                linkedin="https://www.linkedin.com/in/akselkristoffersen"
-                quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
-            </Testimonial> -->
+<Modal bind:this={modal}>
+    <div class="dialog-content-first-row">
+        <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
+            <img src={HuginSuperior} alt="Aksel Kristoffersen"/>
+        </a>
+        <div class="dialog-content-first-row-experience">
+            <Experience 
+                bind:this={node[States.Kongsberg].button}
+                data={kongsbergData} 
+                disabled={true}
+            />
         </div>
     </div>
-</dialog>
+    <div class="dialog-content-second-row">
+        <!-- <Testimonial
+            src={AkselPicture} 
+            name="Aksel Kristoffersen" 
+            title="Chief"
+            company="Infront"
+            linkedin="https://www.linkedin.com/in/akselkristoffersen"
+            quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
+        </Testimonial>
+        <Testimonial
+            src={AkselPicture} 
+            name="Aksel Kristoffersen" 
+            title="Chief"
+            company="Infront"
+            linkedin="https://www.linkedin.com/in/akselkristoffersen"
+            quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
+        </Testimonial> -->
+    </div>
+</Modal>
 
 <div class="wrapper" id="wrapper">
     <div class="stars">
@@ -170,7 +151,7 @@
                 <Experience 
                     bind:this={node[States.Kongsberg].button}
                     data={kongsbergData} 
-                    on:click={() => testModal.showModal()}
+                    on:click={() => modal.showModal()}
                 />
             </section>
 
@@ -397,62 +378,31 @@
     p {
         color: var(--semi-light-color);
     }
-    dialog {
-        padding: 0;
-        height: fit-content;
-        width: fit-content;
-        max-height: 85vh;
-        max-width: Min(90vw, 900px);
-        color: inherit;
-        background-color: var(--bg-color-dark);
-        border-radius: 7px;
-        border: none;
-        .dialog-button {
-            all: unset;
-            position: absolute;
-            right: 0px;
-            margin: 14px;
-            z-index: 100;
-            color: var(--semi-light-color);
-            &:hover {
-                cursor: pointer;
+    .dialog-content-first-row {
+        display: flex;
+        justify-content: space-evenly;
+        @include breakpoint.down('md') {
+            display: none;
+        }
+        .dialog-content-img {
+            margin-right: 10px;
+            text-align: center;
+            align-self: center;
+            flex: 0.5;
+            img {
+                width: 100%;
             }
         }
-        .dialog-content {
-            padding: 25px 30px 15px 30px;
-            height: fit-content;
-            width: fit-content;
-            .dialog-content-first-row {
-                display: flex;
-                justify-content: space-evenly;
-                @include breakpoint.down('md') {
-                    display: none;
-                }
-                .dialog-content-img {
-                    margin-right: 10px;
-                    text-align: center;
-                    align-self: center;
-                    flex: 0.5;
-                    img {
-                        width: 100%;
-                    }
-                }
-                .dialog-content-first-row-experience {
-                    flex: 1;
-                }
-            }
-            .dialog-content-second-row {
-                flex: 1;
-                flex-shrink: 0;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        .dialog-content-first-row-experience {
+            flex: 1;
         }
     }
-    dialog::backdrop {
-        backdrop-filter: blur(3.5px);
-        -webkit-backdrop-filter: blur(3.5px);
+    .dialog-content-second-row {
+        flex: 1;
+        flex-shrink: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     @supports (height: 100dvh) {
