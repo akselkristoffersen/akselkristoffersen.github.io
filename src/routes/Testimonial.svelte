@@ -1,5 +1,5 @@
 <script>
-    import Linkedin from '$assets/linkedIn_icon.svg';
+    import Linkedin from '$assets/linkedin_icon.svg';
 
     export let src;
     export let name;
