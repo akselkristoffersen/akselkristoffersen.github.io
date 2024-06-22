@@ -415,6 +415,7 @@
         }
         .dialog-content-img {
             margin-right: 30px;
+            margin-left: 15px;
             text-align: center;
             align-self: center;
             flex: 0.5;
