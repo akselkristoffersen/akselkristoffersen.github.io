@@ -434,6 +434,7 @@
     }
     dialog::backdrop {
         backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
     }
 
     @supports (height: 100dvh) {
