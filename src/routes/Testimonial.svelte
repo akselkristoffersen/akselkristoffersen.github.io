@@ -19,7 +19,7 @@
             <h4>{title}</h4>
             <h4>{company}</h4>
         </div>
-        <a class="bubble" href={linkedin} target="_blank" rel="noopener noreferrer" onclick="return confirm('Are you sure you want to visit {name}\'s LinkedIn page?')">
+        <a class="bubble" href={linkedin} target="_blank" rel="noopener noreferrer" onclick="return confirm('Are you sure you want to visit {name}\'s LinkedIn profile?')">
             <img src={Linkedin} alt="LinkedIn icon" class="linkedin-icon"/>
         </a>
     </div>

@@ -89,11 +89,14 @@
 
 <dialog bind:this={testModal} use:closeOnOffClick>
     <button class="dialog-button" on:click={testModal.close()}>
-        <X strokeWidth={3} size={30}/>
+        <X strokeWidth={3} size={30} />
     </button>
     <div class="dialog-content">
+        
         <div class="dialog-content-first-row">
-            <img src={HuginSuperior} alt="Aksel Kristoffersen"/>
+            <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
+                <img src={HuginSuperior} alt="Aksel Kristoffersen"/>
+            </a>
             <div class="dialog-content-first-row-experience">
                 <Experience 
                     bind:this={node[States.Kongsberg].button}
@@ -104,6 +107,14 @@
         </div>
         <div class="dialog-content-second-row">
             <!-- <Testimonial
+                src={AkselPicture} 
+                name="Aksel Kristoffersen" 
+                title="Chief"
+                company="Infront"
+                linkedin="https://www.linkedin.com/in/akselkristoffersen"
+                quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
+            </Testimonial>
+            <Testimonial
                 src={AkselPicture} 
                 name="Aksel Kristoffersen" 
                 title="Chief"
@@ -414,13 +425,20 @@
             .dialog-content-first-row {
                 display: flex;
                 justify-content: space-evenly;
-                img {
-                    margin-right: 10px;
-                    width: 40%;
-                    align-self: center;
-                }
                 @include breakpoint.down('md') {
                     display: none;
+                }
+                .dialog-content-img {
+                    margin-right: 10px;
+                    text-align: center;
+                    align-self: center;
+                    flex: 0.5;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .dialog-content-first-row-experience {
+                    flex: 1;
                 }
             }
             .dialog-content-second-row {
