@@ -6,12 +6,12 @@
     import { infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
     import HuginSuperior from '$assets/hugin_superior.png';
-    import { X } from 'lucide-svelte';
+    import InfrontTerminal from '$assets/infront_terminal.png';
+    import Taurob from '$assets/taurob.png';
     import Linkedin from '$assets/linkedin_icon.svg';
     import Github from '$assets/github_icon.svg';
     import Mail from '$assets/email_icon.svg';
     import Tech from '$lib/Tech.svelte';
-    import MediaQuery from '$lib/MediaQuery.svelte';
 
     const States = Object.freeze({
         Initial: "initial",
@@ -25,7 +25,9 @@
 
     let currentState = States.Initial;
     let prevState = undefined;
-    let modal;
+    let infrontModal;
+    let kongsbergModal;
+    let equinorModal;
 
     const node = {
         [States.Infront]: {  
@@ -74,14 +76,28 @@
 
 </script>
 
-<Modal bind:this={modal}>
+<Modal bind:this={infrontModal}>
     <div class="dialog-content-first-row">
-        <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
-            <img src={HuginSuperior} alt="Aksel Kristoffersen"/>
+        <a class="dialog-content-img" href="https://www.infront.co/" target="_blank" rel="noopener noreferrer">
+            <img src={InfrontTerminal} alt="Infront Terminal"/>
         </a>
         <div class="dialog-content-first-row-experience">
             <Experience 
-                bind:this={node[States.Kongsberg].button}
+                data={infrontData} 
+                disabled={true}
+            />
+        </div>
+    </div>
+    <div class="dialog-content-second-row">
+    </div>
+</Modal>
+<Modal bind:this={kongsbergModal}>
+    <div class="dialog-content-first-row">
+        <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
+            <img src={HuginSuperior} alt="Hugin Superior"/>
+        </a>
+        <div class="dialog-content-first-row-experience">
+            <Experience 
                 data={kongsbergData} 
                 disabled={true}
             />
@@ -104,6 +120,21 @@
             linkedin="https://www.linkedin.com/in/akselkristoffersen"
             quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
         </Testimonial> -->
+    </div>
+</Modal>
+<Modal bind:this={equinorModal}>
+    <div class="dialog-content-first-row">
+        <a class="dialog-content-img" href="https://loop.equinor.com/en/stories/taurob" target="_blank" rel="noopener noreferrer">
+            <img src={Taurob} alt="Taurob"/>
+        </a>
+        <div class="dialog-content-first-row-experience">
+            <Experience 
+                data={equinorData} 
+                disabled={true}
+            />
+        </div>
+    </div>
+    <div class="dialog-content-second-row">
     </div>
 </Modal>
 
@@ -142,8 +173,7 @@
                 <Experience 
                     bind:this={node[States.Infront].button}
                     data={infrontData} 
-                    on:click={() => setState(currentState === States.Infront ? States.Initial : States.Infront)}
-                    disabled                
+                    on:click={() => infrontModal.showModal()}             
                     />  
             </section>
 
@@ -151,7 +181,7 @@
                 <Experience 
                     bind:this={node[States.Kongsberg].button}
                     data={kongsbergData} 
-                    on:click={() => modal.showModal()}
+                    on:click={() => kongsbergModal.showModal()}
                 />
             </section>
 
@@ -159,8 +189,7 @@
                 <Experience 
                     bind:this={node[States.Equinor].button}
                     data={equinorData} 
-                    on:click={() => setState(currentState === States.Equinor ? States.Initial : States.Equinor)}
-                    disabled
+                    on:click={() => equinorModal.showModal()}
                     />
             </section>
 
@@ -385,7 +414,7 @@
             display: none;
         }
         .dialog-content-img {
-            margin-right: 10px;
+            margin-right: 30px;
             text-align: center;
             align-self: center;
             flex: 0.5;
