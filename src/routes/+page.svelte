@@ -220,7 +220,7 @@
     .wrapper {
         width: 100%;
         height: 100vh;
-        padding: 30px 15px 30px;
+        padding: 30px 3px 30px;
         display: flex;
         flex-wrap: wrap;
         overflow-y: auto;
@@ -354,6 +354,7 @@
             }
             footer {
                 font-size: functions.toRem(2);
+                padding-left: 12px;
                 @include breakpoint.up('lg') {
                     padding: 10px 10px;
                 }
