@@ -409,7 +409,7 @@
         .dialog-content {
             padding: 25px 30px 15px 30px;
             height: fit-content;
-            width: 100%;
+            width: fit-content;
             .dialog-content-first-row {
                 display: flex;
                 width: 100%;
