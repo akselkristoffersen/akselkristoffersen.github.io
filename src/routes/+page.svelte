@@ -412,7 +412,6 @@
             width: fit-content;
             .dialog-content-first-row {
                 display: flex;
-                width: 100%;
                 justify-content: space-evenly;
                 img {
                     margin-right: 10px;
