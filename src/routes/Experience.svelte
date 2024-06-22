@@ -87,17 +87,10 @@
                 backdrop-filter: brightness(80%);
                 -webkit-backdrop-filter: brightness(80%);
             }
-        //transition: transform 420ms ease-in-out;
-        // &.clicked{
-        //     //transform: translateX(-8%);
-        //     border: 3px solid var(--semi-dark-color);
-        //     backdrop-filter: brightness(90%);
-        //     -webkit-backdrop-filter: brightness(90%);
-        // }
     }
     .experience-years{
         margin-right: 33px;
-        margin-bottom: 3px;
+        margin-bottom: 4px;
         display: flex;
         width: 100%;
         justify-content: space-between;
