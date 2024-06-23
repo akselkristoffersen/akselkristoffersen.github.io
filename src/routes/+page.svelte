@@ -13,67 +13,9 @@
     import Mail from '$assets/email_icon.svg';
     import Tech from '$lib/Tech.svelte';
 
-    const States = Object.freeze({
-        Initial: "initial",
-        Infront: "infront",
-        Kongsberg: "kongsberg",
-        Equinor: "equinor",
-        Master: "master",
-        Bachelor: "bachelor",
-        Vortex: "vortex",
-    });
-
-    let currentState = States.Initial;
-    let prevState = undefined;
     let infrontModal;
     let kongsbergModal;
     let equinorModal;
-
-    const node = {
-        [States.Infront]: {  
-            button: {},
-        },
-        [States.Kongsberg]: { 
-            button: {},
-        },
-        [States.Equinor]: { 
-            button: {},
-        },
-        [States.Master]: {  
-            button: {},
-        },
-        [States.Bachelor]: { 
-            button: {},
-        },
-        [States.Vortex]: { 
-            button: {},
-        },
-    };
-
-    function setState(state) {
-        currentState = state;
-    }
-
-    function onStateChange(newState) {
-        switch (newState) {
-            case States.Initial:
-                break;
-            case States.Infront:
-            case States.Kongsberg:
-            case States.Equinor:
-            case States.Master:
-            case States.Bachelor:
-            case States.Vortex:
-                break;
-            default:
-        }
-        prevState = newState;
-    }
-
-    $: {
-        onStateChange(currentState);
-    }
-
 </script>
 
 <Modal bind:this={infrontModal}>
@@ -169,60 +111,39 @@
     </div>
     <div class="second-content">
         <h2>EXPERIENCE</h2>
-            <section id={States.Infront.toString()}>
-                <Experience 
-                    bind:this={node[States.Infront].button}
-                    data={infrontData} 
-                    on:click={() => infrontModal.showModal()}             
-                    />  
-            </section>
+            <Experience 
+                data={infrontData} 
+                on:click={() => infrontModal.showModal()}             
+                />  
 
-            <section id={States.Kongsberg.toString()}>
-                <Experience 
-                    bind:this={node[States.Kongsberg].button}
-                    data={kongsbergData} 
-                    on:click={() => kongsbergModal.showModal()}
+            <Experience 
+                data={kongsbergData} 
+                on:click={() => kongsbergModal.showModal()}
+            />
+
+            <Experience 
+                data={equinorData} 
+                on:click={() => equinorModal.showModal()}
                 />
-            </section>
-
-            <section id={States.Equinor.toString()}>
-                <Experience 
-                    bind:this={node[States.Equinor].button}
-                    data={equinorData} 
-                    on:click={() => equinorModal.showModal()}
-                    />
-            </section>
 
             <h2>EDUCATION</h2>
 
-            <section id={States.Master.toString()}>
-                <Experience 
-                    bind:this={node[States.Master].button}
-                    data={masterData} 
-                    on:click={() => setState(currentState === States.Master ? States.Initial : States.Master)}
-                    disabled
-                    />
-            </section>
+            <Experience 
+                data={masterData} 
+                disabled
+                />
 
-            <section id={States.Bachelor.toString()}>
-                <Experience 
-                    bind:this={node[States.Bachelor].button}
-                    data={bachelorData} 
-                    on:click={() => setState(currentState === States.Bachelor ? States.Initial : States.Bachelor)}
-                    disabled
-                    />
-            </section>
+            <Experience 
+                data={bachelorData} 
+                disabled
+                />
 
             <h2>VOLUNTARY WORK</h2>
 
-            <section id={States.Vortex.toString()}>
-                <Experience 
-                    bind:this={node[States.Vortex].button}
-                    data={vortexData} 
-                    on:click={() => setState(currentState === States.Vortex ? States.Initial : States.Vortex)}
-                    disabled
-                    />
-            </section>
+            <Experience 
+                data={vortexData} 
+                disabled
+                />
 
         <footer>
             <p class="footer-text">Website built with <a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">Svelte</a>. Designed in <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">Figma</a>.</p>
