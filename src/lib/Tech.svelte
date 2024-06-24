@@ -13,7 +13,7 @@
         border-radius: 18px;
         width: fit-content;
         padding: 0.21rem 0.58rem 0.21rem 0.58rem;
-        margin: 7px 7px 0px 2px;
+        margin: 7px 9px 0px 0px;
         color: var(--tech-color);
         font-weight: 500;
         opacity: 0.95;
