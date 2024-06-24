@@ -52,8 +52,10 @@
         margin-right: 5px;
         border-radius: 50%;
     }
-    .linkedin-icon{
+    .linkedin-icon {
+        position: relative;
         height: 0.9em;
+        top: -0.4px;
     }
     h3 {
         margin-right: 2px;
