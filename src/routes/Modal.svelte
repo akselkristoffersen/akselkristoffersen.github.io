@@ -38,12 +38,13 @@
         padding: 0;
         height: fit-content;
         width: fit-content;
-        max-height: 85vh;
         max-width: Min(90vw, 900px);
         color: inherit;
         background-color: var(--bg-color-dark);
         border-radius: 7px;
         border: none;
+        position: fixed; /* Fix it to the viewport */
+        top: calc(40vh - 50%); /* 33% of viewport height minus 50% of its own height to center it */
         .dialog-button {
             all: unset;
             position: absolute;
