@@ -86,7 +86,7 @@
     </div>
     <div class="first-content">
         <div class="hero">
-            <h1><span class="company-name">Akspertise AS</span>Aksel Kristoffersen</h1>
+            <h1><span class="company-name">Akspertise AS </span>Aksel Kristoffersen</h1>
             <div class="hero-block">
                 <div class="hero-block-text">
                     <p class="work-title">Software Engineer</p>
