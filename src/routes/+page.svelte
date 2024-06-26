@@ -3,7 +3,7 @@
     import Experience from './Experience.svelte';
     import Modal from './Modal.svelte';
     import Testimonial from './Testimonial.svelte';
-    import { infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData } from './experiences';
+    import { infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData, studassData } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
     import HuginSuperior from '$assets/hugin_superior.png';
     import InfrontTerminal from '$assets/infront_terminal.png';
@@ -138,10 +138,15 @@
                 disabled
                 />
 
-            <h2>VOLUNTARY WORK</h2>
+            <h2>OTHER WORK</h2>
 
             <Experience 
                 data={vortexData} 
+                disabled
+                />
+
+            <Experience 
+                data={studassData} 
                 disabled
                 />
 

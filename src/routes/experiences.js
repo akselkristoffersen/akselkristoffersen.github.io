@@ -80,3 +80,14 @@ export const vortexData = {
     tech: ['ROS', 'Linux', 'Python', 'Git'],
     description: 'Writing software for a non-profit student organization developing an autonomous underwater vehicle (AUV) from scratch to compete in international competitions. My focus was on developing the system for autonomous navigation in ROS.'
 };
+
+export const studassData = {
+    companyName: 'NTNU',
+    companyLogo: NTNULogo,
+    location: 'Trondheim, Norway',
+    startDate: new Date(2019, 8),
+    endDate: new Date(2020, 6),
+    workTitle: 'Student Teaching Assistent',
+    tech: [],
+    description: 'Facilitating students during learning sessions by providing guidance and support. Assessing their weekly assignments to ensure progress and understanding.'
+};
