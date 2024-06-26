@@ -58,7 +58,7 @@
             }
         }
         .dialog-content {
-            padding: 25px 30px 15px 30px;
+            padding: 20px 25px 15px 25px;
             height: fit-content;
             width: fit-content;
         }
