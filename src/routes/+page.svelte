@@ -90,7 +90,7 @@
             <div class="hero-block">
                 <div class="hero-block-text">
                     <p class="work-title">Software Engineer</p>
-                    <p>
+                    <p class="work-text">
                         Versatile and adaptable, I thrive in dynamic environments. Committed to writing clean and well-tested code.            
                     </p>
                 </div>
@@ -230,7 +230,7 @@
                     }
                 }
                 .work-title {
-                    font-weight: 500;
+                    font-weight: 600;
                     color: var(--text-color);
                     margin-bottom: 15px;
                     font-size: functions.toRem(19);
@@ -244,26 +244,29 @@
                         font-size: functions.toRem(24);
                     }
                 }
+                .work-text {
+                    font-size: functions.toRem(16);
+                }
                 .hero-block {
                     display: flex;
                     margin-bottom: 12px;
                     .hero-block-text {
-                        max-width:260px;
+                        max-width:270px;
                     }
                     .aksel-picture{
                         border: 3px solid #2F3943;
                         margin: 10px 10px 0px 12px;
-                        height: 120px;
+                        height: 125px;
                         width: auto;
                         opacity: 0.85;
                         border-radius: 5px;
                         filter: brightness(0.95);
                         background-image: linear-gradient(to left top, var(--bg-color) 70%, var(--bg-color-dark));
                         @include breakpoint.up('md') {
-                            height: 125px;
+                            height: 127px;
                         }
                         @include breakpoint.up('lg') {
-                            height: 130px;
+                            height: 133px;
                         }
                     }
                 }
@@ -310,24 +313,6 @@
                 }
             }
         }
-    }
-
-    h1 {
-        font-size: functions.toRem(30);
-        font-weight: 700;
-        color: white;
-        @include breakpoint.up('sm') {
-            font-size: functions.toRem(34);
-        }
-        @include breakpoint.up('md') {
-            font-size: functions.toRem(36);
-        }
-        @include breakpoint.up('lg') {
-            font-size: functions.toRem(40);
-        }
-    }
-    p {
-        color: var(--semi-light-color);
     }
     .dialog-content-first-row {
         display: flex;
