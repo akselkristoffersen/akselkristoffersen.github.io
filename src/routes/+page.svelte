@@ -326,6 +326,7 @@
             text-align: center;
             align-self: center;
             flex: 0.5;
+            opacity: 1;
             img {
                 width: 100%;
             }
