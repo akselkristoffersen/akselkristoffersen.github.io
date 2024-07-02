@@ -48,6 +48,7 @@ h1 {
 h2 {
     font-size: functions.toRem(16);
     color: var(--semi-light-color);
+    opacity: 0.9;
 }
 
 h3 {
@@ -78,7 +79,13 @@ p {
 
 a {
     accent-color: var(--accent-color);
-    color: var(--text-color);
+    color: var(--tech-color);
     font-weight: 500;
     text-decoration: none;
+    opacity: 0.75;
+    @media (hover: hover) {
+        &:hover {
+            opacity: 1;
+        }
+    }
 }

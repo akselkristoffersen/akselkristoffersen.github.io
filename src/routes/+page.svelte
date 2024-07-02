@@ -218,6 +218,7 @@
                     font-weight: 600;
                     font-size: functions.toRem(17);
                     color: var(--semi-light-color);
+                    opacity: 0.9;
                     @include breakpoint.up('sm') {
                         font-size: functions.toRem(20);
                     }
@@ -273,11 +274,6 @@
                         z-index: 100;
                         margin-right: 17px;
                         align-items: center;
-                        opacity: 0.7;
-                        color: var(--text-color);
-                        &:hover {
-                            opacity: 1;
-                        }
                     }
                     img {
                         height: 22px;
