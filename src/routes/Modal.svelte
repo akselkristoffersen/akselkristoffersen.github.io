@@ -26,7 +26,7 @@
     bind:this={modal}
     use:closeOnOffClick>
     <button class="dialog-button" on:click={modal.close()}>
-        <X strokeWidth={3} size={30} />
+        <X strokeWidth={2.5} size={30} />
     </button>
     <div class="dialog-content">
         <slot />
