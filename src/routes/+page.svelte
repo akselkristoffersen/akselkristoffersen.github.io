@@ -255,7 +255,7 @@
                     }
                     .aksel-picture{
                         border: 3px solid #2F3943;
-                        margin: 10px 10px 0px 12px;
+                        margin: 10px 14px 0px 12px;
                         height: 125px;
                         width: auto;
                         opacity: 0.85;
