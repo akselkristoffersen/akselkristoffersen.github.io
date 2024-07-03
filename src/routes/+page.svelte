@@ -97,13 +97,21 @@
                 <img src={AkselPicture} alt="Aksel Kristoffersen" class="aksel-picture"/>
             </div>
             <div class="hero-logos">
-                <a href="https://www.linkedin.com/in/akselkristoffersen" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/akselkristoffersen" 
+                    target="_blank" rel="noopener noreferrer" 
+                    aria-label="Linkedin (opens in a new tab)" title="Linkedin"
+                    >
                     <img src={Linkedin} alt="LinkedIn icon"/>
                 </a>
-                <a href="mailto:akselkr@akspertise.com">
+                <a href="mailto:akselkr@akspertise.com"
+                    aria-label="Email (opens you email program)" title="Email"
+                    >
                     <img src={Mail} alt="Email icon"/>
                 </a>
-                <a href="https://github.com/akspertise" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/akspertise"
+                    target="_blank" rel="noopener noreferrer" 
+                    aria-label="Github (opens in a new tab)" title="Github"
+                    >
                     <img src={Github} alt="Github icon"/>
                 </a>
             </div>
