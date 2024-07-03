@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
-        <Testimonial
+        <!-- <Testimonial
             src={AkselPicture} 
             name="Aksel Kristoffersen" 
             title="Chief"
@@ -58,7 +58,7 @@
             company="Infront"
             linkedin="https://www.linkedin.com/in/akselkristoffersen"
             quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
-        </Testimonial>
+        </Testimonial> -->
     </div>
 </Modal>
 <Modal bind:this={equinorModal}>
