@@ -99,7 +99,7 @@
             <div class="hero-logos">
                 <a href="https://www.linkedin.com/in/akselkristoffersen" 
                     target="_blank" rel="noopener noreferrer" 
-                    aria-label="Linkedin (opens in a new tab)" title="Linkedin"
+                    aria-label="LinkedIn (opens in a new tab)" title="LinkedIn"
                     >
                     <img src={Linkedin} alt="LinkedIn icon"/>
                 </a>
