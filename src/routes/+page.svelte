@@ -20,8 +20,9 @@
     <div class="dialog-content-first-row">
         <div class="dialog-content-first-row-img">
             <a class="dialog-content-img" href="https://www.infront.co/" target="_blank" rel="noopener noreferrer">
-                <img src={InfrontTerminal} alt="Infront Terminal"/>
+                <img src={infrontData.companyLogo} alt="Infront Terminal"/>
             </a>
+            <img src={InfrontTerminal} alt="Infront Terminal"/>
         </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
@@ -51,9 +52,12 @@
 </Modal>
 <Modal bind:this={kongsbergModal}>
     <div class="dialog-content-first-row">
-        <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
+        <div class="dialog-content-first-row-img">
+            <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
+                <img src={kongsbergData.companyLogo} alt="Hugin Superior"/>
+            </a>
             <img src={HuginSuperior} alt="Hugin Superior"/>
-        </a>
+        </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
                 data={kongsbergData} 
@@ -82,9 +86,12 @@
 </Modal>
 <Modal bind:this={equinorModal}>
     <div class="dialog-content-first-row">
-        <a class="dialog-content-img" href="https://loop.equinor.com/en/stories/taurob" target="_blank" rel="noopener noreferrer">
-            <img src={Taurob} alt="Taurob"/>
-        </a>
+        <div class="dialog-content-first-row-img">
+            <a class="dialog-content-img" href="https://loop.equinor.com/en/stories/taurob" target="_blank" rel="noopener noreferrer">
+                <img src={equinorData.companyLogo} alt="Taurob Equinor"/>
+            </a>
+            <img src={Taurob} alt="Taurob Equinor"/>
+        </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
                 data={equinorData} 
@@ -345,16 +352,36 @@
             display: none;
         }
         .dialog-content-first-row-img {
+            position: relative;
             flex: 0.5;
             margin-right: 30px;
             margin-left: 15px;
             text-align: center;
             align-self: center;
+            width: 100%;
             .dialog-content-img {
-                opacity: 1;
-                img {
-                    width: 100%;
+                display: flex;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 80;
+                justify-content: center;
+                opacity: 0.4;
+                @media (hover: hover) {
+                    &:hover {
+                        transition: 0.05s;
+                        opacity: 0.7;
+                    }
                 }
+                img {
+                    align-self: center;
+                    height: 40%;
+                    max-width: 35%;
+                    filter: grayscale(0.4);
+                }
+            }
+            img {
+                width: 100%;
             }
         }
         .dialog-content-first-row-experience {
