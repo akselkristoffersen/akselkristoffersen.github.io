@@ -50,7 +50,7 @@
             all: unset;
             position: absolute;
             right: 0px;
-            margin: 14px;
+            margin: 12px;
             z-index: 100;
             color: var(--semi-light-color);
             &:hover {

@@ -29,7 +29,7 @@
     .content {
         text-align: center;
         display: grid;
-        margin: 10px 10px 25px 10px;
+        margin: 15px 10px 25px 10px;
         width: fit-content;
         max-width: 320px;
         align-self: center;
