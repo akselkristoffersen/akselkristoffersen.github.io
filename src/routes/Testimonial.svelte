@@ -96,6 +96,7 @@
     }
     h4 {
         color: var(--semi-light-color);
+        font-weight: 500;
     }
     q {
         color: var(--semi-light-color);
