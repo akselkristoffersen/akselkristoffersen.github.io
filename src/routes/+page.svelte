@@ -8,6 +8,7 @@
     import HuginSuperior from '$assets/hugin_superior.png';
     import InfrontTerminal from '$assets/infront_terminal.png';
     import Taurob from '$assets/taurob.png';
+    import Lakshi from '$assets/lakshi.png';
     import Tech from '$lib/Tech.svelte';
 
     let infrontModal;
@@ -17,9 +18,11 @@
 
 <Modal bind:this={infrontModal}>
     <div class="dialog-content-first-row">
-        <a class="dialog-content-img" href="https://www.infront.co/" target="_blank" rel="noopener noreferrer">
-            <img src={InfrontTerminal} alt="Infront Terminal"/>
-        </a>
+        <div class="dialog-content-first-row-img">
+            <a class="dialog-content-img" href="https://www.infront.co/" target="_blank" rel="noopener noreferrer">
+                <img src={InfrontTerminal} alt="Infront Terminal"/>
+            </a>
+        </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
                 data={infrontData} 
@@ -28,6 +31,22 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
+        <Testimonial
+            src={Lakshi} 
+            name="Lakshi Jeyaratnam" 
+            title="Director of Software Development"
+            company="Infront"
+            linkedin="https://www.linkedin.com/in/lakshijey/"
+            quote="I had the pleasure of working with Aksel over the last couple of years. He works well independently and has a strong command of modern C++. I highly recommend him for any role requiring a passionate C++ engineer.">
+        </Testimonial>
+        <!-- <Testimonial
+            src={Lakshi} 
+            name="Lakshi Jeyaratnam" 
+            title="Director of Software Development"
+            company="Infront"
+            linkedin="https://www.linkedin.com/in/lakshijey/"
+            quote="I had the pleasure of working with Aksel over the last couple of years. He works well independently and has a strong command of modern C++. I highly recommend him for any role requiring a passionate C++ engineer.">
+        </Testimonial> -->
     </div>
 </Modal>
 <Modal bind:this={kongsbergModal}>
@@ -46,12 +65,12 @@
         <!-- <Testimonial
             src={AkselPicture} 
             name="Aksel Kristoffersen" 
-            title="Chief"
+            title="Software Engineer"
             company="Infront"
             linkedin="https://www.linkedin.com/in/akselkristoffersen"
-            quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
-        </Testimonial>
-        <Testimonial
+            quote="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque et, dicta autem enim deleniti sint? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque et, dicta autem enim deleniti sint?">
+        </Testimonial> -->
+        <!-- <Testimonial
             src={AkselPicture} 
             name="Aksel Kristoffersen" 
             title="Chief"
@@ -325,15 +344,17 @@
         @include breakpoint.down('md') {
             display: none;
         }
-        .dialog-content-img {
+        .dialog-content-first-row-img {
+            flex: 0.5;
             margin-right: 30px;
             margin-left: 15px;
             text-align: center;
             align-self: center;
-            flex: 0.5;
-            opacity: 1;
-            img {
-                width: 100%;
+            .dialog-content-img {
+                opacity: 1;
+                img {
+                    width: 100%;
+                }
             }
         }
         .dialog-content-first-row-experience {
@@ -345,7 +366,7 @@
         flex-shrink: 0;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
     }
 
     svg {

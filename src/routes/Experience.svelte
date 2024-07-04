@@ -73,7 +73,7 @@
         display: flex;
         flex-direction: column;
         margin-top: 18px;
-        margin-bottom: 50px;
+        margin-bottom: 45px;
         border: 3px solid transparent;
         padding: 10px 9px;
         @include breakpoint.up('lg') {
