@@ -83,6 +83,7 @@
         }
         @media (hover: hover) {
             &:hover:enabled {
+                transition: 0.02s;
                 border: 3px solid var(--semi-dark-color);
                 cursor: pointer;
                 backdrop-filter: brightness(80%);
