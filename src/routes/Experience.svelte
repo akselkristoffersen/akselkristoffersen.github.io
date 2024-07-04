@@ -121,4 +121,7 @@
         opacity: 0.9;
         filter: grayscale(40%);
     }
+    h4 {
+        opacity: 0.95;
+    }
 </style>
