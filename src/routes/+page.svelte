@@ -32,14 +32,14 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
-        <Testimonial
+        <!-- <Testimonial
             src={Lakshi} 
             name="Lakshi Jeyaratnam" 
             title="Director of Software Development"
             company="Infront"
             linkedin="https://www.linkedin.com/in/lakshijey/"
             quote="I had the pleasure of working with Aksel over the last couple of years. He works well independently and has a strong command of modern C++. I highly recommend him for any role requiring a passionate C++ engineer.">
-        </Testimonial>
+        </Testimonial> -->
         <!-- <Testimonial
             src={Lakshi} 
             name="Lakshi Jeyaratnam" 
