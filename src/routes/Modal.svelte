@@ -44,7 +44,7 @@
         border-radius: 7px;
         border: none;
         position: fixed;
-        top: calc(40vh - 50%);
+        top: calc(44vh - 50%);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         .dialog-button {
             all: unset;

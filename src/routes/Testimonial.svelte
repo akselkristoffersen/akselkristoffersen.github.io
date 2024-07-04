@@ -50,11 +50,6 @@
         margin-right: 5px;
         border-radius: 50%;
     }
-    .linkedin-icon {
-        position: relative;
-        height: 0.9em;
-        top: -0.4px;
-    }
     svg {
         fill: white;
         height: 17px;
