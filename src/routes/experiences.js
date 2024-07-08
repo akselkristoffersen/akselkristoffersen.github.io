@@ -13,7 +13,7 @@ export const infrontData = {
     endDate: new Date(2024, 6),
     workTitle: 'Backend Developer',
     tech: ['C++', 'postgreSQL', 'Protobuf', 'Boost.Test'],
-    description: 'Leading a project to develop an internal library for storage and calculation of intraday data, seamlessly replacing the existing legacy system, and overseeing its deployment into production. In addition, I provided support and guidance to new team members and served as an Agile Team Facilitator during cross-company PI planning events.'
+    description: 'Leading a project to develop an internal library for storage and calculation of intraday data, seamlessly replacing the existing legacy system, and overseeing its deployment into production. In addition, I provided support and guidance to new team members and served as an Agile Team Facilitator during cross-company PI planning events. During this time, I learned a lot about C++ modern fundamentals, including how to write custom iterators to fulfill STL range concepts and create generic, range-friendly template functions.'
 };
 
 export const kongsbergData = {
