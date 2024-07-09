@@ -44,7 +44,7 @@
                     top: -45%;
                     right: -45%;
                     height: 30%;
-                    opacity: 1;
+                    opacity: 0;
                     svg {
                         height: 30px;
                         color: var(--tech-color);
@@ -58,7 +58,7 @@
                     opacity: 0.7;
                     .external-link-icon {
                         transition: 0.04s;
-                        opacity: 1;
+                        opacity: 0.9;
                     }
                 }
             }
