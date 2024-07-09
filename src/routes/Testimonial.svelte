@@ -51,6 +51,8 @@
                 overflow-wrap: break-word;
                 word-wrap: break-word;
                 word-break: break-word;
+                margin: 0px 7px 0px 7px;
+                min-width: 100px;
             }
             .content-row-right {
                 display: inline;

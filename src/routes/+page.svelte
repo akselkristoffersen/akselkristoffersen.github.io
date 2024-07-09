@@ -9,6 +9,8 @@
     import InfrontTerminal from '$assets/infront_terminal.png';
     import Taurob from '$assets/taurob.png';
     import Lakshi from '$assets/lakshi.png';
+    import Audrey from '$assets/audrey.png';
+    import Test from '$assets/test.mov';
     import Tech from '$lib/Tech.svelte';
 
     let infrontModal;
@@ -32,22 +34,22 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
-        <!-- <Testimonial
+        <Testimonial
             src={Lakshi} 
             name="Lakshi Jeyaratnam" 
             title="Director of Software Development"
             company="Infront"
             linkedin="https://www.linkedin.com/in/lakshijey/"
             quote="I had the pleasure of working with Aksel over the last couple of years. He works well independently and has a strong command of modern C++. I highly recommend him for any role requiring a passionate C++ engineer.">
-        </Testimonial> -->
-        <!-- <Testimonial
-            src={Lakshi} 
-            name="Lakshi Jeyaratnam" 
-            title="Director of Software Development"
+        </Testimonial>
+        <Testimonial
+            src={Audrey}
+            name="Audrey Landry" 
+            title="Product Owner "
             company="Infront"
-            linkedin="https://www.linkedin.com/in/lakshijey/"
-            quote="I had the pleasure of working with Aksel over the last couple of years. He works well independently and has a strong command of modern C++. I highly recommend him for any role requiring a passionate C++ engineer.">
-        </Testimonial> -->
+            linkedin="https://www.linkedin.com/in/audrey-landry/"
+            quote="Aksel is a talented and passionate developer with a sharp mind and is a very pleasant teammate to work with.">
+        </Testimonial>
     </div>
 </Modal>
 <Modal bind:this={kongsbergModal}>
@@ -100,6 +102,10 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
+        <!-- <video width="400" autoplay muted loop>
+            <source src={Test} type="video/mp4">
+            <track src="captions_en.vtt" kind="captions" srclang="en" label="english_captions">
+        </video> -->
     </div>
 </Modal>
 
@@ -389,8 +395,6 @@
         }
     }
     .dialog-content-second-row {
-        flex: 1;
-        flex-shrink: 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
