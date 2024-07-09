@@ -19,7 +19,7 @@ export const infrontData = {
 export const kongsbergData = {
     companyName: 'Kongsberg Discovery',
     companyLogo: KongsbergLogo,
-    location: 'Oslo, Norway',
+    location: 'Horten/Oslo, Norway',
     startDate: new Date(2021, 9),
     endDate: new Date(2022, 8),
     workTitle: 'Software Engineer R&D',
