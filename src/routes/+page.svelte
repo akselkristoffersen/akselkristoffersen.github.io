@@ -10,7 +10,6 @@
     import Taurob from '$assets/taurob.png';
     import Lakshi from '$assets/lakshi.png';
     import Audrey from '$assets/audrey.png';
-    import Test from '$assets/test.mov';
     import Tech from '$lib/Tech.svelte';
 
     let infrontModal;
