@@ -37,7 +37,7 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 9px;
             .profile-img {
                 width: 60px;
                 height: 60px;
