@@ -296,7 +296,7 @@
         }
         .second-content {
             display: grid;
-            grid-gap: 0px;
+            grid-gap: 2px;
             width: 100%;
             @include breakpoint.up('lg') {
                 flex: 1;

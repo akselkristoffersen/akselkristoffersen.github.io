@@ -77,8 +77,8 @@
         border: 3px solid transparent;
         padding: 10px 9px;
         @include breakpoint.up('lg') {
-            margin-top: 10px;
-            margin-bottom: 14px;
+            margin-top: 5px;
+            margin-bottom: 16px;
             padding: 13px 11px;
         }
         @media (hover: hover) {
