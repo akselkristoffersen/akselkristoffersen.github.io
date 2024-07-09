@@ -11,6 +11,7 @@
     import Lakshi from '$assets/lakshi.png';
     import Audrey from '$assets/audrey.png';
     import Tech from '$lib/Tech.svelte';
+    import { ExternalLink } from 'lucide-svelte';
 
     let infrontModal;
     let kongsbergModal;
@@ -22,6 +23,9 @@
         <div class="dialog-content-first-row-img">
             <a class="dialog-content-img" href="https://www.infront.co/" target="_blank" rel="noopener noreferrer">
                 <img src={infrontData.companyLogo} alt="Infront Terminal"/>
+                <div class="dialog-content-img-icon">
+                    <ExternalLink size=26/>
+                </div>
             </a>
             <img src={InfrontTerminal} alt="Infront Terminal"/>
         </div>
@@ -56,6 +60,9 @@
         <div class="dialog-content-first-row-img">
             <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
                 <img src={kongsbergData.companyLogo} alt="Hugin Superior"/>
+                <div class="dialog-content-img-icon">
+                    <ExternalLink size=26/>
+                </div>
             </a>
             <img src={HuginSuperior} alt="Hugin Superior"/>
         </div>
@@ -90,6 +97,9 @@
         <div class="dialog-content-first-row-img">
             <a class="dialog-content-img" href="https://loop.equinor.com/en/stories/taurob" target="_blank" rel="noopener noreferrer">
                 <img src={equinorData.companyLogo} alt="Taurob Equinor"/>
+                <div class="dialog-content-img-icon">
+                    <ExternalLink size=26/>
+                </div>
             </a>
             <img src={Taurob} alt="Taurob Equinor"/>
         </div>
@@ -376,6 +386,9 @@
                     &:hover {
                         transition: 0.05s;
                         opacity: 0.7;
+                        .dialog-content-img-icon {
+                            opacity: 1;
+                        }
                     }
                 }
                 img {
@@ -383,6 +396,14 @@
                     height: 40%;
                     max-width: 35%;
                     filter: grayscale(0.4);
+                }
+                .dialog-content-img-icon {
+                    align-self: center;
+                    position: absolute;
+                    left: 19%;
+                    top: 17%;
+                    opacity: 0;
+                    width: 100%;
                 }
             }
             img {
