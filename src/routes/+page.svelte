@@ -384,9 +384,10 @@
                 opacity: 0.4;
                 @media (hover: hover) {
                     &:hover {
-                        transition: 0.05s;
+                        transition: 0.04s;
                         opacity: 0.7;
                         .dialog-content-img-icon {
+                            transition: 0.04s;
                             opacity: 1;
                         }
                     }
