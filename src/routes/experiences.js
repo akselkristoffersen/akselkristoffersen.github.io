@@ -4,10 +4,15 @@ import DRLogo from '$assets/dr_logo.svg';
 import EquinorLogo from '$assets/equinor_logo.svg';
 import NTNULogo from '$assets/ntnu_logo.svg';
 import VortexLogo from '$assets/vortex_logo.png';
+import InfrontTerminal from '$assets/infront_terminal.png';
+import HuginSuperior from '$assets/hugin_superior.png';
+import Taurob from '$assets/taurob.png';
 
 export const infrontData = {
     companyName: 'Infront',
     companyLogo: InfrontLogo,
+    productImg: InfrontTerminal,
+    productLink: "https://www.infront.co/",
     location: 'Oslo, Norway',
     startDate: new Date(2022, 9),
     endDate: new Date(2024, 6),
@@ -19,6 +24,8 @@ export const infrontData = {
 export const kongsbergData = {
     companyName: 'Kongsberg Discovery',
     companyLogo: KongsbergLogo,
+    productImg: HuginSuperior,
+    productLink: "https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/",
     location: 'Horten/Oslo, Norway',
     startDate: new Date(2021, 9),
     endDate: new Date(2022, 8),
@@ -39,6 +46,8 @@ export const kongsbergData = {
 export const equinorData = {
     companyName: 'Equinor',
     companyLogo: EquinorLogo,
+    productImg: Taurob,
+    productLink: "https://loop.equinor.com/en/stories/taurob",
     location: 'Virtual',
     startDate: new Date(2020, 6),
     endDate: new Date(2020, 7),

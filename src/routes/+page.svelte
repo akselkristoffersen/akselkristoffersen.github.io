@@ -1,17 +1,14 @@
 <script>
     import Stars from './Stars.svelte';
     import Experience from './Experience.svelte';
+    import CompanyLink from './CompanyLink.svelte';
     import Modal from './Modal.svelte';
     import Testimonial from './Testimonial.svelte';
     import { infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData, studassData } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
-    import HuginSuperior from '$assets/hugin_superior.png';
-    import InfrontTerminal from '$assets/infront_terminal.png';
-    import Taurob from '$assets/taurob.png';
     import Lakshi from '$assets/lakshi.png';
     import Audrey from '$assets/audrey.png';
     import Tech from '$lib/Tech.svelte';
-    import { ExternalLink } from 'lucide-svelte';
 
     let infrontModal;
     let kongsbergModal;
@@ -20,14 +17,8 @@
 
 <Modal bind:this={infrontModal}>
     <div class="dialog-content-first-row">
-        <div class="dialog-content-first-row-img">
-            <a class="dialog-content-img" href="https://www.infront.co/" target="_blank" rel="noopener noreferrer">
-                <img src={infrontData.companyLogo} alt="Infront Terminal"/>
-                <div class="dialog-content-img-icon">
-                    <ExternalLink size=26/>
-                </div>
-            </a>
-            <img src={InfrontTerminal} alt="Infront Terminal"/>
+        <div class="dialog-content-first-row-company-link">
+            <CompanyLink data={infrontData}/>
         </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
@@ -57,14 +48,8 @@
 </Modal>
 <Modal bind:this={kongsbergModal}>
     <div class="dialog-content-first-row">
-        <div class="dialog-content-first-row-img">
-            <a class="dialog-content-img" href="https://www.kongsberg.com/discovery/autonomous-and-uncrewed-solutions/" target="_blank" rel="noopener noreferrer">
-                <img src={kongsbergData.companyLogo} alt="Hugin Superior"/>
-                <div class="dialog-content-img-icon">
-                    <ExternalLink size=26/>
-                </div>
-            </a>
-            <img src={HuginSuperior} alt="Hugin Superior"/>
+        <div class="dialog-content-first-row-company-link">
+            <CompanyLink data={kongsbergData}/>
         </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
@@ -74,34 +59,12 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
-        <!-- <Testimonial
-            src={AkselPicture} 
-            name="Aksel Kristoffersen" 
-            title="Software Engineer"
-            company="Infront"
-            linkedin="https://www.linkedin.com/in/akselkristoffersen"
-            quote="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque et, dicta autem enim deleniti sint? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque et, dicta autem enim deleniti sint?">
-        </Testimonial> -->
-        <!-- <Testimonial
-            src={AkselPicture} 
-            name="Aksel Kristoffersen" 
-            title="Chief"
-            company="Infront"
-            linkedin="https://www.linkedin.com/in/akselkristoffersen"
-            quote="hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing hello, aksel was amazing">
-        </Testimonial> -->
     </div>
 </Modal>
 <Modal bind:this={equinorModal}>
     <div class="dialog-content-first-row">
-        <div class="dialog-content-first-row-img">
-            <a class="dialog-content-img" href="https://loop.equinor.com/en/stories/taurob" target="_blank" rel="noopener noreferrer">
-                <img src={equinorData.companyLogo} alt="Taurob Equinor"/>
-                <div class="dialog-content-img-icon">
-                    <ExternalLink size=26/>
-                </div>
-            </a>
-            <img src={Taurob} alt="Taurob Equinor"/>
+        <div class="dialog-content-first-row-company-link">
+            <CompanyLink data={equinorData}/>
         </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
@@ -366,50 +329,11 @@
         @include breakpoint.down('md') {
             display: none;
         }
-        .dialog-content-first-row-img {
-            position: relative;
+        .dialog-content-first-row-company-link {
             flex: 0.5;
             margin-right: 30px;
             margin-left: 15px;
-            text-align: center;
             align-self: center;
-            width: 100%;
-            .dialog-content-img {
-                display: flex;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                z-index: 80;
-                justify-content: center;
-                opacity: 0.4;
-                @media (hover: hover) {
-                    &:hover {
-                        transition: 0.04s;
-                        opacity: 0.7;
-                        .dialog-content-img-icon {
-                            transition: 0.04s;
-                            opacity: 1;
-                        }
-                    }
-                }
-                img {
-                    align-self: center;
-                    height: 40%;
-                    max-width: 35%;
-                    filter: grayscale(0.4);
-                }
-                .dialog-content-img-icon {
-                    align-self: center;
-                    position: absolute;
-                    left: 19%;
-                    top: 17%;
-                    opacity: 0;
-                    width: 100%;
-                }
-            }
-            img {
-                width: 100%;
-            }
         }
         .dialog-content-first-row-experience {
             flex: 1;
