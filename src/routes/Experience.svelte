@@ -72,13 +72,13 @@
         border-radius: 7px;
         display: flex;
         flex-direction: column;
-        margin-top: 18px;
-        margin-bottom: 45px;
+        margin-top: 16px;
+        margin-bottom: 26px;
         border: 3px solid transparent;
         padding: 10px 9px;
         @include breakpoint.up('lg') {
-            margin-top: 16px;
-            margin-bottom: 30px;
+            margin-top: 10px;
+            margin-bottom: 14px;
             padding: 13px 11px;
         }
         @media (hover: hover) {
