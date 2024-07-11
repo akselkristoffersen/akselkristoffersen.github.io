@@ -1,6 +1,4 @@
 <script>
-    import { ExternalLink } from 'lucide-svelte';
-
     export let data;
 </script>
 
@@ -46,7 +44,7 @@
                     height: 30%;
                     opacity: 0;
                     svg {
-                        height: 30px;
+                        height: 26px;
                         color: var(--tech-color);
                     }
                 }
