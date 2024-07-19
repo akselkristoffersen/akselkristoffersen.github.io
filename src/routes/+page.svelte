@@ -8,6 +8,8 @@
     import AkselPicture from '$assets/aksel_picture.png';
     import Lakshi from '$assets/lakshi.png';
     import Audrey from '$assets/audrey.png';
+    //import Tommy from '$assets/tommy.png';
+    //import Ola from '$assets/ola.png';
     import Tech from '$lib/Tech.svelte';
 
     let infrontModal;
@@ -59,6 +61,22 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
+        <!-- <Testimonial
+            src={Tommy} 
+            name="Tommy Walther-Jansson" 
+            title="Software Development Manager"
+            company="Kongsberg Discovery"
+            linkedin="https://www.linkedin.com/in/tommy-walther-jansson/"
+            quote="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum vitae soluta consectetur repellat beatae vero ut, recusandae deserunt iure nobis!">
+        </Testimonial>
+        <Testimonial
+            src={Ola} 
+            name="Ola Nybakk"
+            title="R&D Manager"
+            company="Data Respons R&D &nbsp;Services"
+            linkedin="https://www.linkedin.com/in/olanybakk/"
+            quote="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis veritatis dolore voluptates repellendus? Voluptate fugiat consequuntur voluptates quas.">
+        </Testimonial> -->
     </div>
 </Modal>
 <Modal bind:this={equinorModal}>

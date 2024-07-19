@@ -99,6 +99,7 @@
     h4 {
         color: var(--semi-light-color);
         font-weight: 500;
+        font-size: 13px;
     }
     q {
         color: var(--semi-light-color);
