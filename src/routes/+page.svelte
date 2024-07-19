@@ -195,7 +195,7 @@
         width: 100%;
         z-index: -1;
         @include breakpoint.up('lg') {
-            height: 22vh;
+            height: calc(22vh - 40px);
             top: 0px;
             position: sticky;
             position: -webkit-sticky;
@@ -211,7 +211,7 @@
             flex: 1;
             max-width: 600px;
             padding: 10px 60px 30px 60px;
-            top: 22vh;
+            top: calc(22vh - 40px);
             position: sticky;
             position: -webkit-sticky;
             height: fit-content;
@@ -285,6 +285,9 @@
                 img {
                     height: 22px;
                 }
+            }
+            .hero-link{
+                width: fit-content;
             }
             transition: transform 350ms, opacity 350ms;
         }

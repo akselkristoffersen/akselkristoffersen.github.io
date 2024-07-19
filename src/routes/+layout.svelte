@@ -25,7 +25,7 @@
             padding: 40px 19px 30px;
         }
         @include breakpoint.up('lg') {
-            padding: 0px;
+            padding: 40px 0px 0px;
         }
     }
 </style>
