@@ -15,6 +15,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        align-content: flex-start;
         justify-content: center;
         overflow-y: auto;
         overflow-x: hidden;
@@ -25,7 +26,7 @@
             padding: 40px 19px 30px;
         }
         @include breakpoint.up('lg') {
-            padding: 40px 0px 0px;
+            padding: 40px 20px 30px;
         }
     }
 </style>

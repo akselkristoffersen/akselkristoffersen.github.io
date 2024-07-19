@@ -209,8 +209,8 @@
         padding-left: 12px;
         @include breakpoint.up('lg') {
             flex: 1;
-            max-width: 600px;
-            padding: 10px 60px 30px 60px;
+            max-width: 570px;
+            padding: 10px 55px 0px 45px;
             top: calc(22vh - 40px);
             position: sticky;
             position: -webkit-sticky;
@@ -299,7 +299,7 @@
         @include breakpoint.up('lg') {
             flex: 1;
             max-width: 600px;
-            padding: 30px 50px 30px 0px;
+            padding: 30px 30px 0px 0px;
         }
         h2 {
             padding-left: 12px;
@@ -310,9 +310,7 @@
         footer {
             font-size: functions.toRem(2);
             padding-left: 12px;
-            @include breakpoint.up('lg') {
-                padding: 10px 10px;
-            }
+
             .footer-text {
                 font-size: functions.toRem(14);
             }
