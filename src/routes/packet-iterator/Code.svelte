@@ -6,5 +6,5 @@
     export let code;
 </script>
 
-<!-- <Highlight language={cpp} {code}>
-</Highlight> -->
+<Highlight language={cpp} {code}>
+</Highlight>
