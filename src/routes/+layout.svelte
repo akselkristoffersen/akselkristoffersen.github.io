@@ -11,6 +11,7 @@
     #main-content{
         width: 100vw;
         height: 100vh;
+        height: 100svh;
         padding: 30px 3px 30px;
         display: flex;
         flex-wrap: wrap;
