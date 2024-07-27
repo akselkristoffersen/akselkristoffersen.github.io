@@ -13,10 +13,7 @@
         height: 100vh;
         padding: 30px 3px 30px;
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
-        align-content: flex-start;
-        justify-content: center;
         overflow-y: auto;
         overflow-x: hidden;
         @include breakpoint.up('sm') {
@@ -27,6 +24,9 @@
         }
         @include breakpoint.up('lg') {
             padding: 40px 20px 30px;
+            justify-content: center;
+            flex-direction: row;
+            margin: auto;
         }
     }
 </style>
