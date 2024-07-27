@@ -9,7 +9,7 @@
 
 <style lang="scss">
     #main-content{
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         padding: 30px 3px 30px;
         display: flex;
