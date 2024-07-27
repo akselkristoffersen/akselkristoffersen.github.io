@@ -43,7 +43,7 @@ for (std::span&lt;const int&gt; packet : packet_iterator&lcub;std::span&lcub;buf
     Writing a forward iterator
 </h2>
 <p>
-    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. [todo] In this case, a forward iterator is appropriate, which means it must fulfill the std::forward_iterator concept. By defining the minimum requirements for this concept, the iterator will look like this:
+    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate, which means it must fulfill the std::forward_iterator concept. By defining the minimum requirements for this concept, the iterator will look like this:
 </p>
 <p>
     (We'll also make the byte data type generic, turning the iterator into a templated class.)
@@ -167,7 +167,7 @@ std::default_sentinel_t end() const
 </h2>
 
 <p>
-    By crafting a custom iterator and sentinel, we've enhanced our code to handle sequences with ease and elegance. This approach not only aligns with modern C++ practices but also ensures efficient and clean code management. Whether you’re dealing with legacy projects or new challenges, a well-designed iterator can be a powerful tool in your toolkit. Enjoy writing elegant code!
+    By crafting a custom iterator and sentinel, we've enhanced our code to handle sequences with ease and elegance. This approach not only aligns with modern C++ practices but also ensures efficient and clean code management. Whether you’re dealing with legacy projects or new challenges, a well-designed iterator can be a powerful tool in your toolkit. Enjoy writing elegant C++!
 </p>
 <p>
     (you can find the source code for the final iterator <a href="https://github.com/akspertise/ax/blob/main/include/ax/packet_iterator.hpp" target="_blank" rel="noopener noreferrer">here</a>)
