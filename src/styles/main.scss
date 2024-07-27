@@ -45,17 +45,17 @@ h6 {
 }
 
 h1 {
-    font-size: functions.toRem(32);
+    font-size: functions.toRem(31);
     font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
     @include breakpoint.up('sm') {
-        font-size: functions.toRem(36);
+        font-size: functions.toRem(35);
     }
     @include breakpoint.up('md') {
-        font-size: functions.toRem(38);
+        font-size: functions.toRem(37);
     }
     @include breakpoint.up('lg') {
-        font-size: functions.toRem(41);
+        font-size: functions.toRem(40);
     }
 }
 
@@ -102,5 +102,15 @@ a {
         &:hover {
             opacity: 1;
         }
+    }
+}
+
+code {
+    font-size: functions.toRem(14);
+    @include breakpoint.up('md') {
+        font-size: functions.toRem(15);
+    }
+    @include breakpoint.up('lg') {
+        font-size: functions.toRem(16);
     }
 }
