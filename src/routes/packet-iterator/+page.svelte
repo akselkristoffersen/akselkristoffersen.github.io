@@ -281,7 +281,13 @@ for (std::span&lt;int&gt; packet : my_packet_iterator(std::span&lcub;buffer&rcub
     }
 
     img {
-        padding: 4% 10% 4% 10%;
+        padding: 4% 0% 4% 0%;
+        @include breakpoint.up('md') {
+            padding: 4% 5% 4% 5%;
+        }
+        @include breakpoint.up('lg') {
+            padding: 4% 7% 4% 7%;
+        }
         width: 100%;
     }
 
