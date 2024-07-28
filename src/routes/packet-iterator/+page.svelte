@@ -1,5 +1,9 @@
 <script>
-    import Code from './Code.svelte'
+    import Code from './Code.svelte';
+    import packets_basic from '$assets/packets_basic.jpg';
+    import packets_goal from '$assets/packets_goal.jpg';
+    import packets_goal_example from '$assets/packets_goal_example.jpg';
+    import packets_implementation from '$assets/packets_implementation.jpg';
 </script>
 
 <h1>
@@ -15,38 +19,36 @@
 </h2>
 
 <p>
-    In my recent work on legacy projects, I've faced the challenge of parsing packets based on unique company protocols. These protocols, reminiscent of familiar ones like TCP/IP, UDP, and Bluetooth, feature a fixed-size header and a variable-sized payload. However, without a dedicated library, managing this code can be quite tricky. In this article, I'll tackle these hurdles by crafting an iterator that embraces modern C++ practices and exemplifies good software design.
+    In my recent work on legacy projects, I've faced the challenge of parsing packets based on company-specific protocols. These protocols, reminiscent of familiar ones like TCP/IP, UDP, and Bluetooth, feature a fixed-size header and a variable-sized payload. However, the lack of dedicated parsing libraries in these projects have often made the code tricky to handle. In this article, I'll craft an iterator that leverages modern C++ practices to simplify the problem of parsing such packets.
 </p>
+
+<img src={packets_basic} alt="Packets structure"/>
+<p>
+    Let's kick things off by defining the core problem. We have a collection of contiguous bytes in a container, and a protocol to separate these bytes into distinct packets. In C++ terms, these packets can be represented as a range of std::spans, or views of contiguous data, like this:
+</p>
+
+<img src={packets_goal} alt="Packets goal"/>
 
 <p>
-    Let's kick things off by defining the core problem. We have a collection of contiguous bytes in a container, and a protocol to separate these bytes into distinct packets. In C++ terms, these packets can be represented as a range of std::spans, or views of contiguous data. With this in mind, one possible goal for our iterator is to seamlessly work in a range-based for loop, like this example:
+    With this in mind, one elegant design could for example enable us to use the iterator in a range-based for loop like this:
 </p>
+
 <Code code=
-"std::vector&lt;int&gt; const buffer&lcub; 2, 0, 4, 1, 0, 0, 3, 0, 8 &rcub;;
-
-auto protocol&lcub;[](std::span&lt;const int&gt; buf) -&gt; std::size_t
-    &lcub;
-        return buf.empty() ? 0 : buf.front();
-    &rcub;&rcub;;
-
-for (std::span&lt;const int&gt; packet : packet_iterator&lcub;std::span&lcub;buffer&rcub;, protocol&rcub;)
+"for (std::span&lt;std::byte&gt; packet : packet_iterator&lcub;std::span&lcub;buffer&rcub;, protocol&rcub;)
 &lcub;
     // Process packets
-    // (1) [2, 0]
-    // (2) [4, 1, 0, 0]
-    // (3) [3, 0, 8]
 &rcub;"/>
 
 <p>
-    This way, the iterator's sole responsibility is to provide views of the packets from the original buffer, separating the task of identifying packets from the actual processing. This design avoids unnecessary copies of the original bytes and allows for potential concurrent processing of the packets. But how do we achieve this? First and foremost, we need to write an iterator.</p>
+    This way, the iterator's sole responsibility is to provide views of the packets from the original buffer, separating the task of identifying packets from the actual processing. This design avoids unnecessary copies of the original bytes and allows for concurrent processing of the packets, if you where to use f.ex. std::reduce(). But how do we achieve this interface? First and foremost, we need to write an iterator.
+</p>
+
+
 <h2>
     Writing a forward iterator
 </h2>
 <p>
-    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate, which means it must fulfill the std::forward_iterator concept. By defining the minimum requirements for this concept, the iterator will look like this:
-</p>
-<p>
-    (We'll also make the byte data type generic, turning the iterator into a templated class.)
+    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate since the protocols usually don't allow for parsing packets backwards. While it’s possible to create a bidirectional iterator by caching the size of previous packets, it would still rely on using a forward iterator under the hood. So, we’ll define a class that meets the minimum requirements of an std::forward_iterator, making the underlying data types generic as well:
 </p>
 
 <Code code=
@@ -72,11 +74,18 @@ public:
 &rcub;" />
 
 <p>
-    Next, we need to define the essential states for our iterator. First, it needs a pointer to the start of the current packet. To handle increments and return the correct spans, the iterator also needs to know the size of the current packet. This size is determined relative to the packet pointer and is based on a protocol provided by the user. We can use a function object for this task, which takes a pointer and returns the size of the next packet. Additionally, to avoid going out of bounds, we'll need to know the distance to the end of the buffer. By wrapping the pointer and size in an std::span, we handle this neatly. Finally, we'll store the current packet size to avoid repeatedly calling the function object. The resulting states and constructors look like this:
+    Next, we need to define the essential states for our iterator. First, it needs a pointer to the start of the current packet. To handle increments and return the correct spans, the iterator also needs to know the size of the current packet. This size is determined relative to the start of the current packet and will be specific to a user-provided protocol. This protocol can be passed as a function object that takes a pointer to the start of the packet and the size of the remaining buffer (to handle incomplete packets) and returns the size of the next packet or potentially zero. Finally, we’ll store the current packet size to avoid repeatedly calling the function object. These states are illustrated in the next figure.
 </p>
+
+<img src={packets_implementation} alt="Packet implementation"/>
+
+<p>
+    Adding the states to the iterator, and implementing the constructors will give us this:
+</p>
+
 <Code code=
 "template&lt;typename T, typename F&gt;
-requires std::is_invocable_r_v&lt;std::size_t, F, std::span&lt;T&gt;&gt;
+    requires std::is_invocable_r_v&lt;std::size_t, F, std::span&lt;T&gt;&gt;
 class packet_iterator
 &lcub;
 public:
@@ -88,6 +97,8 @@ public:
     &lcub;&rcub;
 
     ...
+        [Member functions]
+    ...
 
 private:
     std::span&lt;T&gt; buffer;
@@ -96,7 +107,7 @@ private:
 &rcub;" />
 
 <p>
-    Now it’s time to implement the member functions. The indirect operator will return a subspan of the remaining buffer, like this:
+    Next, we implement the member functions. The indirect operator will return a subspan of the remaining buffer, like this:
 </p>
 <Code code=
 "std::span&lt;T&gt; operator*() const
@@ -115,7 +126,7 @@ private:
 &rcub;" />
 
 <p>
-    The equal-to operator will compare iterators to see if they point to the same address, meaning they are at the start of the same packet.
+    The equal-to operator will simply compare iterators by checking if their remaining buffer points to the same address:
 </p>
 <Code code=
 "bool operator==(const packet_iterator&) const;
@@ -124,7 +135,7 @@ private:
 &rcub;" />
 
 <p>
-    At this stage, we have a working forward iterator, but how do we determine if it has reached the end? Simply incrementing it until it returns an empty span isn’t ideal and can cause issues with STL functions or range-based for loops. What we need now is a sentinel or end iterator to handle this situation gracefully.
+    At this stage, we have a working forward iterator, but how do we determine if it has reached the end? Simply incrementing it until it returns an empty span isn’t ideal and doesn't work if we want to use STL functions or range-based for loops. What we need now is a sentinel used for checking if the iterator is past the end.
 </p>
 
 <h2>
@@ -132,7 +143,7 @@ private:
 </h2>
 
 <p>
-    How do we create a sentinel that knows when it's past the end? The first question you should ask yourself is, however,  whether the iterator itself can determine if it’s reached the end. In this case, it can—since the iterator keeps track of how much buffer is left. If the remainder of the buffer is empty or the current size is zero, or exceeds the remaining buffer, it is safe to consider it past the end. To handle this, we can use the STL’s std::default_sentinel_t (a simple empty struct convenient for this purpose) for bound checks. To make this work, we just need to add an additional equal-to operator that takes this sentinel type as its argument, and return whether the iterator has reached the end.
+    How do we create a sentinel that knows when its paired iterator is past the end? First, we should consider whether the iterator itself can determine if it’s reached the end. In this case, it can—since it keeps track of the remaining buffer. If the buffer is empty, the current size is zero, or the size exceeds the remaining buffer, it’s safe to consider it past the end. To handle this, we can use the STL’s std::default_sentinel_t, a convenient empty struct for bound checks. You could choose any type, but std::default_sentinel_t is as efficient as it gets, and its name is self-explanatory. To make this work, we need to add an additional equal-to operator that takes our chosen sentinel as its argument and returns whether the iterator has reached the end.
 </p>
 
 <Code code=
@@ -146,7 +157,7 @@ private:
 </h2>
 
 <p>
-    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. However, to make it compatible with STL range functions and range-based for loops, we need to add a couple more features. Specifically, we need to implement begin() and end() functions for our iterator. With these additions, it will seamlessly fulfill the std::forward_range concept—and we have reached our goal.
+    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. However, to make it compatible with STL range functions and range-based for loops, we need to provide the iterator-sentinel pair by a begin() and end() function though our range object. In this case we will provide them directly on our iterator as member functions. With these additions, it will seamlessly fulfill the std::forward_range concept—and we have reached our initial goal.
 </p>
 
 <Code code=
@@ -160,17 +171,84 @@ std::default_sentinel_t end() const
     return &lcub;&rcub;;
 &rcub;" />
 
+<p>
+    However, there is one more enhancement we should add to our iterator. Since the iterator doesn't own the data it iterates over, we can enable the std::ranges::enable_borrowed_range variable template. This allows other functions to take the ranges by value and return iterators obtained from them without the risk of dangling references.
+</p>
 
+<Code code=
+"template&lt;typename T, typename F&gt;
+inline constexpr bool std::ranges::enable_borrowed_range&lt;packet_iterator&lt;T, F&gt;&gt; = true;" />
+
+<h2>
+    Use case example
+</h2>
+
+<p>
+    Consider the following simple protocol, where the size of the packet is found in the first int of the packet:
+</p>
+
+<img src={packets_goal_example} alt="Packet example"/>
+
+<p>
+    The iterator can then simply be used as follows to loop the packets:
+</p>
+
+<Code code=
+"std::vector&lt;int&gt; buffer&lcub; 2, 0, 4, 1, 0, 0, 3, 0, 8 &rcub;;
+
+auto protocol&lcub;[](std::span&lt;int&gt; buf) -&gt; std::size_t
+    &lcub;
+        return buf.empty() ? 0 : buf.front();
+    &rcub;&rcub;;
+
+for (std::span&lt;int&gt; packet : packet_iterator&lcub;std::span&lcub;buffer&rcub;, protocol&rcub;)
+&lcub;
+    // Process packets
+    // (1) [2, 0]
+    // (2) [4, 1, 0, 0]
+    // (3) [3, 0, 8]
+&rcub;"/>
+
+<p>
+    Alternatively, you could wrap the protocol inside function and return the range like this:
+</p>
+
+<Code code=
+"auto my_packet_iterator(std::span&lt;int&gt; buffer)
+&lcub;
+    return packet_iterator&lcub;buffer, [](std::span&lt;int&gt; buf) -&gt; std::size_t
+        &lcub;
+            return buf.empty() ? 0 : buf.front();
+        &rcub;&rcub;;
+&rcub;
+"/>
+
+<p>
+    In that case, the code would look as slick as:
+</p>
+
+<Code code=
+"std::vector&lt;int&gt; buffer&lcub; 2, 0, 4, 1, 0, 0, 3, 0, 8 &rcub;;
+
+for (std::span&lt;int&gt; packet : my_packet_iterator(std::span&lcub;buffer&rcub;))
+&lcub;
+    // Process packets
+    // (1) [2, 0]
+    // (2) [4, 1, 0, 0]
+    // (3) [3, 0, 8]
+&rcub;"/>
 
 <h2>
     Summary
 </h2>
 
+
+
 <p>
     By crafting a custom iterator and sentinel, we've enhanced our code to handle sequences with ease and elegance. This approach not only aligns with modern C++ practices but also ensures efficient and clean code management. Whether you’re dealing with legacy projects or new challenges, a well-designed iterator can be a powerful tool in your toolkit. Enjoy writing elegant C++!
 </p>
 <p>
-    (you can find the source code for the final iterator <a href="https://github.com/akspertise/ax/blob/main/include/ax/packet_iterator.hpp" target="_blank" rel="noopener noreferrer">here</a>)
+    (you can find the source code for the final iterator in my repo <a href="https://github.com/akspertise/ax/blob/main/include/ax/packet_iterator.hpp" target="_blank" rel="noopener noreferrer">here</a>)
 </p>
 
 <style lang="scss">
@@ -200,6 +278,11 @@ std::default_sentinel_t end() const
         @include breakpoint.up('md') {
             font-size: functions.toRem(17);
         }
+    }
+
+    img {
+        padding: 4% 10% 4% 10%;
+        width: 100%;
     }
 
 </style>
