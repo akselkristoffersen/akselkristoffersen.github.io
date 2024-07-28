@@ -48,7 +48,7 @@
     Writing a forward iterator
 </h2>
 <p>
-    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate since the protocols usually don't allow for parsing packets backwards. While it’s possible to create a bidirectional iterator by caching the size of previous packets, it would still rely on using a forward iterator under the hood. So, we’ll define a class that meets the minimum requirements of an <a href="https://en.cppreference.com/w/cpp/iterator/forward_iterator" target="_blank" rel="noopener noreferrer">std::forward_iterator</a>, making the underlying data types generic as well:
+    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate since the protocols usually don't allow parsing packets backwards. While it’s possible to create a bidirectional iterator by caching the sizes of previous packets, it would still rely on using a forward iterator under the hood. So, we’ll define a class that meets the minimum requirements of an <a href="https://en.cppreference.com/w/cpp/iterator/forward_iterator" target="_blank" rel="noopener noreferrer">std::forward_iterator</a>, making the underlying data types generic as well:
 </p>
 
 <Code code=
@@ -74,7 +74,7 @@ public:
 &rcub;" />
 
 <p>
-    Next, we need to define the essential states for our iterator. First, it needs a pointer to the start of the current packet. To handle increments and return the correct spans, the iterator also needs to know the size of the current packet. This size is determined relative to the start of the current packet and will be specific to a user-provided protocol. This protocol can be passed as a function object that takes a pointer to the start of the packet and the size of the remaining buffer (to handle incomplete packets) and returns the size of the next packet or potentially zero. Finally, we’ll store the current packet size to avoid repeatedly calling the function object. These states are illustrated in the next figure.
+    Next, we need to define the essential states for our iterator. First, it needs a pointer to the start of the current packet. To handle increments and return the correct spans, the iterator also needs to know the size of the current packet. This size is found in the header of the current packet and will be specific to a user-provided protocol. This protocol can be passed as a function object that takes a pointer to the start of the packet and the size of the remaining buffer (to handle incomplete packets) and returns the size of the next packet or potentially zero. Finally, we’ll store the current packet size to avoid repeatedly calling the function object. These states are illustrated in the next figure.
 </p>
 
 <img src={packets_implementation} alt="Packet implementation"/>
