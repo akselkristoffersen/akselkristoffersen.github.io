@@ -40,7 +40,7 @@
 &rcub;"/>
 
 <p>
-    This way, the iterator's sole responsibility is to provide views of the packets from the original buffer, separating the task of identifying packets from the actual processing. This design avoids unnecessary copies of the original bytes and allows for concurrent processing of the packets, if you where to use f.ex. std::reduce(). But how do we achieve this interface? First and foremost, we need to write an iterator.
+    This way, the iterator's sole responsibility is to provide views of the packets from the original buffer, separating the task of identifying packets from the actual processing. This design avoids unnecessary copies of the original bytes and allows for concurrent processing of the packets, if you where to use f.ex. <a href="https://en.cppreference.com/w/cpp/algorithm/reduce" target="_blank" rel="noopener noreferrer">std::reduce()</a>. But how do we achieve this interface? First and foremost, we need to write an iterator.
 </p>
 
 
@@ -48,7 +48,7 @@
     Writing a forward iterator
 </h2>
 <p>
-    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate since the protocols usually don't allow for parsing packets backwards. While it’s possible to create a bidirectional iterator by caching the size of previous packets, it would still rely on using a forward iterator under the hood. So, we’ll define a class that meets the minimum requirements of an std::forward_iterator, making the underlying data types generic as well:
+    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate since the protocols usually don't allow for parsing packets backwards. While it’s possible to create a bidirectional iterator by caching the size of previous packets, it would still rely on using a forward iterator under the hood. So, we’ll define a class that meets the minimum requirements of an <a href="https://en.cppreference.com/w/cpp/iterator/forward_iterator" target="_blank" rel="noopener noreferrer">std::forward_iterator</a>, making the underlying data types generic as well:
 </p>
 
 <Code code=
@@ -143,7 +143,7 @@ private:
 </h2>
 
 <p>
-    How do we create a sentinel that knows when its paired iterator is past the end? First, we should consider whether the iterator itself can determine if it’s reached the end. In this case, it can—since it keeps track of the remaining buffer. If the buffer is empty, the current size is zero, or the size exceeds the remaining buffer, it’s safe to consider it past the end. To handle this, we can use the STL’s std::default_sentinel_t, a convenient empty struct for bound checks. You could choose any type, but std::default_sentinel_t is as efficient as it gets, and its name is self-explanatory. To make this work, we need to add an additional equal-to operator that takes our chosen sentinel as its argument and returns whether the iterator has reached the end.
+    How do we create a sentinel that knows when its paired iterator is past the end? First, we should consider whether the iterator itself can determine if it’s reached the end. In this case, it can—since it keeps track of the remaining buffer. If the buffer is empty, the current size is zero, or the size exceeds the remaining buffer, it’s safe to consider it past the end. To handle this, we can use the STL’s <a href="https://en.cppreference.com/w/cpp/iterator/default_sentinel_t" target="_blank" rel="noopener noreferrer">std::default_sentinel_t</a>, a convenient empty struct for bound checks. You could choose any type, but this type is as efficient as it gets, and its name is self-explanatory. To make this work, we need to add an additional equal-to operator that takes our chosen sentinel as its argument and returns whether the iterator has reached the end.
 </p>
 
 <Code code=
@@ -157,7 +157,7 @@ private:
 </h2>
 
 <p>
-    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. However, to make it compatible with STL range functions and range-based for loops, we need to provide the iterator-sentinel pair from a begin() and end() function though our range object. In this case we will provide them directly though our iterator as member functions. With these additions, it will seamlessly fulfill the std::forward_range concept—and we have reached our initial goal.
+    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. However, to make it compatible with STL range functions and range-based for loops, we need to provide the iterator-sentinel pair from a begin() and end() function though our range object. In this case we will provide them directly though our iterator as member functions. With these additions, it will seamlessly fulfill the <a href="https://en.cppreference.com/w/cpp/ranges/forward_range" target="_blank" rel="noopener noreferrer">std::forward_range</a> concept—and we have reached our initial goal.
 </p>
 
 <Code code=
@@ -172,7 +172,7 @@ std::default_sentinel_t end() const
 &rcub;" />
 
 <p>
-    However, there is one more enhancement we should add to our iterator. Since the iterator doesn't own the data it iterates over, we can enable the std::ranges::enable_borrowed_range variable template. This allows other functions to take the ranges by value and return iterators obtained from them without the risk of dangling references.
+    However, there is one more enhancement we should add to our iterator. Since the iterator doesn't own the data it iterates over, we can enable the <a href="https://en.cppreference.com/w/cpp/ranges/borrowed_range" target="_blank" rel="noopener noreferrer">std::ranges::enable_borrowed_range</a> variable template. This allows other functions to take the ranges by value and return iterators obtained from them without the risk of dangling references.
 </p>
 
 <Code code=
