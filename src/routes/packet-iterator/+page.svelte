@@ -224,7 +224,7 @@ for (std::span&lt;int&gt; packet : packet_iterator&lcub;std::span&lcub;buffer&rc
 "/>
 
 <p>
-    In that case, the code would look as slick as:
+    In that case, the code could look as slick as this:
 </p>
 
 <Code code=
