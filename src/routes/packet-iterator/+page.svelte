@@ -135,7 +135,7 @@ private:
 &rcub;" />
 
 <p>
-    At this stage, we have a working forward iterator, but how do we determine if it has reached the end? Simply incrementing it until it returns an empty span isn’t ideal and doesn't work if we want to use STL functions or range-based for loops. What we need now is a sentinel used for checking if the iterator is past the end.
+    At this stage, we have a working forward iterator, but how do we determine if it has reached the end? Simply incrementing it until it returns an empty span isn’t ideal and doesn't work if we want to use STL functions or range-based for loops. What we need next is a sentinel.
 </p>
 
 <h2>
@@ -157,7 +157,7 @@ private:
 </h2>
 
 <p>
-    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. However, to make it compatible with STL range functions and range-based for loops, we need to provide the iterator-sentinel pair by a begin() and end() function though our range object. In this case we will provide them directly on our iterator as member functions. With these additions, it will seamlessly fulfill the std::forward_range concept—and we have reached our initial goal.
+    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. However, to make it compatible with STL range functions and range-based for loops, we need to provide the iterator-sentinel pair from a begin() and end() function though our range object. In this case we will provide them directly though our iterator as member functions. With these additions, it will seamlessly fulfill the std::forward_range concept—and we have reached our initial goal.
 </p>
 
 <Code code=
@@ -190,7 +190,7 @@ inline constexpr bool std::ranges::enable_borrowed_range&lt;packet_iterator&lt;T
 <img src={packets_goal_example} alt="Packet example"/>
 
 <p>
-    The iterator can then simply be used as follows to loop the packets:
+    The iterator can simply be used as follows to loop the packets:
 </p>
 
 <Code code=
