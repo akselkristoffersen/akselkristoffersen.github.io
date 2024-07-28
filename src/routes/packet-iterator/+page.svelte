@@ -9,16 +9,17 @@
 <h1>
     Let's write a C++ iterator
 </h1>
-<i class="written">
-    Written: July 27, 2024
-</i>
+
+<p class="written">
+    <i>Written: July 27, 2024</i>
+</p>
 
 <p>
     Creating a custom iterator in C++ can transform the way you handle sequences in your code. In this post, I'll guide you through the process of writing an iterator that aligns with modern C++ practices, enhancing both performance and readability. Let's dive into the world of iterators and see how they can make your code more efficient and elegant!
 </p>
 
 <h2>
-    Real world case scenario
+    Practical example
 </h2>
 
 <p>
@@ -262,6 +263,8 @@ for (std::span&lt;int&gt; packet : my_packet_iterator(std::span&lcub;buffer&rcub
 
     .written {
         font-size: 0.9em;
+        opacity: 0.65;
+        margin-bottom: 1.5em;
     }
 
     h2 {
