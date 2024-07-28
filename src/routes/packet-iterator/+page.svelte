@@ -1,5 +1,6 @@
 <script>
     import Code from './Code.svelte';
+    import Img from './Img.svelte';
     import packets_basic from '$assets/packets_basic.jpg';
     import packets_goal from '$assets/packets_goal.jpg';
     import packets_goal_example from '$assets/packets_goal_example.jpg';
@@ -26,12 +27,12 @@
     In my recent work on legacy projects, I've faced the challenge of parsing packets based on company-specific protocols. These protocols, reminiscent of familiar ones like TCP/IP, UDP, and Bluetooth, feature a fixed-size header and a variable-sized payload. However, the lack of dedicated parsing libraries in these projects have often made the code tricky to handle. In this article, I'll craft an iterator that leverages modern C++ practices to simplify the problem of parsing such packets.
 </p>
 
-<img src={packets_basic} alt="Packets structure"/>
+<Img src={packets_basic} alt="Packets structure"/>
 <p>
     Let's kick things off by defining the core problem. We have a collection of contiguous bytes in a container, and a protocol to separate these bytes into distinct packets. In C++ terms, these packets can be represented as a range of <a href="https://en.cppreference.com/w/cpp/container/span" target="_blank" rel="noopener noreferrer">std::span</a>s, or views of contiguous data, like this:
 </p>
 
-<img src={packets_goal} alt="Packets goal"/>
+<Img src={packets_goal} alt="Packets goal"/>
 
 <p>
     With this in mind, one elegant design could for example enable us to use the iterator in a range-based for loop like this:
@@ -81,7 +82,7 @@ public:
     Next, we need to define the essential states for our iterator. First, it needs a pointer to the start of the current packet. To handle increments and return the correct spans, the iterator also needs to know the size of the current packet. This size is found in the header of the current packet and will be specific to a user-provided protocol. This protocol can be passed as a function object that takes a pointer to the start of the packet and the size of the remaining buffer (to handle incomplete packets) and returns the size of the next packet or potentially zero. Finally, we’ll store the current packet size to avoid repeatedly calling the function object. These states are illustrated in the next figure.
 </p>
 
-<img src={packets_implementation} alt="Packet implementation"/>
+<Img src={packets_implementation} alt="Packet implementation"/>
 
 <p>
     Adding the states to the iterator, and implementing the constructors will give us this:
@@ -191,7 +192,7 @@ inline constexpr bool std::ranges::enable_borrowed_range&lt;packet_iterator&lt;T
     Consider the following simple protocol, where the size of the packet is found in the first int of the packet:
 </p>
 
-<img src={packets_goal_example} alt="Packet example"/>
+<Img src={packets_goal_example} alt="Packet example"/>
 
 <p>
     The iterator can simply be used as follows to loop the packets:
@@ -288,16 +289,5 @@ for (std::span&lt;int&gt; packet : my_packet_iterator(std::span&lcub;buffer&rcub
         @include breakpoint.up('md') {
             font-size: functions.toRem(17);
         }
-    }
-
-    img {
-        padding: 4% 0% 4% 0%;
-        @include breakpoint.up('md') {
-            padding: 4% 5% 4% 5%;
-        }
-        @include breakpoint.up('lg') {
-            padding: 4% 7% 4% 7%;
-        }
-        width: 100%;
     }
 </style>
