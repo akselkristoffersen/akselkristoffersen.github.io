@@ -28,7 +28,7 @@
 
 <img src={packets_basic} alt="Packets structure"/>
 <p>
-    Let's kick things off by defining the core problem. We have a collection of contiguous bytes in a container, and a protocol to separate these bytes into distinct packets. In C++ terms, these packets can be represented as a range of std::spans, or views of contiguous data, like this:
+    Let's kick things off by defining the core problem. We have a collection of contiguous bytes in a container, and a protocol to separate these bytes into distinct packets. In C++ terms, these packets can be represented as a range of <a href="https://en.cppreference.com/w/cpp/container/span" target="_blank" rel="noopener noreferrer">std::span</a>s, or views of contiguous data, like this:
 </p>
 
 <img src={packets_goal} alt="Packets goal"/>
