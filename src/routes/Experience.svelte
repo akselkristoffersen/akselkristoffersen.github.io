@@ -68,14 +68,16 @@
         }
 
         box-sizing: border-box;
-        width: calc(100% + 12px);
+        width: calc(100% + 22px);
         border-radius: 7px;
         display: flex;
         flex-direction: column;
-        margin: 16px 0px 26px -12px;
+        margin: 16px -11px 26px -11px;
         border: 3px solid transparent;
-        padding: 10px 9px;
+        padding: 10px 8px;
         @include breakpoint.up('lg') {
+            width: 100%;
+            margin: 16px 0px 26px 0px;
             margin-top: 5px;
             margin-bottom: 16px;
             padding: 13px 11px;

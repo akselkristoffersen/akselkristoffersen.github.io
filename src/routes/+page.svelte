@@ -317,6 +317,9 @@
             }
         }
         footer {
+            @include breakpoint.up('lg') {
+                padding-left: 14px;
+            }
             .footer-text {
                 font-size: functions.toRem(14);
             }
@@ -336,7 +339,7 @@
         }
         .dialog-content-first-row-company-link {
             flex: 0.5;
-            margin-right: 37px;
+            margin-right: 30px;
             margin-left: 15px;
             align-self: center;
         }

@@ -11,9 +11,11 @@
     .wrapper {
         display: flex;
         width: 100%;
-        justify-content: center;
+        @include breakpoint.up('md') {
+            justify-content: center;
+        }
         img {
-            padding: 4% 0% 4% 0%;
+            padding: 4% 0%;
             width: 100%;
             max-width: 680px;
         }
