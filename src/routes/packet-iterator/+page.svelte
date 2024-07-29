@@ -160,7 +160,13 @@ private:
 </h2>
 
 <p>
-    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. However, to make it compatible with STL range functions and range-based for loops, we need to provide the iterator-sentinel pair from a begin() and end() function though our range object. In this case we will provide them directly though our iterator as member functions. With these additions, it will seamlessly fulfill the <a href="https://en.cppreference.com/w/cpp/ranges/forward_range" target="_blank" rel="noopener noreferrer">std::forward_range</a> concept—and we have reached our initial goal.
+    Now that we have our iterator-sentinel pair, we can use it with STL iterator algorithms. 
+    However, to make it compatible with STL range functions and range-based for loops, 
+    we need to provide the iterator-sentinel pair from a begin() and end() function though 
+    our range object. In this case we will provide them directly though our iterator as 
+    member functions. With these additions, it will seamlessly fulfill the 
+    <a href="https://en.cppreference.com/w/cpp/ranges/forward_range" target="_blank" rel="noopener noreferrer">std::forward_range</a> 
+    concept—and we have reached our initial goal.
 </p>
 
 <Code code=
@@ -175,7 +181,11 @@ std::default_sentinel_t end() const
 &rcub;" />
 
 <p>
-    However, there is one more enhancement we should add to our iterator. Since the iterator doesn't own the data it iterates over, we can enable the <a href="https://en.cppreference.com/w/cpp/ranges/borrowed_range" target="_blank" rel="noopener noreferrer">std::ranges::enable_borrowed_range</a> variable template. This allows other functions to take the ranges by value and return iterators obtained from them without the risk of dangling references.
+    However, there is one more enhancement we should add to our iterator. 
+    Since the iterator doesn't own the data it iterates over, we can enable the 
+    <a href="https://en.cppreference.com/w/cpp/ranges/borrowed_range" target="_blank" rel="noopener noreferrer">std::ranges::enable_borrowed_range</a> 
+    variable template. This allows other functions to verify that they can take the range by value 
+    and return iterators obtained from it without the risk of dangling references.
 </p>
 
 <Code code=
