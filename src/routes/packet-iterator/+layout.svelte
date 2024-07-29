@@ -17,7 +17,7 @@
 <style lang="scss">
     .content {
         width: 100%;
-        max-width: 850px;
+        max-width: 820px;
         .stars {
             position: relative;
             height: 12vh;
