@@ -2,6 +2,9 @@
     import Stars from './Stars.svelte';
     import Wrapper from './Wrapper.svelte';
     import { ArrowLeft } from 'lucide-svelte';
+
+    export let title;
+    export let date;
 </script>
 
 <Wrapper>
@@ -10,6 +13,13 @@
             <Stars />
         </div>
         <a class="back" href="/"><ArrowLeft strokeWidth={2.5} size={28}></ArrowLeft>Home</a>
+        <h1>
+            {title}
+        </h1>
+        <p class="written">
+            <i>Written: {date}</i>
+        </p>
+    
         <slot />
     </div>
 </Wrapper>
@@ -32,6 +42,15 @@
             display: flex;
             align-items: center;
             width: 100%;
+        }
+        h1 {
+            margin-top: 0.4em;
+            margin-bottom: 0.4em;
+        }
+        .written {
+            font-size: 0.9em;
+            opacity: 0.7;
+            margin-bottom: 1.5em;
         }
     }
 </style>

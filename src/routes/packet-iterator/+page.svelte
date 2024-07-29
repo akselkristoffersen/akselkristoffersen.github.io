@@ -8,14 +8,10 @@
     import packets_implementation from '$assets/packets_implementation.jpg';
 </script>
 
-<BlogWrapper>
-    <h1>
-        Let's write a C++ iterator
-    </h1>
-
-    <p class="written">
-        <i>Written: July 27, 2024</i>
-    </p>
+<BlogWrapper 
+    title="Lets's write a C++ iterator"
+    date="July 27, 2024"
+    >
 
     <p>
         Creating a custom iterator in C++ can transform the way you handle sequences in your code. In this post, I'll guide you through the process of writing an iterator that aligns with modern C++ practices, enhancing both performance and readability. Let's dive into the world of iterators and see how they can make your code more efficient and elegant!
@@ -249,8 +245,6 @@
         Summary
     </h2>
 
-
-
     <p>
         By crafting a custom iterator and sentinel, we've enhanced our code to handle sequences with ease and elegance. This approach not only aligns with modern C++ practices but also ensures efficient and clean code management. Whether you’re dealing with legacy projects or new challenges, a well-designed iterator can be a powerful tool in your toolkit. Enjoy writing elegant C++!
     </p>
@@ -260,17 +254,6 @@
 </BlogWrapper>
 
 <style lang="scss">
-    h1 {
-        margin-top: 0.4em;
-        margin-bottom: 0.4em;
-    }
-
-    .written {
-        font-size: 0.9em;
-        opacity: 0.65;
-        margin-bottom: 1.5em;
-    }
-
     h2 {
         color: var(--text-color);
         font-size: functions.toRem(19);
