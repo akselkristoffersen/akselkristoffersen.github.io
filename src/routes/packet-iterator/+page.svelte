@@ -254,26 +254,4 @@
 </BlogWrapper>
 
 <style lang="scss">
-    h2 {
-        color: var(--text-color);
-        font-size: functions.toRem(19);
-        margin-top: 1.3em;
-        margin-bottom: 0.9em;
-        @include breakpoint.up('md') {
-            font-size: functions.toRem(20);
-        }
-        @include breakpoint.up('lg') {
-            font-size: functions.toRem(21);
-        }
-    }
-
-    p {
-        color: var(--light-color);
-        font-size: functions.toRem(16);
-        margin-top: 0.8em;
-        margin-bottom: 0.8em;
-        @include breakpoint.up('md') {
-            font-size: functions.toRem(17);
-        }
-    }
 </style>
