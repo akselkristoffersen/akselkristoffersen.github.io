@@ -1,21 +1,23 @@
 <script>
     import Stars from '../Stars.svelte';
+    import Wrapper from '../Wrapper.svelte';
     import { ArrowLeft } from 'lucide-svelte';
 </script>
 
-<div class="wrapper">
-    <div class="stars">
-        <Stars />
+<Wrapper>
+    <div class="content">
+        <div class="stars">
+            <Stars />
+        </div>
+        <a class="back" href="/"><ArrowLeft strokeWidth={2.5} size={28}></ArrowLeft>Home</a>
+        <slot />
     </div>
-    <a class="back" href="/"><ArrowLeft strokeWidth={2.5} size={28}></ArrowLeft>Home</a>
-    <slot />
-</div>
+</Wrapper>
 
 <style lang="scss">
-    .wrapper{
+    .content {
         width: 100%;
         max-width: 850px;
-        padding: 0px 13px 0px 13px;
         .stars {
             position: relative;
             height: 12vh;
