@@ -11,7 +11,7 @@
     .wrapper {
         display: flex;
         width: 100%;
-        @include breakpoint.up('md') {
+        @include breakpoint.up('lg') {
             justify-content: center;
         }
         img {
