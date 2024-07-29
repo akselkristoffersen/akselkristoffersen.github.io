@@ -14,7 +14,10 @@
     >
 
 <p>
-    Creating a custom iterator in C++ can transform the way you handle sequences in your code. In this post, I'll guide you through the process of writing an iterator that aligns with modern C++ practices, enhancing both performance and readability. Let's dive into the world of iterators and see how they can make your code more efficient and elegant!
+    Creating a custom iterator in C++ can transform the way you handle sequences in your code. 
+    In this post, I'll guide you through the process of writing an iterator that aligns with 
+    modern C++ practices, enhancing both performance and readability. Let's dive into the world 
+    of iterators and see how they can make your code more efficient and elegant!
 </p>
 
 <h2>
@@ -22,18 +25,28 @@
 </h2>
 
 <p>
-    In my recent work on legacy projects, I've faced the challenge of parsing packets based on company-specific protocols. These protocols, reminiscent of familiar ones like TCP/IP, UDP, and Bluetooth, feature a fixed-size header and a variable-sized payload. However, the lack of dedicated parsing libraries in these projects have often made the code tricky to handle. In this article, I'll craft an iterator that leverages modern C++ practices to simplify the problem of parsing such packets.
+    In my recent work on legacy projects, I've faced the challenge of parsing packets based 
+    on company-specific protocols. These protocols, reminiscent of familiar ones like TCP/IP, 
+    UDP, and Bluetooth, feature a fixed-size header and a variable-sized payload. However, the 
+    lack of dedicated parsing libraries in these projects have often made the code tricky to 
+    handle. In this article, I'll craft an iterator that leverages modern C++ practices to 
+    simplify the problem of parsing such packets.
 </p>
 
 <Img src={packets_basic} alt="Packets structure"/>
 <p>
-    Let's kick things off by defining the core problem. We have a collection of contiguous bytes in a container, and a protocol to separate these bytes into distinct packets. In C++ terms, these packets can be represented as a range of <a href="https://en.cppreference.com/w/cpp/container/span" target="_blank" rel="noopener noreferrer">std::span</a>s, or views of contiguous data, like this:
+    Let's kick things off by defining the core problem. We have a collection of contiguous 
+    bytes in a container, and a protocol to separate these bytes into distinct packets. 
+    In C++ terms, these packets can be represented as a range of 
+    <a href="https://en.cppreference.com/w/cpp/container/span" target="_blank" rel="noopener noreferrer">std::span</a>s, 
+    or views of contiguous data, like this:
 </p>
 
 <Img src={packets_goal} alt="Packets goal"/>
 
 <p>
-    With this in mind, one elegant design could for example enable us to use the iterator in a range-based for loop like this:
+    With this in mind, one elegant design could for example enable us to use the iterator 
+    in a range-based for loop like this:
 </p>
 
 <Code code=
@@ -43,7 +56,12 @@
 &rcub;"/>
 
 <p>
-    This way, the iterator's sole responsibility is to provide views of the packets from the original buffer, separating the task of identifying packets from the actual processing. This design avoids unnecessary copies of the original bytes and allows for concurrent processing of the packets, if you where to use f.ex. <a href="https://en.cppreference.com/w/cpp/algorithm/reduce" target="_blank" rel="noopener noreferrer">std::reduce()</a>. But how do we achieve this interface? First and foremost, we need to write an iterator.
+    This way, the iterator's sole responsibility is to provide views of the packets 
+    from the original buffer, separating the task of identifying packets from the actual processing. 
+    This design also avoids unnecessary copies of the original bytes and allows for potential concurrent 
+    processing of the packets, if you where to use f.ex. 
+    <a href="https://en.cppreference.com/w/cpp/algorithm/reduce" target="_blank" rel="noopener noreferrer">std::reduce()</a>. 
+    But how do we achieve this interface? First and foremost, we need to write an iterator.
 </p>
 
 
@@ -51,7 +69,15 @@
     Writing a forward iterator
 </h2>
 <p>
-    A great starting point for writing an iterator is to define the boilerplate for the type of iterator you need. In this case, a forward iterator is appropriate since the protocols usually don't allow parsing packets backwards. While it’s possible to create a bidirectional iterator by caching the sizes of previous packets, it would still rely on using a forward iterator under the hood. So, we’ll define a class that meets the minimum requirements of an <a href="https://en.cppreference.com/w/cpp/iterator/forward_iterator" target="_blank" rel="noopener noreferrer">std::forward_iterator</a>, making the underlying data types generic as well:
+    A great starting point for writing an iterator is to define the boilerplate for the 
+    type of iterator you need. In this case, a forward iterator is appropriate since the 
+    protocols usually don't allow parsing packets backwards. While it’s possible to create 
+    a bidirectional iterator by storing the sizes of previous packets, it would still rely 
+    on using a forward iterator under the hood. Therefore, we’ll define a class that meets the 
+    minimum requirements of an 
+    <a href="https://en.cppreference.com/w/cpp/iterator/forward_iterator" target="_blank" rel="noopener noreferrer">std::forward_iterator</a>. 
+    We'll also make the underlying data types a template parameter 
+    since the specific types of the container are not important.
 </p>
 
 <Code code=
@@ -77,7 +103,17 @@ public:
 &rcub;" />
 
 <p>
-    Next, we need to define the essential states for our iterator. First, it needs a pointer to the start of the current packet. To handle increments and return the correct spans, the iterator also needs to know the size of the current packet. This size is found in the header of the current packet and will be specific to a user-provided protocol. This protocol can be passed as a function object that takes a pointer to the start of the packet and the size of the remaining buffer (to handle incomplete packets) and returns the size of the next packet or potentially zero. Finally, we’ll store the current packet size to avoid repeatedly calling the function object. These states are illustrated in the next figure.
+    Next, we need to define the essential states for our iterator. 
+    First, it needs a pointer to the start of the current packet. 
+    To handle increments and return the correct spans, the iterator also 
+    needs to know the size of the current packet. This size is found in the 
+    header of the current packet and will be specific to a user-provided protocol. 
+    This protocol can be passed as a function object that takes a pointer to the 
+    start of the packet and the size of the remaining buffer 
+    (to handle incomplete packets) and returns the size of the next packet or 
+    potentially zero. Finally, we’ll store the current packet size to avoid 
+    repeatedly calling the function object. These states are illustrated in 
+    the next figure.
 </p>
 
 <Img src={packets_implementation} alt="Packet implementation"/>
