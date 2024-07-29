@@ -9,7 +9,7 @@
 </script>
 
 <BlogWrapper 
-    title="Lets's write a C++ iterator"
+    title="Modern C++: Build Custom Iterators"
     date="July 27, 2024"
     >
 

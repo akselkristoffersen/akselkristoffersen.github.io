@@ -138,7 +138,7 @@
             <div class="hero-blog-posts">
                 <h2>BLOG POSTS:</h2>
                 <ul class="hero-blog-posts-list">
-                    <li><a href="/packet-iterator">Let's write a C++ iterator</a></li>
+                    <li><a href="/packet-iterator">Modern C++: Build Custom Iterators</a></li>
                 </ul>
             </div>
         </div>
