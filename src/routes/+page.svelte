@@ -311,15 +311,7 @@
             max-width: 580px;
             padding: 30px 30px 0px 0px;
         }
-        h2 {
-            @include breakpoint.up('lg') {
-                padding-left: 14px;
-            }
-        }
         footer {
-            @include breakpoint.up('lg') {
-                padding-left: 14px;
-            }
             .footer-text {
                 font-size: functions.toRem(14);
             }
@@ -339,12 +331,16 @@
         }
         .dialog-content-first-row-company-link {
             flex: 0.5;
-            margin-right: 30px;
+            margin-right: 20px;
             margin-left: 15px;
             align-self: center;
+            @include breakpoint.up('lg') {
+                margin-right: 30px;
+            }
         }
         .dialog-content-first-row-experience {
-            flex: 1;
+            padding: 0px 10px;
+            flex: 0.95;
         }
     }
     .dialog-content-second-row {
