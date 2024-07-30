@@ -9,6 +9,8 @@
     import AkselPicture from '$assets/aksel_picture.png';
     import Lakshi from '$assets/lakshi.png';
     import Audrey from '$assets/audrey.png';
+    import Techathon from '$assets/techathon.mp4';
+    import TechathonPoster from '$assets/techathon_poster.jpg';
     //import Tommy from '$assets/tommy.png';
     //import Ola from '$assets/ola.png';
     import Tech from '$lib/Tech.svelte';
@@ -93,10 +95,18 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
-        <!-- <video width="400" autoplay muted loop>
-            <source src={Test} type="video/mp4">
-            <track src="captions_en.vtt" kind="captions" srclang="en" label="english_captions">
-        </video> -->
+        <div class="dialog-content-second-row-video">
+            <video controls autoplay muted loop poster={TechathonPoster}>
+                <source src={Techathon} type="video/mp4">
+                <p>
+                    Your browser doesn't support HTML video :(
+                </p>
+            </video>
+            <p>
+                I landed this internship through a hackathon. Read more about it 
+                <a href="https://loop.equinor.com/en/stories/techathon-2019" target="_blank" rel="noopener noreferrer">here</a>.
+            </p>
+        </div>
     </div>
 </Modal>
 
@@ -347,6 +357,15 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+
+        .dialog-content-second-row-video {
+            text-align: center;
+            width: 320px;
+            padding: 30px;
+            video {
+                width: 100%;
+            }
+        }
     }
 
     svg {
