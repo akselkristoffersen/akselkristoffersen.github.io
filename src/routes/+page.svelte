@@ -228,7 +228,7 @@
         width: 100%;
         top: 0;
         position: relative;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
         @include breakpoint.up('lg') {
             flex: 1;
             max-width: 570px;
