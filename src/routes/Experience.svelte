@@ -72,12 +72,12 @@
         border-radius: 7px;
         display: flex;
         flex-direction: column;
-        margin: 6px -12px 36px -12px;
+        margin: 6px -12px 32px -12px;
         border: 3px solid transparent;
         padding: 10px 9px;
         @include breakpoint.up('md') {
-            margin-top: 16px;
-            margin-bottom: 26px;
+            margin-top: 6px;
+            margin-bottom: 23px;
         }
         @include breakpoint.up('lg') {
             margin-top: 5px;
