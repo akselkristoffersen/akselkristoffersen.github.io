@@ -96,7 +96,7 @@
     </div>
     <div class="dialog-content-second-row">
         <div class="dialog-content-second-row-video">
-            <video controls muted loop poster={TechathonPoster}>
+            <video controls muted poster={TechathonPoster}>
                 <source src={Techathon} type="video/mp4">
                 <p>
                     Your browser doesn't support HTML video :(
@@ -360,7 +360,8 @@
 
         .dialog-content-second-row-video {
             text-align: center;
-            width: 320px;
+            max-width: 320px;
+            width: 100%;
             padding: 30px;
             video {
                 width: 100%;
