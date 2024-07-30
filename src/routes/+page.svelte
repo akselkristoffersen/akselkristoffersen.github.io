@@ -96,7 +96,7 @@
     </div>
     <div class="dialog-content-second-row">
         <div class="dialog-content-second-row-video">
-            <video controls autoplay muted loop poster={TechathonPoster}>
+            <video controls muted loop poster={TechathonPoster}>
                 <source src={Techathon} type="video/mp4">
                 <p>
                     Your browser doesn't support HTML video :(
