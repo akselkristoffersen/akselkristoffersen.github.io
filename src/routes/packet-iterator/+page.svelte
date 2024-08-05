@@ -141,8 +141,8 @@ public:
 
 private:
     std::span&lt;T&gt; buffer;
-    std::size_t size;
     F get_size_func;
+    std::size_t size;
 &rcub;" />
 
 <p>
