@@ -257,17 +257,17 @@
             .hero-alias {
                 display: block; 
                 font-weight: 600;
-                font-size: functions.toRem(16);
+                font-size: functions.toRem(15);
                 color: var(--semi-light-color);
                 opacity: 0.9;
                 @include breakpoint.up('sm') {
-                    font-size: functions.toRem(19);
+                    font-size: functions.toRem(18);
                 }
                 @include breakpoint.up('md') {
-                    font-size: functions.toRem(20);
+                    font-size: functions.toRem(19);
                 }
                 @include breakpoint.up('lg') {
-                    font-size: functions.toRem(22);
+                    font-size: functions.toRem(21);
                 }
             }
             .work-title {
