@@ -116,7 +116,7 @@
     </div>
     <div class="first-content">
         <div class="hero">
-            <h1>Aksel Kristoffersen</h1>
+            <h1><span class="hero-alias">akselkristoffersen </span>Aksel Kristoffersen</h1>
             <div class="hero-block">
                 <div class="hero-block-text">
                     <p class="work-title">Software Engineer</p>
@@ -254,6 +254,22 @@
             height: fit-content;
         }
         .hero {
+            .hero-alias {
+                display: block; 
+                font-weight: 600;
+                font-size: functions.toRem(17);
+                color: var(--semi-light-color);
+                opacity: 0.9;
+                @include breakpoint.up('sm') {
+                    font-size: functions.toRem(20);
+                }
+                @include breakpoint.up('md') {
+                    font-size: functions.toRem(21);
+                }
+                @include breakpoint.up('lg') {
+                    font-size: functions.toRem(23);
+                }
+            }
             .work-title {
                 font-weight: 600;
                 color: var(--text-color);
