@@ -257,7 +257,7 @@
             .hero-alias {
                 display: block; 
                 font-weight: 600;
-                font-size: functions.toRem(15);
+                font-size: functions.toRem(17);
                 color: var(--semi-light-color);
                 opacity: 0.9;
                 @include breakpoint.up('sm') {
