@@ -116,7 +116,10 @@
     </div>
     <div class="first-content">
         <div class="hero">
-            <h1><span class="hero-alias">akselkristoffersen.dev </span>Aksel Kristoffersen</h1>
+            <h1><span class="hero-alias">
+                <svg width="310" height="23" id="svg" viewBox="0 0 1440 490" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M 0,500 L 0,125 C 83.89487179487179,144.4474358974359 167.78974358974358,163.8948717948718 258,176 C 348.2102564102564,188.1051282051282 444.7358974358974,192.8679487179487 519,202 C 593.2641025641026,211.1320512820513 645.2666666666668,224.63333333333333 709,258 C 772.7333333333332,291.3666666666667 848.1974358974358,344.598717948718 926,362 C 1003.8025641025642,379.401282051282 1083.9435897435899,360.9717948717949 1170,378 C 1256.0564102564101,395.0282051282051 1348.0282051282052,447.5141025641026 1440,500 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill="#152f60" fill-opacity="0.5" class="transition-all duration-300 ease-in-out delay-150 path-0"></path><path d="M 0,500 L 0,291 C 88.45128205128205,295.7294871794872 176.9025641025641,300.4589743589744 269,315 C 361.0974358974359,329.5410256410256 456.84102564102557,353.89358974358976 515,374 C 573.1589743589744,394.10641025641024 593.7333333333335,409.96666666666664 675,430 C 756.2666666666665,450.03333333333336 898.2256410256412,474.2397435897435 991,489 C 1083.7743589743588,503.7602564102565 1127.3641025641025,509.07435897435903 1194,537 C 1260.6358974358975,564.925641025641 1350.3179487179486,615.4628205128205 1440,666 L 1440,500 L 0,500 Z" stroke="none" stroke-width="0" fill="#85929f" fill-opacity="0.3" class="transition-all duration-300 ease-in-out delay-150 path-1"></path></svg>            
+                </span>Aksel Kristoffersen
+            </h1>
             <div class="hero-block">
                 <div class="hero-block-text">
                     <p class="work-title">Software Engineer</p>
@@ -260,6 +263,8 @@
                 font-size: functions.toRem(17);
                 color: var(--semi-light-color);
                 opacity: 0.9;
+                margin-top: -5px;
+                margin-bottom: 13px;
                 @include breakpoint.up('sm') {
                     font-size: functions.toRem(18);
                 }
