@@ -20,9 +20,9 @@
     >
     <div class="experience-years">
         <span>
-            {data.startDate.getUTCFullYear()}
-            {#if data.endDate.getUTCFullYear() - data.startDate.getUTCFullYear() > 0 }
-             - {data.endDate.getUTCFullYear()}
+            {data.startDate}
+            {#if data.endDate}
+             - {data.endDate}
             {/if}
         </span> 
         <div class="experience-years-location">

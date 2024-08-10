@@ -5,7 +5,7 @@
     import Modal from './Modal.svelte';
     import Testimonial from './Testimonial.svelte';
     import Wrapper from './Wrapper.svelte';
-    import { infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData, studassData } from './experiences';
+    import { consultantData, infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData, studassData } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
     import Lakshi from '$assets/lakshi.png';
     import Audrey from '$assets/audrey.png';
@@ -15,11 +15,42 @@
     //import Ola from '$assets/ola.png';
     import Tech from '$lib/Tech.svelte';
 
+    let consultantModal;
     let infrontModal;
     let kongsbergModal;
     let equinorModal;
 </script>
 
+<Modal bind:this={consultantModal}>
+    <div class="dialog-content-first-row">
+        <div class="dialog-content-first-row-company-link">
+            <CompanyLink data={consultantData}/>
+        </div>
+        <div class="dialog-content-first-row-experience">
+            <Experience 
+                data={consultantData} 
+                disabled={true}
+            />
+        </div>
+    </div>
+    <div class="dialog-content-second-row">
+        <div class="dialog-content-second-row-element">
+            <span class="dialog-content-second-row-element-contact">Get in touch:</span>
+            <a href="https://www.linkedin.com/in/akselkristoffersen" 
+                target="_blank" rel="noopener noreferrer" 
+                aria-label="LinkedIn (opens in a new tab)" title="LinkedIn"
+                >
+                <svg class="svg-fill" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310" xml:space="preserve"><path id="XMLID_802_" d="M72.16,99.73H9.927c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5H72.16c2.762,0,5-2.238,5-5V104.73C77.16,101.969,74.922,99.73,72.16,99.73z"/><path id="XMLID_803_" d="M41.066,0.341C18.422,0.341,0,18.743,0,41.362C0,63.991,18.422,82.4,41.066,82.4c22.626,0,41.033-18.41,41.033-41.038C82.1,18.743,63.692,0.341,41.066,0.341z"/><path id="XMLID_804_" d="M230.454,94.761c-24.995,0-43.472,10.745-54.679,22.954V104.73c0-2.761-2.238-5-5-5h-59.599c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5h62.097c2.762,0,5-2.238,5-5v-98.918c0-33.333,9.054-46.319,32.29-46.319c25.306,0,27.317,20.818,27.317,48.034v97.204c0,2.762,2.238,5,5,5H305c2.762,0,5-2.238,5-5V194.995C310,145.43,300.549,94.761,230.454,94.761z"/></svg>
+            </a>
+            <span class="dialog-content-second-row-element-contact"></span>
+            <a href="mailto:aksekris@gmail.com"
+                aria-label="Email (opens your email program)" title="Email"
+                >
+                <svg class="svg-fill" viewBox="0.9119999999999999 3.6959999999999997 22.128 13.424" xmlns="http://www.w3.org/2000/svg" style="max-height: 500px" width="27.728" height="26.754"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg>
+            </a>
+        </div>
+    </div>
+</Modal>
 <Modal bind:this={infrontModal}>
     <div class="dialog-content-first-row">
         <div class="dialog-content-first-row-company-link">
@@ -95,7 +126,7 @@
         </div>
     </div>
     <div class="dialog-content-second-row">
-        <div class="dialog-content-second-row-video">
+        <div class="dialog-content-second-row-element">
             <video controls muted poster={TechathonPoster}>
                 <source src={Techathon} type="video/mp4">
                 <p>
@@ -177,6 +208,12 @@
         </div>
     </div>
     <div class="second-content">
+        <h2>CURRENT</h2>
+            <Experience
+                data={consultantData} 
+                on:click={() => consultantModal.showModal()}
+                disabled             
+                />  
         <h2>EXPERIENCE</h2>
             <Experience
                 data={infrontData} 
@@ -382,13 +419,20 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
 
-        .dialog-content-second-row-video {
+        .dialog-content-second-row-element {
             text-align: center;
             max-width: 320px;
             width: 100%;
             padding: 30px;
+            padding-bottom: 25px;
             video {
                 width: 100%;
+            }
+            .dialog-content-second-row-element-contact {
+                font-weight: 600;
+                font-size: functions.toRem(21);
+                color: var(--light-color);
+                margin-right: 10px;
             }
         }
     }
