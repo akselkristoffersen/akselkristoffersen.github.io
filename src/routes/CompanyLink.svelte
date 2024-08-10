@@ -3,6 +3,7 @@
 </script>
 
 <div class="content">
+    {#if data.productLink}
     <a href={data.productLink} target="_blank" rel="noopener noreferrer">
         <div class="company-logo">
             <img src={data.companyLogo} alt="Company logo"/>
@@ -11,7 +12,10 @@
             </div>
         </div>
     </a>
+    {/if}
+    {#if data.productImg}
     <img class="product-img" src={data.productImg} alt="Company product"/>
+    {/if}
 </div>
 
 <style lang="scss">
