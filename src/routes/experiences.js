@@ -13,7 +13,7 @@ export const consultantData = {
     location: 'Oslo, Norway',
     startDate: "Aug. 2024",
     endDate: "Current",
-    workTitle: 'C++ Developer',
+    workTitle: 'C++ Software Engineer',
     tech: [],
     description: 'Currently in the early stages of looking for new projects. If you’re seeking a skilled C++ developer for your team, I’d love to discuss how I can assist. Feel free to reach out!'
 };
