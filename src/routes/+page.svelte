@@ -202,7 +202,8 @@
             <div class="hero-blog-posts">
                 <h2>BLOG POSTS:</h2>
                 <ul class="hero-blog-posts-list">
-                    <li><a href="/packet-iterator">Modern C++: Build Custom Iterators</a></li>
+                    <li><a href="/rs-packet-iterator">Rust: Build Custom Iterators</a></li>
+                    <li><a href="/cpp-packet-iterator">Modern C++: Build Custom Iterators</a></li>
                 </ul>
             </div>
         </div>
@@ -213,7 +214,7 @@
                 data={consultantData} 
                 on:click={() => consultantModal.showModal()}
                 disabled             
-                />  
+                /> 
         <h2>EXPERIENCE</h2>
             <Experience
                 data={infrontData} 

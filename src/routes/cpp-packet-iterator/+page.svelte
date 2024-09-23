@@ -105,15 +105,15 @@ public:
 <p>
     Next, we need to define the essential states for our iterator. 
     First, it needs a pointer to the start of the current packet. 
-    To handle increments and return the correct spans, the iterator also 
-    needs to know the size of the current packet. This size is found in the 
+    The iterator also needs to know the size of the current packet to handle increments and return the correct spans. 
+    This size is found in the 
     header of the current packet and will be specific to a user-provided protocol. 
     This protocol can be passed as a function object that takes a pointer to the 
     start of the packet and the size of the remaining buffer 
     (to handle incomplete packets) and returns the size of the next packet or 
     potentially zero. Finally, we’ll store the current packet size to avoid 
     repeatedly calling the function object. These states are illustrated in 
-    the next figure.
+    the following figure.
 </p>
 
 <Img src={packets_implementation} alt="Packet implementation"/>
@@ -295,7 +295,7 @@ for (std::span&lt;int&gt; packet : my_packet_iterator(std::span&lcub;buffer&rcub
     By crafting a custom iterator and sentinel, we've enhanced our code to handle sequences with ease and elegance. This approach not only aligns with modern C++ practices but also ensures efficient and clean code management. Whether you’re dealing with legacy projects or new challenges, a well-designed iterator can be a powerful tool in your toolkit. Enjoy writing elegant C++!
 </p>
 <p>
-    (you can find the source code for the final iterator in my repo <a href="https://github.com/akspertise/ax/blob/main/include/ax/packet_iterator.hpp" target="_blank" rel="noopener noreferrer">here</a>)
+    (you can find the source code for the final iterator in my [<a href="https://github.com/akspertise/ax/blob/main/include/ax/packet_iterator.hpp" target="_blank" rel="noopener noreferrer">repo</a>])
 </p>
 
 </BlogWrapper>

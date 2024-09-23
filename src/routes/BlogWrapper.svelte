@@ -57,7 +57,7 @@
             opacity: 0.7;
             margin-bottom: 1.5em;
         }
-        :global(p) {
+        :global(p), :global(ul) {
             color: var(--light-color);
             font-size: functions.toRem(16);
             margin-top: 0.8em;

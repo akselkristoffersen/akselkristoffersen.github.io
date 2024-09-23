@@ -4,7 +4,8 @@
     import "svelte-highlight/styles/phd.css";
 
     export let code;
+    export let language = cpp;
 </script>
 
-<Highlight language={cpp} {code}>
+<Highlight {language} {code}>
 </Highlight>
