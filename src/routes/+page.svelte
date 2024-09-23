@@ -202,7 +202,7 @@
             <div class="hero-blog-posts">
                 <h2>BLOG POSTS:</h2>
                 <ul class="hero-blog-posts-list">
-                    <li><a href="/rs-packet-iterator">Rust: Implementing Iterators</a></li>
+                    <li><a href="/rs-packet-iterator">Rust: Implementing Iterator Trait</a></li>
                     <li><a href="/cpp-packet-iterator">Modern C++: Build Custom Iterators</a></li>
                 </ul>
             </div>
