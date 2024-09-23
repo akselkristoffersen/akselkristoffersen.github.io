@@ -13,18 +13,16 @@
     >
 
 <p>
-    In my <a href="/cpp-packet-iterator">[previous blog post]</a> I made a C++ iterator to elegantly extract
-    packets from a contiguous sequence of bytes using C++. If you haven't read 
-    that post I recommend reading the first section to 
-    familiarize yourself with the practical example used there since we are gonna tackle the exact same problem this time, 
-    but now using Rust. Buckle up!
+    In my <a href="/cpp-packet-iterator">[previous blog post]</a>, I introduced a C++ iterator to elegantly 
+    extract packets from a contiguous sequence of bytes. If you haven’t read it, I recommend 
+    going through the first section to familiarize yourself with the practical example. We’ll be tackling the 
+    same problem today, but this time using Rust. So, buckle up!
 </p>
 
 <p>
-    In short, the problem states that we have a contiguous sequence of bytes 
-    and there exist a protocol to locate the next packet within that sequence.
-    Based on this we want an interface to extract slices of that sequence based on the buffer and a
-    user-provided protocol. A use case could look something like this:
+    To recap briefly, the problem involves a contiguous sequence of bytes where a protocol exists to 
+    locate the next packet within that sequence. Our goal is to create an interface that extracts 
+    slices from this sequence based on a user-provided protocol. A typical use case might look like this:
 </p>
 
 <Code language={rust} code=
@@ -33,25 +31,24 @@
 &rcub;"/>
 
 <p>
-    Different from C++ (where anything that behaves like an iterator is an iterator)
-    we can achieve this in Rust by simply creating a struct that implements the 
+    Unlike C++, where anything that behaves like an iterator is considered one, 
+    Rust requires us to explicitly define a struct that implements the 
     <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html">Iterator trait</a>. 
-    Lets begin with defining the necessary states of the iterator. 
+    Let’s dive into defining the necessary states for our iterator.
 </p>
 
 <h2>
     Defining the iterator
 </h2>
 
-<p>
-    First and foremost, the iterator needs a pointer to the start of the current packet and the available length,
-    i.e. a slice of the original buffer. The iterator also needs information on how to get the size of the next packet 
-    to be able to return the correct sub slices.
-    This size is located in the header of the current packet and will therefore be provided by the user-provided protocol which 
-    know how to extract this size given the beginning of the packet.
-    This protocol will be passed as a function pointer that takes a slice of the remaining buffer as the argument 
-    and returns the size of the next packet, or potentially zero if the packet can't be identified. 
-    Allowing the underlying types of the buffer to be a generic type T leaves us with the following struct:
+<p> First, the iterator needs to keep track of the current packet's starting point and the available length, 
+    which essentially is a slice of the original buffer. Additionally, we need a way to determine the size 
+    of the next packet, which will be specified by a user-provided protocol. This protocol will know how to 
+    extract the size from the packet header and will be passed as a function pointer that accepts a slice of 
+    the buffer and returns the size of the next packet, or zero if no packet is found. 
+</p> 
+<p> 
+    To ensure flexibility, we’ll allow the underlying buffer type to be generic. This leads us to the following struct: 
 </p>
 
 <Code language={rust} code=
@@ -62,7 +59,7 @@
 &rcub;"/>
 
 <p>
-    We will also provide the a new-method to simplify construction of the struct:
+    Additionally, we'll provide a constructor (via a `new` method) for easier initialization:
 </p>
 
 <Code language={rust} code=
@@ -81,19 +78,20 @@
 </h2>
 
 <p>
-    Next up we need to implement the <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html">Iterator trait</a>. 
-    There are two thing required to do so:
+    Now that we have our struct, the next step is to implement the 
+    <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html">Iterator trait</a>. 
+    To do this, we need to define two things:
 </p>
 
 <ul>
-    <li>type Item - Defines the type of the elements being iterated over - in our case a slice.</li>
-    <li>fn next(&mut self) -&gt; Option&lt;Self::Item&gt; - Implements a function that advances the iterator 
-        and returns the next value or None if the iteration is finished.</li>
+    <li><code>type Item</code>: Specifies the type of element being iterated over, which, in our case, is a slice.</li>
+    <li><code>fn next(&mut self) -&gt; Option&lt;Self::Item&gt;</code>: This function advances the iterator and returns the next value, 
+        or `None` if the iteration is complete.</li>
 </ul>
 
 <p>
-    In our case we will define the iteration as finished if the remaining buffer is empty, 
-    or the next packet size is zero or greater than the remaining buffer. Consequently we can implement the iterator trait as follows:
+    We’ll consider the iteration complete if the remaining buffer is empty, or if the next packet size 
+    is zero or exceeds the available buffer length. With that in mind, here’s our implementation:
 </p>
 
 <Code language={rust} code=
@@ -116,7 +114,7 @@
 &rcub;"/>
 
 <p>
-    Et violà! The iterator is complete and ready to extract packets for us.
+    And voilà! The iterator is now complete, ready to extract packet slices with ease.
 </p>
 
 <h2>
@@ -124,8 +122,8 @@
 </h2>
 
 <p>
-    Consider the following simple protocol, where the size of the packet is found in the first int of the packet. 
-    In this case we can use our iterator to iterate the packets as follows:
+    Let’s consider a simple protocol where the size of each packet is stored in the first integer of the packet. 
+    Using this protocol, we can iterate over packets like so:
 </p>
 
 <Code language={rust} code=
@@ -148,7 +146,7 @@ for packet in PacketIterator::new(&buffer, protocol) &lcub;
 &rcub;"/>
 
 <p>
-    Alternatively, we can wrap the protocol inside function for encapsulation and reusability, and return the iterator like this:
+    For greater flexibility and reusability, we can encapsulate the protocol in a function and return the iterator like this:
 </p>
 
 <Code language={rust} code=
@@ -164,7 +162,7 @@ for packet in PacketIterator::new(&buffer, protocol) &lcub;
 &rcub;"/>
 
 <p>
-    In that case, we can elegantly extract the packets simply by calling the function like this:
+    Then, extracting packets is as simple as:
 </p>
 
 <Code language={rust} code=
@@ -181,11 +179,13 @@ for packet in my_packet_iterator(&buffer) &lcub;
 </h2>
 
 <p>
-    By crafting a custom iterator, we've now seen how we can handle sequences with ease and elegance in Rust as well. This approach not only aligns with modern practices but also ensures efficient and clean code management. Whether you’re dealing with legacy projects or new challenges, a well-designed iterator can be a powerful tool in your toolkit. Enjoy writing elegant Rust!
-</p>
-
+    By designing a custom iterator, we’ve demonstrated how Rust enables elegant and efficient solutions 
+    for iteration. This approach aligns with modern Rust practices, ensuring both flexibility 
+    and performance. Whether you're working on legacy systems or modern projects, 
+    creating a well-constructed iterator can be an indispensable tool. Enjoy writing clean and idiomatic Rust code!</p>
 <p>
-    (you can find the source code for the final iterator in my [<a href="https://github.com/akselkristoffersen/ax-rs/blob/master/src/packet_iterator.rs" target="_blank" rel="noopener noreferrer">repo</a>])
+    (You can find the source code for this iterator in my 
+    <a href="https://github.com/akselkristoffersen/ax-rs/blob/master/src/packet_iterator.rs" target="_blank" rel="noopener noreferrer">repository</a>.)
 </p>
 
 </BlogWrapper>
