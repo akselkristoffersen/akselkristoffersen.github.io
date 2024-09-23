@@ -8,7 +8,7 @@
 </script>
 
 <BlogWrapper 
-    title="Rust: Build Custom Iterators"
+    title="Rust: Implementing Iterators"
     date="September 23, 2024"
     >
 
