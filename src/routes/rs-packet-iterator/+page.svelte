@@ -114,7 +114,7 @@
 &rcub;"/>
 
 <p>
-    And voilà! The iterator is now complete, ready to extract packet slices with ease.
+    And there you have it! The iterator is fully set up, ready to extract packet slices.
 </p>
 
 <h2>
@@ -146,7 +146,7 @@ for packet in PacketIterator::new(&buffer, protocol) &lcub;
 &rcub;"/>
 
 <p>
-    For greater flexibility and reusability, we can encapsulate the protocol in a function and return the iterator like this:
+    For greater flexibility and reusability, we can alternatively encapsulate the protocol in a function and return the iterator like this:
 </p>
 
 <Code language={rust} code=
@@ -162,7 +162,7 @@ for packet in PacketIterator::new(&buffer, protocol) &lcub;
 &rcub;"/>
 
 <p>
-    Then, extracting packets is as simple as:
+    In that case extracting packets is as simple as:
 </p>
 
 <Code language={rust} code=
@@ -179,10 +179,9 @@ for packet in my_packet_iterator(&buffer) &lcub;
 </h2>
 
 <p>
-    By designing a custom iterator, we’ve demonstrated how Rust enables elegant and efficient solutions 
-    for iteration. This approach aligns with modern Rust practices, ensuring both flexibility 
-    and performance. Whether you're working on legacy systems or modern projects, 
-    creating a well-constructed iterator can be an indispensable tool. Enjoy writing clean and idiomatic Rust code!</p>
+    By designing a custom iterator, we've shown how Rust enables elegant, efficient iteration, 
+    balancing flexibility and performance. Whether for legacy or modern systems, 
+    a well-constructed iterator is invaluable. Enjoy writing clean, idiomatic Rust!</p>
 <p>
     (You can find the source code for this iterator in my 
     <a href="https://github.com/akselkristoffersen/ax-rs/blob/master/src/packet_iterator.rs" target="_blank" rel="noopener noreferrer">repository</a>.)
