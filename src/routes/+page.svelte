@@ -369,6 +369,7 @@
                 margin-top: 40px;
                 .hero-blog-posts-list{
                     font-size: functions.toRem(16);
+                    line-height: 140%;
                 }
             }
             transition: transform 350ms, opacity 350ms;
