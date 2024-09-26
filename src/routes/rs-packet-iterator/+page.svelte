@@ -59,7 +59,7 @@
 &rcub;"/>
 
 <p>
-    Additionally, we'll provide a constructor (via a `new` method) for easier initialization:
+    Additionally, we'll provide a `new()` method allowing initialization:
 </p>
 
 <Code language={rust} code=
