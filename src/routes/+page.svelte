@@ -5,7 +5,7 @@
     import Modal from './Modal.svelte';
     import Testimonial from './Testimonial.svelte';
     import Wrapper from './Wrapper.svelte';
-    import { consultantData, infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData, studassData } from './experiences';
+    import { sixData, infrontData, kongsbergData, equinorData, masterData, bachelorData, vortexData, studassData } from './experiences';
     import AkselPicture from '$assets/aksel_picture.png';
     import Lakshi from '$assets/lakshi.png';
     import Audrey from '$assets/audrey.png';
@@ -15,20 +15,20 @@
     //import Ola from '$assets/ola.png';
     import Tech from '$lib/Tech.svelte';
 
-    let consultantModal;
+    let sixModal;
     let infrontModal;
     let kongsbergModal;
     let equinorModal;
 </script>
 
-<Modal bind:this={consultantModal}>
+<Modal bind:this={sixModal}>
     <div class="dialog-content-first-row">
         <div class="dialog-content-first-row-company-link">
-            <CompanyLink data={consultantData}/>
+            <CompanyLink data={sixData}/>
         </div>
         <div class="dialog-content-first-row-experience">
             <Experience 
-                data={consultantData} 
+                data={sixData} 
                 disabled={true}
             />
         </div>
@@ -211,8 +211,8 @@
     <div class="second-content">
         <h2>CURRENT</h2>
             <Experience
-                data={consultantData} 
-                on:click={() => consultantModal.showModal()}
+                data={sixData} 
+                on:click={() => sixModal.showModal()}
                 disabled             
                 /> 
         <h2>EXPERIENCE</h2>

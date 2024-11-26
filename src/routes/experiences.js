@@ -1,3 +1,4 @@
+import sixLogo from '$assets/six_logo.jpeg';
 import InfrontLogo from '$assets/infront_logo.svg';
 import KongsbergLogo from '$assets/kongsberg_logo.svg';
 import DRLogo from '$assets/dr_logo.svg';
@@ -8,14 +9,15 @@ import InfrontTerminal from '$assets/infront_terminal.png';
 import HuginSuperior from '$assets/hugin_superior.png';
 import Taurob from '$assets/taurob.png';
 
-export const consultantData = {
-    companyName: 'Freelance',
+export const sixData = {
+    companyName: 'Six Robotics',
+    companyLogo: sixLogo,
     location: 'Oslo, Norway',
-    startDate: "Aug. 2024",
+    startDate: "Nov. 2024",
     endDate: "Current",
-    workTitle: 'C++ Software Engineer',
+    workTitle: 'Software Engineer',
     tech: [],
-    description: 'Currently in the early stages of looking for new projects. If you’re seeking a skilled C++ developer for your team, I’d love to discuss how I can assist. Feel free to reach out!'
+    description: ''
 };
 
 export const infrontData = {
